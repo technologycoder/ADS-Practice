@@ -1,0 +1,38 @@
+Recursion:
+
+	Permutation
+	Combination
+	Towers of Hanoi
+	fibonnaci
+	factorial
+
+LinkedList
+
+Trees
+	preorder
+	postorder
+	inorder
+
+Heap (priority queue)
+
+Stack/Queue
+
+Graphs
+
+Dynamic Programming
+
+Searching
+	binary search
+		iterative
+		recursive
+
+Sorting
+	bubble sort
+	selection sort
+	merge sort
+	quick sort
+	radix/bucket sort
+
+
+
+

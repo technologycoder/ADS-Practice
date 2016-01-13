@@ -4,9 +4,9 @@ public class Recursion {
 
 	public static void main(String[] args) {
 
-		// combinations("", "ABCD");
+		combinations("", "ABCD");
 		// permutations("", "ABC");
-		towersOfHanoi(3, "A", "C", "B");
+		// towersOfHanoi(3, "A", "C", "B");
 	}
 
 	private static void combinations(String prefix, String str) {

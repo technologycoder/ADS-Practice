@@ -8,6 +8,7 @@ public class Sorting {
 
 		int[] arr = new int[] { 9, 7, 5, 11, 12, 2, 14, 3, 10, 6 };
 
+		System.out.println(Arrays.toString(arr));
 		quickSort(arr, 0, arr.length - 1);
 		System.out.println(Arrays.toString(arr));
 
@@ -42,6 +43,7 @@ public class Sorting {
 
 			if (left < right) {
 				swap(arr, left, right);
+				System.out.println(Arrays.toString(arr));
 			}
 
 		}

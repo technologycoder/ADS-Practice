@@ -14,8 +14,7 @@ public class PermutationCombination {
 	private static void testCombination(String str) {
 
 		// combination("", str);
-		// combination1("", str);
-		combinationUnordered("", str);
+		// combinationUnordered("", str);
 
 	}
 
@@ -31,22 +30,12 @@ public class PermutationCombination {
 
 	}
 
-	private static void combination1(String prefix, String str) {
-
-		System.out.println(prefix);
-		for (int i = 0; i < str.length(); ++i) {
-			combination1(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1));
-
-		}
-
-	}
-
 	// the for statement is same as permutation
 	private static void combinationUnordered(String prefix, String str) {
 
 		System.out.println(prefix);
 		for (int i = 0; i < str.length(); ++i) {
-			combination1(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1));
+			combinationUnordered(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1));
 
 		}
 
@@ -56,7 +45,7 @@ public class PermutationCombination {
 
 		// permute("", str);
 
-		// permuteUsingSwap(str);
+		permuteUsingSwap(str);
 
 	}
 
@@ -86,7 +75,6 @@ public class PermutationCombination {
 
 		if (n == 1) {
 			System.out.println(arr);
-			return;
 		} else {
 
 			for (int i = 0; i < n; ++i) {

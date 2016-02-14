@@ -1,63 +1,102 @@
 package practice.ds.list;
 
-public class LinkedList<T> {
-	
-	private Node head;	
-	
-	
-	public LinkedList() {
-		
-		head = new Node(null);		
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class LinkedList {
+
+	private Node head;
+
+	public void addNode(int data) {
+
+		if (head == null) {
+			head = new Node(data);
+		} else {
+
+			Node iter = head;
+
+			while (iter.next != null) {
+				iter = iter.next;
+			}
+
+			Node newNode = new Node(data);
+			iter.next = newNode;
+		}
 	}
-	
-	public void addNode(T item) {
-		
+
+	@Override
+	public String toString() {
+
+		if (head != null) {
+
+			List<Integer> list = new ArrayList<>();
+
+			Node iter = head;
+
+			while (iter != null) {
+				list.add(iter.data);
+				iter = iter.next;
+			}
+
+			return list.stream().map(String::valueOf)
+					.collect(Collectors.joining(" -> "));
+		} else {
+			return "EMPTY";
+		}
+
+	}
+
+	public int[] toArray() {
+
+		List<Integer> list = new ArrayList<>();
+
 		Node iter = head;
-		
-		while(iter.getNext() != null) {
-			iter = iter.getNext();
+
+		while (iter != null) {
+			list.add(iter.data);
+			iter = iter.next;
 		}
-		
-		Node newNode = new Node(item); 
-		iter.setNext(newNode); 
+
+		return list.stream().mapToInt(Integer::intValue).toArray();
+
 	}
-	
-	public void displayList() {
-		
-		Node iter = head.getNext();
-		while(iter != null && iter.getNext() != null) {
-			System.out.println(iter.getItem());
-			iter = iter.getNext();
+
+	public void removeHead() {
+
+		if (head != null) {
+			head = head.next;
 		}
-		
 	}
-	
-	
-	public class Node {
-		
-		private T item;
-		private Node next;
-		
-		public Node(T item) {
-			this.item = item;			
+
+	public void removeTail() {
+
+		Node iter = head;
+
+		while (iter != null && iter.next != null && iter.next.next != null) {
+			iter = iter.next;
 		}
 
-		public T getItem() {
-			return item;
+		if (iter != null) {
+			if (iter.next != null) {
+				iter.next = iter.next.next;
+			} else {
+				// Only one element in the list
+				head = iter.next;
+
+			}
+		}
+	}
+
+	private static class Node {
+
+		public int data;
+		public Node next;
+
+		public Node(int data) {
+			this.data = data;
 		}
 
-		public void setItem(T item) {
-			this.item = item;
-		}
-
-		public Node getNext() {
-			return next;
-		}
-
-		public void setNext(Node next) {
-			this.next = next;
-		}		
-		
-	}	
+	}
 
 }

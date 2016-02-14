@@ -4,74 +4,123 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Random;
 
 public class BinaryTree {
 
-	private static Node root;
+	protected Node root;
 
-	public static void main(String[] args) {
+	protected class Node {
 
-		testLevelHeight();
-
-		/*
-		 * int[] tree = new int[9]; fillRandom(tree);
-		 * 
-		 * System.out.println(Arrays.toString(tree));
-		 * 
-		 * printTree(tree);
-		 * 
-		 * for (int i = 0; i < tree.length; ++i) {
-		 * 
-		 * insert(tree[i]); }
-		 * 
-		 * printTree(treeToArray());
-		 */
-
-	}
-
-	private static void testLevelHeight() {
-
-		for (int i = 0; i <= 8; ++i) {
-
-			System.out.println(String.format("i: %s, level: %s, height: %s", i,
-					level(i), height(i)));
+		public Node(int data) {
+			this.data = data;
 		}
 
+		public int data;
+		public Node left;
+		public Node right;
 	}
 
-	public static void insert(int data) {
+	// TODO: recursive level order insert
+	public void insert(int data) {
 
 		if (root == null) {
 			root = new Node(data);
 		} else {
-			insert(data, root);
-		}
-	}
 
-	public static void insert(int data, Node node) {
+			Queue<Node> queue = new LinkedList<Node>();
+			queue.offer(root);
 
-		if (node != null) {
+			while (!queue.isEmpty()) {
 
-			if (node.left == null) {
-				node.left = new Node(data);
-			} else if (node.right == null) {
-				node.right = new Node(data);
-			} else {
+				Node temp = queue.poll();
 
-				if (node.left.left == null || node.left.right == null) {
-					insert(data, node.left);
+				if (temp.left == null) {
+					temp.left = new Node(data);
+					break;
+				} else if (temp.right == null) {
+					temp.right = new Node(data);
+					break;
 				} else {
-					insert(data, node.right);
+					queue.offer(temp.left);
+					queue.offer(temp.right);
 				}
 			}
 		}
 
 	}
 
-	public static int[] treeToArray() {
+	public enum TraversalType {
+
+		INORDER, PREORDER, POSTORDER, LEVELORDER
+	}
+
+	public List<Integer> traverseTree(TraversalType traversalType) {
 
 		List<Integer> list = new ArrayList<>();
+
+		switch (traversalType) {
+
+		case INORDER:
+			inOrder(root, list);
+			break;
+
+		case PREORDER:
+			preOrder(root, list);
+			break;
+
+		case POSTORDER:
+			postOrder(root, list);
+			break;
+
+		default:
+			System.out.println("NOT supported");
+
+		}
+
+		return list;
+
+	}
+
+	private void inOrder(Node node, List<Integer> list) {
+
+		if (node != null) {
+			inOrder(node.left, list);
+			list.add(node.data);
+			inOrder(node.right, list);
+		}
+
+	}
+
+	private void preOrder(Node node, List<Integer> list) {
+
+		if (node != null) {
+			list.add(node.data);
+			preOrder(node.left, list);
+			preOrder(node.right, list);
+		}
+
+	}
+
+	private void postOrder(Node node, List<Integer> list) {
+
+		if (node != null) {
+			postOrder(node.left, list);
+			postOrder(node.right, list);
+			list.add(node.data);
+		}
+
+	}
+
+	public int[] toArray() {
+
+		List<Integer> list = new ArrayList<>();
+
+		// stop adding children of empty nodes after we have iterated over all
+		// nodes < (height -1)
+		// no need to add children empty nodes for empty nodes on last level
+		int heightOfTree = this.heightOfTree();
+		int totalNumOfNodesInTreeMinusLastLevel = (int) Math.pow(2,
+				heightOfTree) - 1;
 
 		Queue<Node> queue = new LinkedList<>();
 		queue.add(root);
@@ -83,106 +132,42 @@ public class BinaryTree {
 
 			if (node.left != null) {
 				queue.add(node.left);
+			} else if (list.size() <= totalNumOfNodesInTreeMinusLastLevel) {
+				queue.add(new Node(-1));
 			}
 
 			if (node.right != null) {
 				queue.add(node.right);
 
+			} else if (list.size() <= totalNumOfNodesInTreeMinusLastLevel) {
+
+				queue.add(new Node(-1));
 			}
 		}
 
-		return list.stream().mapToInt(i -> i).toArray();
+		int[] result = list.stream().mapToInt(i -> i).toArray();
+		// System.out.println(Arrays.toString(result));
+		return result;
 
 		// list.stream().mapToInt(Integer::intValue).toArray();
 
 	}
 
-	private static void printTree(int[] tree) {
+	public int heightOfTree() {
 
-		int height = height(tree.length);
-
-		int nodesOnLevel = nodesOnLevel(height);
-
-		int maxChars = nodesOnLevel * 10;
-
-		int level = -1;
-
-		for (int i = 0; i < tree.length; ++i) {
-
-			int indexLevel = level(i);
-			int nodesOnCurrLevel = nodesOnLevel(indexLevel);
-			int startCharCount = maxChars / (nodesOnCurrLevel * 2);
-			int inBetweenCharCount = startCharCount * 2;
-
-			if (indexLevel > level) {
-				// String str = ("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-				// .substring(0, (nodesOnCurrLevel / 2) == 0 ? 1
-				// : (nodesOnCurrLevel / 2));
-				String str = "\n\n\n";
-				System.out.print(str);
-				level = indexLevel;
-				str = String.format("%1$" + startCharCount + "s", "");
-				System.out.print(str);
-
-			}
-
-			String str = String.format("%1$-" + inBetweenCharCount + "s",
-					tree[i]);
-			System.out.print(str);
-
-		}
-
-		System.out.println("\n\n\n");
-
+		return heightOfTree(root);
 	}
 
-	private static void printLevalAndHeight(int[] tree) {
+	private int heightOfTree(Node node) {
 
-		System.out.println("[index]\t[level]\t[nodes on level]\t[height]");
+		if (node == null) {
+			return -1;
+		} else {
+			int heightOfLeftTree = 1 + heightOfTree(node.left);
+			int heightOfRightTree = 1 + heightOfTree(node.right);
 
-		for (int i = 0; i < tree.length; ++i) {
-
-			String message = String.format("%s\t%s\t\t%s\t\t\t%s", i, level(i),
-					nodesOnLevel(level(i)), height(i));
-			System.out.println(message);
-		}
-
-	}
-
-	private static int level(int index) {
-
-		return (int) ((Math.log(index + 1) / Math.log(2)));
-
-	}
-
-	private static int nodesOnLevel(int level) {
-		return (int) Math.pow(2, level);
-	}
-
-	private static int height(int size) {
-
-		return size == 0 ? -1 : level(size - 1);
-
-	}
-
-	private static void fillRandom(int[] arr) {
-
-		Random random = new Random();
-		for (int i = 0; i < arr.length; ++i) {
-			arr[i] = Math.abs(random.nextInt() % 100);
-		}
-
-	}
-
-	private static class Node {
-
-		public int data;
-		public Node left;
-		public Node right;
-
-		public Node(int data) {
-			this.data = data;
-
+			return (heightOfLeftTree > heightOfRightTree) ? heightOfLeftTree
+					: heightOfRightTree;
 		}
 
 	}

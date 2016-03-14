@@ -8,6 +8,22 @@ public class LinkedList {
 
 	private Node head;
 
+	public LinkedList() {
+
+	}
+
+	public LinkedList(int[] data) {
+
+		for (int i = 0; i < data.length; ++i) {
+			this.addNode(data[i]);
+		}
+
+	}
+
+	public Node getHead() {
+		return this.head;
+	}
+
 	public void addNode(int data) {
 
 		if (head == null) {
@@ -39,8 +55,7 @@ public class LinkedList {
 				iter = iter.next;
 			}
 
-			return list.stream().map(String::valueOf)
-					.collect(Collectors.joining(" -> "));
+			return list.stream().map(String::valueOf).collect(Collectors.joining(" -> "));
 		} else {
 			return "EMPTY";
 		}
@@ -88,7 +103,7 @@ public class LinkedList {
 		}
 	}
 
-	private static class Node {
+	public static class Node {
 
 		public int data;
 		public Node next;

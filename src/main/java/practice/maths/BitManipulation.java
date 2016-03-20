@@ -3,7 +3,16 @@ package practice.maths;
 public class BitManipulation {
 
     public static void main(String[] args) {
-        getBit(10, 2);
+        // getBit(10, 2);
+
+        System.out.println(Integer.toBinaryString(4));
+        System.out.println(Integer.toBinaryString(-4));
+
+        int num = 4;
+        System.out.println(Integer.toBinaryString(num));
+        num = (1 << 4) | num;
+        System.out.println(Integer.toBinaryString(num));
+        System.out.println(num);
     }
 
     private static void getBit(int num, int n) {

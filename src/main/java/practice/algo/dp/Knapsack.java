@@ -1,20 +1,22 @@
 package practice.algo.dp;
 
-import java.util.Arrays;
-
 public class Knapsack {
+	// max value that could be packed in knapsack without exceeding size
+	public static int knapsackRecursive(int size, int[] weight, int[] value, int index) {
 
-	public static void main(String[] args) {
-		knapsack();
-	}
+		if (size <= 0 || index == weight.length) {
+			return 0;
+		} else {
 
-	public static void knapsack() {
+			int val1 = 0;
+			if (size - weight[index] >= 0) {
+				val1 = knapsackRecursive(size - weight[index], weight, value, index + 1) + value[index];
+			}
+			int val2 = knapsackRecursive(size, weight, value, index + 1);
 
-		int[] weight = { 1, 2, 3 };
-		int[] value = { 1, 2, 3 };
+			return (val1 > val2) ? val1 : val2;
 
-		System.out.println(Arrays.toString(weight));
-
+		}
 	}
 
 }

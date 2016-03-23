@@ -36,10 +36,9 @@ public class BinarySearchTreeTest {
 
 		int[] arrFromTree = tree.toArray();
 
-		assertArrayEquals(new int[] { 8, 3, 10, 1, 6, -1, 14, -1, -1, 4, 7, -1,
-				-1, 13, -1 }, arrFromTree);
+		assertArrayEquals(new int[] { 8, 3, 10, 1, 6, -1, 14, -1, -1, 4, 7, -1, -1, 13, -1 }, arrFromTree);
 
-		// TreeUtil.printTree(arrFromTree);
+		TreeUtil.printTree(arrFromTree);
 
 	}
 
@@ -54,10 +53,10 @@ public class BinarySearchTreeTest {
 
 		System.out.println(inorder);
 
-		assertArrayEquals(new int[] { 1, 3, 4, 6, 7, 8, 10, 13, 14 }, inorder
-				.stream().mapToInt(Integer::intValue).toArray());
+		assertArrayEquals(new int[] { 1, 3, 4, 6, 7, 8, 10, 13, 14 },
+				inorder.stream().mapToInt(Integer::intValue).toArray());
 
-		// TreeUtil.printTree(tree.toArray());
+		TreeUtil.printTree(tree.toArray());
 
 	}
 
@@ -72,10 +71,10 @@ public class BinarySearchTreeTest {
 
 		System.out.println(preorder);
 
-		assertArrayEquals(new int[] { 8, 3, 1, 6, 4, 7, 10, 14, 13 }, preorder
-				.stream().mapToInt(Integer::intValue).toArray());
+		assertArrayEquals(new int[] { 8, 3, 1, 6, 4, 7, 10, 14, 13 },
+				preorder.stream().mapToInt(Integer::intValue).toArray());
 
-		// TreeUtil.printTree(tree.toArray());
+		TreeUtil.printTree(tree.toArray());
 	}
 
 	@Test
@@ -89,8 +88,8 @@ public class BinarySearchTreeTest {
 
 		System.out.println(postorder);
 
-		assertArrayEquals(new int[] { 1, 4, 7, 6, 3, 13, 14, 10, 8 }, postorder
-				.stream().mapToInt(Integer::intValue).toArray());
+		assertArrayEquals(new int[] { 1, 4, 7, 6, 3, 13, 14, 10, 8 },
+				postorder.stream().mapToInt(Integer::intValue).toArray());
 
 		TreeUtil.printTree(tree.toArray());
 	}

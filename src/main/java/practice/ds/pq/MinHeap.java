@@ -1,92 +1,87 @@
 package practice.ds.pq;
 
-import java.util.Random;
+import java.util.Arrays;
 
 public class MinHeap {
 
-	public static void main(String[] args) {
+	private int[] arr;
+	private int size = 0;
 
-		int[] tree = new int[9];
-		fillRandom(tree);
+	public MinHeap(int length) {
+		arr = new int[length];
+		Arrays.fill(arr, -1);
+	}
 
-		printTree(tree);
+	public void insert(int[] data) throws Exception {
 
-		// printLevalAndHeight(tree);
+		for (int d : data) {
+
+			this.insert(d);
+		}
+	}
+
+	public int[] toArray() {
+
+		return Arrays.copyOf(this.arr, size);
+	}
+
+	public void insert(int data) throws Exception {
+
+		// Double the size and copy all the elements
+		if (arr.length < (size + 1)) {
+			throw new Exception("increase array size");
+		}
+
+		arr[size] = data;
+		percolateUp(size);
+		size++;
 
 	}
 
-	private static void fillRandom(int[] arr) {
+	private void percolateUp(int index) {
 
-		Random random = new Random();
-		for (int i = 0; i < arr.length; ++i) {
-			arr[i] = Math.abs(random.nextInt() % 100);
+		if (index < 0) {
+			return;
+		}
+
+		int parent = (index - 1) / 2;
+		if (arr[parent] > arr[index]) {
+			int temp = arr[parent];
+			arr[parent] = arr[index];
+			arr[index] = temp;
+			percolateUp(parent);
 		}
 
 	}
 
-	private static void printTree(int[] tree) {
+	public int min() throws Exception {
 
-		int height = height(tree.length);
-
-		int nodesOnLevel = nodesOnLevel(height);
-
-		int maxChars = nodesOnLevel * 10;
-
-		int level = -1;
-
-		for (int i = 0; i < tree.length; ++i) {
-
-			int indexLevel = level(i);
-			int nodesOnCurrLevel = nodesOnLevel(indexLevel);
-			int startCharCount = maxChars / (nodesOnCurrLevel * 2);
-			int inBetweenCharCount = startCharCount * 2;
-
-			if (indexLevel > level) {
-				// String str = ("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-				// .substring(0, (nodesOnCurrLevel / 2) == 0 ? 1
-				// : (nodesOnCurrLevel / 2));
-				String str = "\n\n\n";
-				System.out.print(str);
-				level = indexLevel;
-				str = String.format("%1$" + startCharCount + "s", "");
-				System.out.print(str);
-
-			}
-
-			String str = String.format("%1$-" + inBetweenCharCount + "s",
-					tree[i]);
-			System.out.print(str);
-
+		if (size == 0) {
+			throw new Exception("heap empty");
 		}
 
-	}
+		int min = arr[0];
 
-	private static void printLevalAndHeight(int[] tree) {
+		arr[0] = arr[size - 1];
+		arr[size - 1] = -1;
+		size--;
 
-		System.out.println("[index]\t[level]\t[nodes on level]\t[height]");
-
-		for (int i = 0; i < tree.length; ++i) {
-
-			String message = String.format("%s\t%s\t\t%s\t\t\t%s", i, level(i),
-					nodesOnLevel(level(i)), height(i));
-			System.out.println(message);
+		int left = arr[1];
+		int right = arr[2];
+		if (arr[0] > left || arr[0] > right) {
+			percolateDown(0);
 		}
 
+		return min;
 	}
 
-	private static int level(int index) {
+	private void percolateDown(int index) {
 
-		return (int) ((Math.log(index + 1) / Math.log(2)));
+		int left = arr[index * 2 + 1];
+		int right = arr[index * 2 + 2];
 
-	}
-
-	private static int nodesOnLevel(int level) {
-		return (int) Math.pow(2, level);
-	}
-
-	private static int height(int size) {
-
-		return size == 0 ? -1 : level(size - 1);
+		int min = left < right ? left : right;
 
 	}
+
 }

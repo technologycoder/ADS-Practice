@@ -53,6 +53,15 @@ public class BinarySearchTree extends BinaryTree {
 
 	}
 
+	public int findMinRecursive(Node node) {
+
+		if (node.left == null) {
+			return node.data;
+		} else {
+			return findMinRecursive(node.left);
+		}
+	}
+
 	public boolean delete(int data) {
 
 		return this.delete(root, data);
@@ -78,8 +87,7 @@ public class BinarySearchTree extends BinaryTree {
 
 						parent.left = null;
 
-					} else if (parent.right != null
-							&& parent.right.data == data) {
+					} else if (parent.right != null && parent.right.data == data) {
 
 						parent.right = null;
 					}
@@ -90,9 +98,7 @@ public class BinarySearchTree extends BinaryTree {
 
 					boolean success = this.delete(min);
 					if (!success) {
-						System.out.println(String.format(
-								"Not able to delete %s from right sub tree",
-								min));
+						System.out.println(String.format("Not able to delete %s from right sub tree", min));
 					}
 
 					iter.data = min;
@@ -105,8 +111,7 @@ public class BinarySearchTree extends BinaryTree {
 
 						parent.left = iter.left;
 
-					} else if (parent.right != null
-							&& parent.right.data == data) {
+					} else if (parent.right != null && parent.right.data == data) {
 
 						parent.right = iter.left;
 					}
@@ -120,8 +125,7 @@ public class BinarySearchTree extends BinaryTree {
 
 						parent.left = iter.right;
 
-					} else if (parent.right != null
-							&& parent.right.data == data) {
+					} else if (parent.right != null && parent.right.data == data) {
 
 						parent.right = iter.right;
 					}

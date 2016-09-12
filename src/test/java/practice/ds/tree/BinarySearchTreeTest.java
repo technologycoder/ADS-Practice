@@ -1,6 +1,7 @@
 package practice.ds.tree;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -39,6 +40,36 @@ public class BinarySearchTreeTest {
 		assertArrayEquals(new int[] { 8, 3, 10, 1, 6, -1, 14, -1, -1, 4, 7, -1, -1, 13, -1 }, arrFromTree);
 
 		TreeUtil.printTree(arrFromTree);
+
+	}
+
+	@Test
+	public void findMin() {
+
+		int[] data = new int[] { 5, 3, 21, 2, 4, 19, 25 };
+
+		BinarySearchTree tree = TreeUtil.createBinarySearchTree(data);
+		int[] arrFromTree = tree.toArray();
+		TreeUtil.printTree(arrFromTree);
+
+		int min = tree.findMin(tree.getRoot());
+
+		assertEquals(2, min);
+
+	}
+
+	@Test
+	public void findMinRecursive() {
+
+		int[] data = new int[] { 5, 3, 21, 2, 4, 19, 25 };
+
+		BinarySearchTree tree = TreeUtil.createBinarySearchTree(data);
+		int[] arrFromTree = tree.toArray();
+		TreeUtil.printTree(arrFromTree);
+
+		int min = tree.findMinRecursive(tree.getRoot());
+
+		assertEquals(2, min);
 
 	}
 

@@ -20,6 +20,12 @@ public class BinaryTree {
 		public Node right;
 	}
 
+	public Node getRoot() {
+
+		return this.root;
+
+	}
+
 	// TODO: recursive level order insert
 	public void insert(int data) {
 
@@ -117,10 +123,9 @@ public class BinaryTree {
 
 		// stop adding children of empty nodes after we have iterated over all
 		// nodes < (height -1)
-		// no need to add children empty nodes for empty nodes on last level
+		// no need to add children for empty nodes on last level
 		int heightOfTree = this.heightOfTree();
-		int totalNumOfNodesInTreeMinusLastLevel = (int) Math.pow(2,
-				heightOfTree) - 1;
+		int totalNumOfNodesInTreeMinusLastLevel = (int) Math.pow(2, heightOfTree) - 1;
 
 		Queue<Node> queue = new LinkedList<>();
 		queue.add(root);
@@ -166,8 +171,7 @@ public class BinaryTree {
 			int heightOfLeftTree = 1 + heightOfTree(node.left);
 			int heightOfRightTree = 1 + heightOfTree(node.right);
 
-			return (heightOfLeftTree > heightOfRightTree) ? heightOfLeftTree
-					: heightOfRightTree;
+			return (heightOfLeftTree > heightOfRightTree) ? heightOfLeftTree : heightOfRightTree;
 		}
 
 	}

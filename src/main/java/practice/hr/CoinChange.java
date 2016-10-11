@@ -11,9 +11,9 @@ public class CoinChange {
 
 	public static void main(String[] args) {
 		// assignSameInputDataSmall();
-		// assignSameInputDataBig();
+		assignSameInputDataBig();
 		// assignSameInputDataBig1();
-		readInputUsingScanner();
+		// readInputUsingScanner();
 
 		// System.out.println(coinChangeRecursive(n, coins));
 

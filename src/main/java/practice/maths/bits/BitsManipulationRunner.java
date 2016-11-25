@@ -2,21 +2,23 @@ package practice.maths.bits;
 
 public class BitsManipulationRunner {
 
-	public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-		ClassLoader loader = ClassLoader.getSystemClassLoader();
-		loader.setDefaultAssertionStatus(true);
+        ClassLoader loader = ClassLoader.getSystemClassLoader();
+        loader.setDefaultAssertionStatus(true);
 
-		BitManipuations bm = new BitManipuations();
+        BitManipuations bm = new BitManipuations();
 
-		bm.itoBits_builtIn();
+        bm.itoBits_builtIn();
 
-		bm.itoBits_2sComplement_builtIn();
+        bm.itoBits_2sComplement_builtIn();
 
-		bm.bitsToI_builtIn_with_2sComplement();
+        bm.bitsToI_builtIn_with_2sComplement();
 
-		System.out.println("DONE");
+        BitManipuations.itoBits(-3);
 
-	}
+        System.out.println("DONE");
+
+    }
 
 }

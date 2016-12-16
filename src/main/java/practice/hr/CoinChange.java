@@ -10,8 +10,8 @@ public class CoinChange {
 	private static int[] coins;
 
 	public static void main(String[] args) {
-		// assignSameInputDataSmall();
-		assignSameInputDataBig();
+		assignSameInputDataSmall();
+		// assignSameInputDataBig();
 		// assignSameInputDataBig1();
 		// readInputUsingScanner();
 
@@ -29,7 +29,61 @@ public class CoinChange {
 		// System.out.println(makeChangeDP(n, coins, 0, cache));
 
 		// Iterative DP
-		System.out.println(coinChangeCacheDPIterative(n, coins));
+		// System.out.println(coinChangeCacheDPIterative(n, coins));
+
+		// System.out.println(coinChangeTotalNumberOfWays(n, coins));
+		System.out.println(coinChangeMinNumberOfWays(n, coins));
+
+	}
+
+	public static int coinChangeTotalNumberOfWays(int amount, int[] coins) {
+
+		int[] cache = new int[amount + 1];
+
+		for (int i = 0; i <= amount; ++i) {
+
+			for (int j = 0; j < coins.length; ++j) {
+				int coin = coins[j];
+
+				if ((i + coin) <= amount) {
+					cache[i + coin] = cache[i] + 1;
+				}
+			}
+		}
+
+		System.out.println(Arrays.toString(cache));
+
+		return cache[amount];
+
+	}
+
+	public static int coinChangeMinNumberOfWays(int amount, int[] coins) {
+
+		int[] cache = new int[amount + 1];
+
+		for (int i = 0; i < cache.length; ++i) {
+			cache[i] = Integer.MAX_VALUE;
+		}
+
+		cache[0] = 0;
+
+		for (int i = 0; i <= amount; ++i) {
+
+			for (int j = 0; j < coins.length; ++j) {
+				int coin = coins[j];
+
+				if (cache[i] == Integer.MAX_VALUE)
+					continue;
+
+				if ((i + coin) <= amount) {
+					cache[i + coin] = Math.min(cache[i] + 1, cache[i + coin]);
+				}
+			}
+		}
+
+		System.out.println(Arrays.toString(cache));
+
+		return cache[amount];
 
 	}
 
@@ -46,6 +100,8 @@ public class CoinChange {
 				cache[j] += cache[j - denomination];
 			}
 		}
+
+		System.out.println(Arrays.toString(cache));
 
 		return cache[amount];
 	}

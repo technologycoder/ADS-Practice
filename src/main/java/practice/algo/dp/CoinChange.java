@@ -8,151 +8,151 @@ import java.util.stream.Collectors;
 //(2) minimum number of coins required to create change
 public class CoinChange {
 
-    public static long coinChangeTotalNumberOfWaysCacheDPIterative(final int amount, final int[] coins) {
+	// http://algorithms.tutorialhorizon.com/dynamic-programming-coin-change-problem/
 
-        long[] cache = new long[amount + 1];
-        // base case
-        cache[0] = 1;
+	public static long coinChangeTotalNumberOfWaysCacheDPIterative(final int amount, final int[] coins) {
 
-        for (int i = 0; i < coins.length; ++i) {
+		long[] cache = new long[amount + 1];
+		// base case
+		cache[0] = 1;
 
-            int denomination = coins[i];
-            for (int j = denomination; j <= amount; j++) {
-                cache[j] += cache[j - denomination];
-            }
-        }
+		for (int i = 0; i < coins.length; ++i) {
 
-        System.out.println(Arrays.toString(cache));
+			int denomination = coins[i];
+			for (int j = denomination; j <= amount; j++) {
+				cache[j] += cache[j - denomination];
+			}
+		}
 
-        return cache[amount];
-    }
+		System.out.println(Arrays.toString(cache));
 
-    public static int coinChangeWithMaxNumberOfCoins(final int amount, final int[] coins) {
+		return cache[amount];
+	}
 
-        int[] cache = new int[amount + 1];
+	public static int coinChangeWithMaxNumberOfCoins(final int amount, final int[] coins) {
 
-        for (int i = 0; i <= amount; ++i) {
+		int[] cache = new int[amount + 1];
 
-            for (int j = 0; j < coins.length; ++j) {
-                int coin = coins[j];
+		for (int i = 0; i <= amount; ++i) {
 
-                if ((i + coin) <= amount) {
-                    cache[i + coin] = cache[i] + 1;
-                }
-            }
-        }
+			for (int j = 0; j < coins.length; ++j) {
+				int coin = coins[j];
 
-        System.out.println(Arrays.toString(cache));
+				if ((i + coin) <= amount) {
+					cache[i + coin] = cache[i] + 1;
+				}
+			}
+		}
 
-        return cache[amount];
+		System.out.println(Arrays.toString(cache));
 
-    }
+		return cache[amount];
 
-    public static int coinChangeMinNumberOfWays(final int amount, final int[] coins) {
+	}
 
-        int[] cache = new int[amount + 1];
+	public static int coinChangeMinNumberOfWays(final int amount, final int[] coins) {
 
-        for (int i = 0; i < cache.length; ++i) {
-            cache[i] = Integer.MAX_VALUE;
-        }
+		int[] cache = new int[amount + 1];
 
-        cache[0] = 0;
+		for (int i = 0; i < cache.length; ++i) {
+			cache[i] = Integer.MAX_VALUE;
+		}
 
-        for (int i = 0; i <= amount; ++i) {
+		cache[0] = 0;
 
-            for (int j = 0; j < coins.length; ++j) {
-                int coin = coins[j];
+		for (int i = 0; i <= amount; ++i) {
 
-                if (cache[i] == Integer.MAX_VALUE)
-                    continue;
+			for (int j = 0; j < coins.length; ++j) {
+				int coin = coins[j];
 
-                if ((i + coin) <= amount) {
-                    cache[i + coin] = Math.min(cache[i] + 1, cache[i + coin]);
-                }
-            }
-        }
+				if (cache[i] == Integer.MAX_VALUE)
+					continue;
 
-        System.out.println(Arrays.toString(cache));
+				if ((i + coin) <= amount) {
+					cache[i + coin] = Math.min(cache[i] + 1, cache[i + coin]);
+				}
+			}
+		}
 
-        return cache[amount];
+		System.out.println(Arrays.toString(cache));
 
-    }
+		return cache[amount];
 
-    public static void coinChangeRecursiveWithStringSolution(final int amount, final int[] coins, final int index, final String solution) {
+	}
 
-        if (amount == 0) {
-            System.out.println(solution);
-        } else if (amount < 0) {
-            return;
-        } else if (index >= coins.length) {
-            return;
-        } else {
+	public static void coinChangeRecursiveWithStringSolution(final int amount, final int[] coins, final int index,
+			final String solution) {
 
-            coinChangeRecursiveWithStringSolution(amount - coins[index], coins, index + 1,
-                    String.format("%s , %s", coins[index], solution));
-            coinChangeRecursiveWithStringSolution(amount, coins, index + 1, solution);
-        }
+		if (amount == 0) {
+			System.out.println(solution);
+		} else if (amount < 0) {
+			return;
+		} else if (index >= coins.length) {
+			return;
+		} else {
 
-    }
+			coinChangeRecursiveWithStringSolution(amount - coins[index], coins, index + 1,
+					String.format("%s , %s", coins[index], solution));
+			coinChangeRecursiveWithStringSolution(amount, coins, index + 1, solution);
+		}
 
-    public static void coinChangeDuplicatesRecursiveWithStringSolution(final int amount, final int[] coins, final int index,
-            final String solution) {
+	}
 
-        if (amount == 0) {
-            System.out.println(solution);
-        } else if (amount < 0) {
-            return;
-        } else if (index >= coins.length) {
-            return;
-        } else {
+	public static void coinChangeDuplicatesRecursiveWithStringSolution(final int amount, final int[] coins,
+			final int index, final String solution) {
 
-            coinChangeDuplicatesRecursiveWithStringSolution(amount - coins[index], coins, index,
-                    String.format("%s , %s", coins[index], solution));
-            coinChangeDuplicatesRecursiveWithStringSolution(amount, coins, index + 1, solution);
-        }
+		if (amount == 0) {
+			System.out.println(solution);
+		} else if (amount < 0) {
+			return;
+		} else if (index >= coins.length) {
+			return;
+		} else {
 
-    }
+			coinChangeDuplicatesRecursiveWithStringSolution(amount - coins[index], coins, index,
+					String.format("%s , %s", coins[index], solution));
+			coinChangeDuplicatesRecursiveWithStringSolution(amount, coins, index + 1, solution);
+		}
 
-    public static void coinChangeRecursiveWithListSolution(final int amount, final int[] coins, final int index,
-            final List<Integer> solution,
-            final List<List<Integer>> solutions) {
+	}
 
-        if (amount == 0) {
-            solutions.add(solution);
-            return;
-        } else if (amount < 0) {
-            return;
-        } else if (index >= coins.length) {
-            return;
-        } else {
+	public static void coinChangeRecursiveWithListSolution(final int amount, final int[] coins, final int index,
+			final List<Integer> solution, final List<List<Integer>> solutions) {
 
-            int coin = coins[index];
-            List<Integer> tempSolution = solution.stream()
-                                                 .collect(Collectors.toList());
-            tempSolution.add(coin);
-            coinChangeRecursiveWithListSolution(amount - coin, coins, index + 1, tempSolution, solutions);
-            coinChangeRecursiveWithListSolution(amount, coins, index + 1, solution, solutions);
-        }
-    }
+		if (amount == 0) {
+			solutions.add(solution);
+			return;
+		} else if (amount < 0) {
+			return;
+		} else if (index >= coins.length) {
+			return;
+		} else {
 
-    public static void coinChangeDuplicatesRecursiveWithListSolution(final int amount, final int[] coins, final int index,
-            final List<Integer> solution, final List<List<Integer>> solutions) {
+			int coin = coins[index];
+			List<Integer> tempSolution = solution.stream().collect(Collectors.toList());
+			tempSolution.add(coin);
+			coinChangeRecursiveWithListSolution(amount - coin, coins, index + 1, tempSolution, solutions);
+			coinChangeRecursiveWithListSolution(amount, coins, index + 1, solution, solutions);
+		}
+	}
 
-        if (amount == 0) {
-            solutions.add(solution);
-            return;
-        } else if (amount < 0) {
-            return;
-        } else if (index >= coins.length) {
-            return;
-        } else {
+	public static void coinChangeDuplicatesRecursiveWithListSolution(final int amount, final int[] coins,
+			final int index, final List<Integer> solution, final List<List<Integer>> solutions) {
 
-            int coin = coins[index];
-            List<Integer> tempSolution = solution.stream()
-                                                 .collect(Collectors.toList());
-            tempSolution.add(coin);
-            coinChangeDuplicatesRecursiveWithListSolution(amount - coin, coins, index, tempSolution, solutions);
-            coinChangeDuplicatesRecursiveWithListSolution(amount, coins, index + 1, solution, solutions);
-        }
-    }
+		if (amount == 0) {
+			solutions.add(solution);
+			return;
+		} else if (amount < 0) {
+			return;
+		} else if (index >= coins.length) {
+			return;
+		} else {
+
+			int coin = coins[index];
+			List<Integer> tempSolution = solution.stream().collect(Collectors.toList());
+			tempSolution.add(coin);
+			coinChangeDuplicatesRecursiveWithListSolution(amount - coin, coins, index, tempSolution, solutions);
+			coinChangeDuplicatesRecursiveWithListSolution(amount, coins, index + 1, solution, solutions);
+		}
+	}
 }

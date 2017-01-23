@@ -10,133 +10,135 @@ import java.util.BitSet;
  */
 public class UniqueCharacters {
 
-	public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-		assertFalse(UniqueCharacters.hasUniqueChars("dogatedogDOGATEDOG"));
-		assertTrue("Should be unique", UniqueCharacters.hasUniqueChars("dogateDOG"));
+        assertFalse(UniqueCharacters.hasUniqueChars("dogatedogDOGATEDOG"));
+        assertTrue("Should be unique", UniqueCharacters.hasUniqueChars("dogateDOG"));
 
-		assertFalse(UniqueCharacters.hasUniqueCharsUsingIntegerBitVector("dogatedogDOGATEDOG"));
-		assertTrue(UniqueCharacters.hasUniqueCharsUsingIntegerBitVector("dogate"));
+        assertFalse(UniqueCharacters.hasUniqueCharsUsingIntegerBitVector("dogatedogDOGATEDOG"));
+        assertTrue(UniqueCharacters.hasUniqueCharsUsingIntegerBitVector("dogate"));
 
-		assertFalse(UniqueCharacters.hasUniqueCharsUsingJavaBitSet("dogatedogDOGATEDOG"));
-		assertTrue("Should be unique", UniqueCharacters.hasUniqueCharsUsingJavaBitSet("dogateDOG"));
+        assertFalse(UniqueCharacters.hasUniqueCharsUsingJavaBitSet("dogatedogDOGATEDOG"));
+        assertTrue("Should be unique", UniqueCharacters.hasUniqueCharsUsingJavaBitSet("dogateDOG"));
 
-		assertFalse(UniqueCharacters.hasUniqueCharsUsingBitVector("dogatedogDOGATEDOG"));
-		assertTrue("Should be unique", UniqueCharacters.hasUniqueCharsUsingBitVector("dogateDOG"));
-	}
+        assertFalse(UniqueCharacters.hasUniqueCharsUsingBitVector("dogatedogDOGATEDOG"));
+        assertTrue("Should be unique", UniqueCharacters.hasUniqueCharsUsingBitVector("dogateDOG"));
+    }
 
-	public static boolean hasUniqueChars(String str) {
+    public static boolean hasUniqueChars(final String str) {
 
-		char[] arr = str.toCharArray();
+        char[] arr = str.toCharArray();
 
-		// both lower and upper case alphabets are handled because we have 128
-		// indices
-		boolean[] map = new boolean[128];
+        // both lower and upper case alphabets are handled because we have 128
+        // indices
+        boolean[] map = new boolean[128];
 
-		for (char c : arr) {
+        for (char c : arr) {
 
-			int index = c;
+            int index = c;
 
-			if (map[index]) {
-				return false;
-			} else {
-				map[index] = true;
-			}
-		}
-		return true;
-	}
+            if (map[index]) {
+                return false;
+            } else {
+                map[index] = true;
+            }
+        }
+        return true;
+    }
 
-	public static boolean hasUniqueCharsUsingIntegerBitVector(String str) {
+    public static boolean hasUniqueCharsUsingIntegerBitVector(final String str) {
 
-		// assuming only lowercase alphabets
-		char[] arr = str.toLowerCase().toCharArray();
+        // assuming only lowercase alphabets
+        char[] arr = str.toLowerCase()
+                        .toCharArray();
 
-		int bitVector = 0;
+        // using 0 - 25 to flip bit for 26 lowercase characters
+        int bitVector = 0;
 
-		for (char c : arr) {
+        for (char c : arr) {
 
-			int index = c - 'a';
-			int mask = (1 << index);
+            int index = c - 'a';
+            int mask = (1 << index);
 
-			if ((bitVector & mask) == mask) {
-				// System.out.println(Integer.toBinaryString(bitVector));
-				return false;
-			} else {
-				// System.out.println(Integer.toBinaryString(bitVector));
-				bitVector |= mask;
-			}
-		}
-		return true;
-	}
+            if ((bitVector & mask) == mask) {
+                // System.out.println(Integer.toBinaryString(bitVector));
+                return false;
+            } else {
+                // System.out.println(Integer.toBinaryString(bitVector));
+                bitVector |= mask;
+            }
+        }
+        return true;
+    }
 
-	public static boolean hasUniqueCharsUsingJavaBitSet(String str) {
+    public static boolean hasUniqueCharsUsingJavaBitSet(final String str) {
 
-		BitSet bitSet = new BitSet(128);
+        BitSet bitSet = new BitSet(128);
 
-		char[] arr = str.toCharArray();
+        char[] arr = str.toCharArray();
 
-		for (char c : arr) {
+        for (char c : arr) {
 
-			int bitIndex = c;
+            int bitIndex = c;
 
-			if (bitSet.get(bitIndex)) {
-				return false;
-			} else {
-				bitSet.set(bitIndex);
-			}
-		}
+            if (bitSet.get(bitIndex)) {
+                return false;
+            } else {
+                bitSet.set(bitIndex);
+            }
+        }
 
-		return true;
+        return true;
 
-	}
+    }
 
-	public static boolean hasUniqueCharsUsingBitVector(String str) {
+    public static boolean hasUniqueCharsUsingBitVector(final String str) {
 
-		BitVector bitVector = new BitVector(128);
+        BitVector bitVector = new BitVector(128);
 
-		char[] arr = str.toCharArray();
+        char[] arr = str.toCharArray();
 
-		for (char c : arr) {
+        for (char c : arr) {
 
-			int bitIndex = c;
+            int bitIndex = c;
 
-			if (bitVector.getBit(bitIndex)) {
-				return false;
-			} else {
-				bitVector.setBit(bitIndex);
-			}
-		}
+            if (bitVector.getBit(bitIndex)) {
+                return false;
+            } else {
+                bitVector.setBit(bitIndex);
+            }
+        }
 
-		return true;
+        return true;
 
-	}
+    }
 
-	public static class BitVector {
-		private int[] map;
+    public static class BitVector {
+        private int[] map;
 
-		public BitVector(int size) {
-			map = new int[size / 32 + 1];
-		}
+        public BitVector(final int size) {
+            map = new int[size / 32 + 1];
+        }
 
-		public void setBit(int index) {
+        public void setBit(final int index) {
 
-			int element = index / 32;
-			int bit = index % 32;
+            int element = index / 32;
+            int bit = index % 32;
 
-			map[element] |= (1 << bit);
+            map[element] |= (1 << bit);
 
-		}
+        }
 
-		public boolean getBit(int index) {
+        public boolean getBit(final int index) {
 
-			int element = index / 32;
-			int bit = index % 32;
+            int element = index / 32;
+            int bit = index % 32;
 
-			int mask = (1 << bit);
-			return (map[element] & mask) == mask;
+            int mask = (1 << bit);
+            return (map[element] & mask) == mask;
 
-		}
+        }
 
-	}
+    }
 
 }

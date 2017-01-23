@@ -9,98 +9,142 @@ import org.junit.Test;
 
 public class LinkedListTest {
 
-	@Test
-	public void linkedListAdd() {
+    @Test
+    public void linkedListAdd() {
 
-		LinkedList linkedList = new LinkedList();
+        LinkedList linkedList = new LinkedList();
 
-		int min = 0;
-		int max = 10;
+        int min = 0;
+        int max = 10;
 
-		IntStream.range(min, max).forEach(i -> linkedList.addNode(i));
+        IntStream.range(min, max)
+                 .forEach(i -> linkedList.addNode(i));
 
-		assertEquals("0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9",
-				linkedList.toString());
+        assertEquals("0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9",
+                linkedList.toString());
 
-		assertArrayEquals(IntStream.range(min, max).toArray(),
-				linkedList.toArray());
+        assertArrayEquals(IntStream.range(min, max)
+                                   .toArray(),
+                linkedList.toArray());
 
-	}
+    }
 
-	@Test
-	public void removeHead() {
+    @Test
+    public void removeHead() {
 
-		LinkedList linkedList = new LinkedList();
+        LinkedList linkedList = new LinkedList();
 
-		int min = 0;
-		int max = 10;
+        int min = 0;
+        int max = 10;
 
-		IntStream.range(min, max).forEach(i -> linkedList.addNode(i));
+        IntStream.range(min, max)
+                 .forEach(i -> linkedList.addNode(i));
 
-		assertEquals("0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9",
-				linkedList.toString());
+        assertEquals("0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9",
+                linkedList.toString());
 
-		linkedList.removeHead();
+        linkedList.removeHead();
 
-		assertEquals("1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9",
-				linkedList.toString());
+        assertEquals("1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9",
+                linkedList.toString());
 
-	}
+    }
 
-	@Test
-	public void removeTail() {
+    @Test
+    public void reverseList() {
+        LinkedList linkedList = new LinkedList();
 
-		LinkedList linkedList = new LinkedList();
+        int min = 0;
+        int max = 10;
 
-		int min = 0;
-		int max = 10;
+        IntStream.range(min, max)
+                 .forEach(i -> linkedList.addNode(i));
 
-		IntStream.range(min, max).forEach(i -> linkedList.addNode(i));
+        assertEquals("0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9",
+                linkedList.toString());
 
-		assertEquals("0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9",
-				linkedList.toString());
+        linkedList.reverseList();
 
-		linkedList.removeTail();
+        assertEquals("9 -> 8 -> 7 -> 6 -> 5 -> 4 -> 3 -> 2 -> 1 -> 0",
+                linkedList.toString());
+    }
 
-		assertEquals("0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8",
-				linkedList.toString());
+    @Test
+    public void reverseListRecursive() {
+        LinkedList linkedList = new LinkedList();
 
-	}
+        int min = 0;
+        int max = 10;
 
-	@Test
-	public void removeTail_one_element_in_list() {
+        IntStream.range(min, max)
+                 .forEach(i -> linkedList.addNode(i));
 
-		LinkedList linkedList = new LinkedList();
+        assertEquals("0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9",
+                linkedList.toString());
 
-		int min = 0;
-		int max = 1;
+        linkedList.reverseListRecursive();
 
-		IntStream.range(min, max).forEach(i -> linkedList.addNode(i));
+        assertEquals("9 -> 8 -> 7 -> 6 -> 5 -> 4 -> 3 -> 2 -> 1 -> 0",
+                linkedList.toString());
+    }
 
-		assertEquals("0", linkedList.toString());
+    @Test
+    public void removeTail() {
 
-		linkedList.removeTail();
+        LinkedList linkedList = new LinkedList();
 
-		assertEquals("EMPTY", linkedList.toString());
+        int min = 0;
+        int max = 10;
 
-	}
+        IntStream.range(min, max)
+                 .forEach(i -> linkedList.addNode(i));
 
-	@Test
-	public void removeTail_two_elements_in_list() {
+        assertEquals("0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9",
+                linkedList.toString());
 
-		LinkedList linkedList = new LinkedList();
+        linkedList.removeTail();
 
-		int min = 0;
-		int max = 2;
+        assertEquals("0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8",
+                linkedList.toString());
 
-		IntStream.range(min, max).forEach(i -> linkedList.addNode(i));
+    }
 
-		assertEquals("0 -> 1", linkedList.toString());
+    @Test
+    public void removeTail_one_element_in_list() {
 
-		linkedList.removeTail();
+        LinkedList linkedList = new LinkedList();
 
-		assertEquals("0", linkedList.toString());
+        int min = 0;
+        int max = 1;
 
-	}
+        IntStream.range(min, max)
+                 .forEach(i -> linkedList.addNode(i));
+
+        assertEquals("0", linkedList.toString());
+
+        linkedList.removeTail();
+
+        assertEquals("EMPTY", linkedList.toString());
+
+    }
+
+    @Test
+    public void removeTail_two_elements_in_list() {
+
+        LinkedList linkedList = new LinkedList();
+
+        int min = 0;
+        int max = 2;
+
+        IntStream.range(min, max)
+                 .forEach(i -> linkedList.addNode(i));
+
+        assertEquals("0 -> 1", linkedList.toString());
+
+        linkedList.removeTail();
+
+        assertEquals("0", linkedList.toString());
+
+    }
 
 }

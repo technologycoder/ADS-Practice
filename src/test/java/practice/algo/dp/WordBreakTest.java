@@ -10,46 +10,54 @@ import org.junit.Test;
 
 public class WordBreakTest {
 
-	private String[] dict = new String[] { "dog", "cat", "ball", "bat", "tree" };
+    private String[] dict = new String[] { "dog", "cat", "ball", "bat", "tree" };
 
-	@Test
-	public void wordBreak_1() {
+    @Test
+    public void wordBreak_1() {
 
-		String str = "balldog";
-		assertTrue(WordBreak.wordBreak(str, dict));
+        String str = "balldog";
+        assertTrue(WordBreak.wordBreak(str, dict));
 
-	}
+    }
 
-	@Test
-	public void wordBreak_2() {
+    @Test
+    public void wordBreak_2() {
 
-		String str = "balld";
-		assertFalse(WordBreak.wordBreak(str, dict));
+        String str = "balld";
+        assertFalse(WordBreak.wordBreak(str, dict));
 
-	}
+    }
 
-	@Test
-	public void wordBreak_3() {
+    @Test
+    public void wordBreak_3() {
 
-		String str = "";
-		assertFalse(WordBreak.wordBreak(str, dict));
+        String str = "";
+        assertFalse(WordBreak.wordBreak(str, dict));
 
-	}
+    }
 
-	@Test
-	public void wordBreakIterative_1() {
+    @Test
+    public void wordBreakIterative_1() {
 
-		String str = "balldog";
-		assertEquals(Arrays.asList("ball", "dog"), WordBreak.wordBreakIterative(str, dict));
+        String str = "balldog";
+        assertEquals(Arrays.asList("ball", "dog"), WordBreak.wordBreakIterative(str, dict));
 
-	}
+    }
 
-	@Test
-	public void wordBreakIterative_2() {
+    @Test
+    public void wordBreakIterative_2() {
 
-		String str = "cattreeball";
-		assertEquals(Arrays.asList("cat", "tree", "ball"), WordBreak.wordBreakIterative(str, dict));
+        String str = "talldog";
+        assertEquals(Arrays.asList("dog"), WordBreak.wordBreakIterative(str, dict));
 
-	}
+    }
+
+    @Test
+    public void wordBreakIterative_3() {
+
+        String str = "cattreeball";
+        assertEquals(Arrays.asList("cat", "tree", "ball"), WordBreak.wordBreakIterative(str, dict));
+
+    }
 
 }

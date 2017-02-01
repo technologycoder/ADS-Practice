@@ -7,6 +7,82 @@ public class LL {
 
     public static void main(final String[] args) {
 
+        // testAddRecursive();
+        testRemoveRecursive();
+        // testRemove();
+
+    }
+
+    public static void testAddRecursive() {
+        List<Integer> list = Arrays.asList(8, 3, 10, 1, 6, 14, 4, 7, 13);
+        Node<Integer> head = null;
+
+        for (Integer data : list) {
+            head = addRecursive(head, data);
+        }
+
+        display(head);
+    }
+
+    public static void testRemoveRecursive() {
+
+        List<Integer> list = Arrays.asList(8, 3, 10, 1, 6, 14, 4, 7, 13);
+        Node<Integer> head = null;
+
+        for (Integer data : list) {
+            head = add(head, data);
+        }
+
+        display(head);
+
+        // remove middle node
+        head = removeRecursive(head, 6);
+        display(head);
+
+        // remove first node
+        head = removeRecursive(head, 8);
+        display(head);
+
+        // remove last node
+        head = removeRecursive(head, 13);
+        display(head);
+
+        // remove node that does not exists
+        head = removeRecursive(head, -1);
+        display(head);
+
+    }
+
+    public static void testRemove() {
+
+        List<Integer> list = Arrays.asList(8, 3, 10, 1, 6, 14, 4, 7, 13);
+        Node<Integer> head = null;
+
+        for (Integer data : list) {
+            head = add(head, data);
+        }
+
+        display(head);
+
+        // remove middle node
+        head = remove(head, 6);
+        display(head);
+
+        // remove first node
+        head = remove(head, 8);
+        display(head);
+
+        // remove last node
+        head = remove(head, 13);
+        display(head);
+
+        // remove node that does not exists
+        head = remove(head, -1);
+        display(head);
+
+    }
+
+    public static void testReverse() {
         List<Integer> list = Arrays.asList(8, 3, 10, 1, 6, 14, 4, 7, 13);
         Node<Integer> head = null;
 
@@ -23,43 +99,87 @@ public class LL {
         head = reverseRecursive(head);
 
         display(head);
-
     }
 
-    public static <E extends Comparable<E>> void display(final Node<E> node) {
+    public static <E extends Comparable<E>> void display(final Node<E> head) {
 
-        if (node != null) {
-
-            Node<E> iter = node;
-            while (iter != null) {
-                System.out.print(iter.data + " ");
-                iter = iter.next;
-            }
-            System.out.println("");
+        Node<E> iter = head;
+        while (iter != null) {
+            System.out.print(iter.data + " ");
+            iter = iter.next;
         }
+        System.out.println("");
 
     }
 
-    public static <E extends Comparable<E>> Node<E> add(final Node<E> node, final E data) {
-
-        Node<E> head = node;
+    public static <E extends Comparable<E>> Node<E> add(final Node<E> head, final E data) {
 
         Node<E> temp = new Node<>(data);
 
         if (head == null) {
-            head = temp;
+            return temp;
         } else {
 
             Node<E> iter = head;
-
             while (iter.next != null) {
                 iter = iter.next;
             }
-
             iter.next = temp;
-
         }
         return head;
+    }
+
+    public static <E extends Comparable<E>> Node<E> addRecursive(final Node<E> node, final E data) {
+
+        if (node == null) {
+            return new Node<>(data);
+        } else {
+            node.next = addRecursive(node.next, data);
+            return node;
+        }
+
+    }
+
+    public static <E extends Comparable<E>> Node<E> removeRecursive(final Node<E> node,
+            final E data) {
+
+        if (node == null) {
+            return null;
+        } else if (node.data.compareTo(data) == 0) {
+            return node.next;
+        } else {
+            node.next = removeRecursive(node.next, data);
+            return node;
+        }
+    }
+
+    public static <E extends Comparable<E>> Node<E> remove(final Node<E> head,
+            final E data) {
+
+        // list is empty
+        if (head == null)
+            return null;
+
+        // remove first node
+        if (head.data.compareTo(data) == 0) {
+            return head.next;
+        }
+
+        Node<E> iter = head.next;
+        Node<E> previous = head;
+
+        while (iter != null) {
+
+            if (iter.data.compareTo(data) == 0) {
+                previous.next = iter.next;
+                break;
+            } else {
+                previous = iter;
+                iter = iter.next;
+            }
+        }
+        return head;
+
     }
 
     private static <E extends Comparable<E>> Node<E> reverse(final Node<E> node) {

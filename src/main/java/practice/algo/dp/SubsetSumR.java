@@ -1,11 +1,6 @@
 package practice.algo.dp;
 
 public class SubsetSumR {
-    // Solving Subset sum recursion
-    // Programmed by Olac Fuentes
-    // Last modified November 17, 2011
-    // Subset sum consists of finding a subset of mySet whose elements add up to goal
-    // It is a well-know NP-complete problem
 
     public static boolean subSetSumRecur(final int[] mySet, final int n, final int goal) {
         if (goal == 0)

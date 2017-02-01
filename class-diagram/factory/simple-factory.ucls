@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.13" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="headfirst.designpatterns.factory.pizzas.PepperoniPizza" project="ADS-Practice" 
+    file="/ADS-Practice/src/main/java/headfirst/designpatterns/factory/pizzas/PepperoniPizza.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="88" width="218" x="501" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="headfirst.designpatterns.factory.pizzas.CheesePizza" project="ADS-Practice" 
+    file="/ADS-Practice/src/main/java/headfirst/designpatterns/factory/pizzas/CheesePizza.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="88" width="218" x="759" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="headfirst.designpatterns.factory.pizzas.ClamPizza" project="ADS-Practice" 
+    file="/ADS-Practice/src/main/java/headfirst/designpatterns/factory/pizzas/ClamPizza.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="88" width="218" x="1017" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="headfirst.designpatterns.factory.pizzas.PizzaTestDrive" project="ADS-Practice" 
+    file="/ADS-Practice/src/main/java/headfirst/designpatterns/factory/pizzas/PizzaTestDrive.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="106" width="218" x="566" y="121"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="headfirst.designpatterns.factory.pizzas.VeggiePizza" project="ADS-Practice" 
+    file="/ADS-Practice/src/main/java/headfirst/designpatterns/factory/pizzas/VeggiePizza.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="88" width="218" x="1275" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="headfirst.designpatterns.factory.pizzas.Pizza" project="ADS-Practice" 
+    file="/ADS-Practice/src/main/java/headfirst/designpatterns/factory/pizzas/Pizza.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="267" width="218" x="888" y="121"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="headfirst.designpatterns.factory.pizzas.SimplePizzaFactory" project="ADS-Practice" 
+    file="/ADS-Practice/src/main/java/headfirst/designpatterns/factory/pizzas/SimplePizzaFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="106" width="218" x="1533" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="headfirst.designpatterns.factory.pizzas.PizzaStore" project="ADS-Practice" 
+    file="/ADS-Practice/src/main/java/headfirst/designpatterns/factory/pizzas/PizzaStore.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="106" width="218" x="1533" y="121"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="9">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="10">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="11">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="12" name="factory"/>      
+      <multiplicity id="13" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="14">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="15">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

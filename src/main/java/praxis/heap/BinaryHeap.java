@@ -3,6 +3,7 @@ package praxis.heap;
 import java.util.Arrays;
 import java.util.List;
 
+//with pointer to parent
 public class BinaryHeap<E extends Comparable<E>> {
 
     public static void main(final String[] args) {

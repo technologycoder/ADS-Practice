@@ -4,11 +4,17 @@ public class BitManipuations {
 
     public static void main(final String[] args) throws Exception {
 
+        // System.out.println(Integer.toBinaryString(-3));
+        // itoBits(13);
+
+        bitsToI_builtIn_with_2sComplement();
     }
 
-    public void bitsToI_builtIn_with_2sComplement() {
+    public static void bitsToI_builtIn_with_2sComplement() {
 
         System.out.println(Integer.parseInt("11", 2));
+
+        System.out.println(Byte.parseByte("1111111", 2));
 
         // for byte it needs 8 bits - this works
         System.out.println((byte) Integer.parseInt("11111101", 2));
@@ -32,7 +38,7 @@ public class BitManipuations {
 
     }
 
-    public void itoBits_2sComplement_builtIn() {
+    public static void itoBits_2sComplement_builtIn() {
 
         // 3
         assert "11".equals(Integer.toBinaryString(3));
@@ -42,7 +48,7 @@ public class BitManipuations {
 
     }
 
-    public void itoBits_builtIn() {
+    public static void itoBits_builtIn() {
 
         // 3
         assert "11".equals(Integer.toString(3, 2));

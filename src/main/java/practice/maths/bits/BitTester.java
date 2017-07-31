@@ -48,6 +48,7 @@ public class BitTester {
         // print as 8 bit byte. Prints 2's complement for negative numbers.
         // performs AND with 11111111 and thus removes all bits above index 7
         System.out.println(Integer.toBinaryString(value & 0xFF));
+        System.out.println(Integer.toBinaryString(value));
 
         // only the bits that form the number are displayed. Does not print 2's
         // complement

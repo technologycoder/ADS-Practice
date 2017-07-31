@@ -6,13 +6,13 @@ import static org.junit.Assert.assertTrue;
 import java.util.BitSet;
 
 /*
- * Implement an algorithm to determine if a string has all unqiue characters
+ * Implement an algorithm to determine if a string has all unique characters
  */
 public class UniqueCharacters {
 
     public static void main(final String[] args) {
 
-        assertFalse(UniqueCharacters.hasUniqueChars("dogatedogDOGATEDOG"));
+        assertFalse("Should not be unique", UniqueCharacters.hasUniqueChars("dogatedogDOGATEDOG"));
         assertTrue("Should be unique", UniqueCharacters.hasUniqueChars("dogateDOG"));
 
         assertFalse(UniqueCharacters.hasUniqueCharsUsingIntegerBitVector("dogatedogDOGATEDOG"));

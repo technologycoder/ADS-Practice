@@ -8,8 +8,9 @@ public class LL {
     public static void main(final String[] args) {
 
         // testAddRecursive();
-        testRemoveRecursive();
+        // testRemoveRecursive();
         // testRemove();
+        testReverse();
 
     }
 
@@ -201,6 +202,25 @@ public class LL {
             iter = temp;
         }
         return head;
+
+    }
+
+    private static <E extends Comparable<E>> Node<E> reverse1(final Node<E> node) {
+
+        if (node == null)
+            return null;
+
+        Node<E> iter = node.next;
+        Node<E> prev = node;
+
+        while (iter != null) {
+            Node<E> next = iter.next;
+
+            iter.next = prev;
+            prev = iter;
+            iter = next;
+        }
+        return prev;
 
     }
 

@@ -1,5 +1,6 @@
 package practice.algo.dp;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,9 +28,10 @@ public class LongestCommonSubstring {
         // lcsRecursive(x, y, "");
 
         Set<String> results = new HashSet<>();
-        System.out.println(lcsRecursive1(x, y, "", 0, results));
-
+        System.out.println(lcsRecursive(x, y, "", 0, results));
         System.out.println(results);
+
+        lcsDP(x, y);
 
     }
 
@@ -43,26 +45,7 @@ public class LongestCommonSubstring {
 
     }
 
-    public static String lcsRecursive(final String x, final String y) {
-
-        System.out.println("x: " + x + " y: " + y);
-        if (x == null || x.length() == 0 || y == null || y.length() == 0) {
-            return "";
-        }
-
-        if (x.charAt(0) == y.charAt(0)) {
-            return x.charAt(0) + lcsRecursive(x.substring(1), y.substring(1));
-        } else {
-            String m = lcsRecursive(x, y.substring(1));
-            System.out.println("m: " + m);
-            String n = lcsRecursive(x.substring(1), y);
-            System.out.println("n: " + n);
-            return m.length() > n.length() ? m : n;
-        }
-
-    }
-
-    public static int lcsRecursive1(final String x, final String y, final String str, final int maxLength, final Set<String> solutions) {
+    public static int lcsRecursive(final String x, final String y, final String str, final int maxLength, final Set<String> solutions) {
         int newMaxLength = maxLength;
         if (x == null || x.length() == 0 || y == null || y.length() == 0) {
             if (str.length() >= maxLength) {
@@ -78,7 +61,7 @@ public class LongestCommonSubstring {
 
         if (x.charAt(0) == y.charAt(0)) {
             String temp = str + x.charAt(0);
-            return lcsRecursive1(x.substring(1), y.substring(1), temp, maxLength, solutions);
+            return lcsRecursive(x.substring(1), y.substring(1), temp, maxLength, solutions);
 
         } else {
 
@@ -91,14 +74,36 @@ public class LongestCommonSubstring {
                 solutions.add(str);
             }
 
-            int m = lcsRecursive1(x, y.substring(1), "", newMaxLength, solutions);
+            int m = lcsRecursive(x, y.substring(1), "", newMaxLength, solutions);
             if (m > newMaxLength)
                 newMaxLength = m;
-            int n = lcsRecursive1(x.substring(1), y, "", newMaxLength, solutions);
+            int n = lcsRecursive(x.substring(1), y, "", newMaxLength, solutions);
 
             return newMaxLength > n ? newMaxLength : n;
 
         }
+
+    }
+
+    public static void lcsDP(String x, String y) {
+
+        int m = x.length();
+        int n = y.length();
+
+        int[][] cache = new int[m + 1][n + 1];
+
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+
+                if (x.charAt(i - 1) == y.charAt(j - 1)) {
+                    cache[i][j] = cache[i - 1][j - 1] + 1;
+                }
+
+            }
+        }
+
+        System.out.println(Arrays.deepToString(cache)
+                                 .replaceAll("],", "]\n"));
 
     }
 

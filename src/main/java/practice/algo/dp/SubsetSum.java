@@ -1,17 +1,42 @@
 package practice.algo.dp;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class SubsetSum {
 
     public static void main(final String[] args) {
-        int[] num = { 3, 2, 7, 1 };
+        int[] num = { 1, 2, 3, 4 };
 
         int[] solution = new int[num.length];
 
-        subsetSumRecursive(num, 0, 0, 6, solution);
+        // subsetSumRecursive(num, 0, 0, 5, solution);
+        System.out.println(Arrays.toString(solution));
 
-        // System.out.println(Arrays.toString(solution));
+        // subSetSumRecur(num, 3, 5);
 
-        // System.out.println("\nFrom DP: " + subSetDP(num, 6));
+        List<String> solutions = new ArrayList<>();
+        // subsetSumRecursiveDuplicatesAllowed(num, 0, 0, 5, "", solutions);
+        solutions.stream()
+                 .forEach(System.out::println);
+
+        System.out.println("\nFrom DP: " + subSetExistsDP(num, 5));
+
+        // TODO
+        // Add DP solution similar to coin change
+    }
+
+    public static boolean subSetSumRecur(final int[] mySet, final int n, final int goal) {
+        if (goal == 0)
+            return true;
+        if ((goal < 0) | (n < 0))
+            return false;
+        if (subSetSumRecur(mySet, n - 1, goal - mySet[n])) {
+            System.out.print(mySet[n] + " ");
+            return true;
+        }
+        return (subSetSumRecur(mySet, n - 1, goal));
     }
 
     public static void subsetSumRecursive(final int[] num,
@@ -31,16 +56,35 @@ public class SubsetSum {
             return;
         } else {
             solution[index] = 1;// select the element
-            currSum += num[index];
-            subsetSumRecursive(num, currSum, index + 1, sum, solution);
-            currSum -= num[index];
+            subsetSumRecursive(num, currSum + num[index], index + 1, sum, solution);
             solution[index] = 0;// do not select the element
             subsetSumRecursive(num, currSum, index + 1, sum, solution);
         }
-        return;
+
     }
 
-    public static boolean subSetDP(final int[] num, final int sum) {
+    public static void subsetSumRecursiveDuplicatesAllowed(final int[] num,
+            int currSum,
+            final int index,
+            final int sum,
+            String solution,
+            List<String> solutions) {
+        if (currSum == sum) {
+
+            solutions.add(solution);
+
+        } else if (currSum > sum || index == num.length) {
+            return;
+        } else {
+            subsetSumRecursiveDuplicatesAllowed(num, currSum + num[index], index, sum,
+                    String.valueOf(num[index]) + " " + solution, solutions);
+            subsetSumRecursiveDuplicatesAllowed(num, currSum, index + 1, sum,
+                    solution, solutions);
+        }
+
+    }
+
+    public static boolean subSetExistsDP(final int[] num, final int sum) {
 
         boolean[][] solution = new boolean[num.length + 1][sum + 1];
         // if sum is not zero and subset is 0, we can't make it

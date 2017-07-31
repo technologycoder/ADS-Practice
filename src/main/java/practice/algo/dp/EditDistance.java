@@ -1,5 +1,7 @@
 package practice.algo.dp;
 
+import java.util.Arrays;
+
 public class EditDistance {
 
     public static void main(final String[] args) {
@@ -65,7 +67,11 @@ public class EditDistance {
                                     solution[i - 1][j - 1])); // Replace
             }
         }
+
+        System.out.println(Arrays.deepToString(solution)
+                                 .replaceAll("],", "]\n"));
         return solution[s1.length()][s2.length()];
+
     }
 
 }

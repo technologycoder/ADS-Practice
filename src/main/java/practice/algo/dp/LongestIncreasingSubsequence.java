@@ -11,6 +11,8 @@ public class LongestIncreasingSubsequence {
 
         int[] arr = { 10, 9, 2, 5, 3, 7, 101, 18 }; // 2, 3, 7, 101
         System.out.println(lengthOfLIS(arr));
+
+        // TODO: print all subsequences
     }
 
     public static int lengthOfLIS(final int[] nums) {

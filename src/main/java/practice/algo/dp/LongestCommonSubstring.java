@@ -28,8 +28,8 @@ public class LongestCommonSubstring {
         // lcsRecursive(x, y, "");
 
         Set<String> results = new HashSet<>();
-        System.out.println(lcsRecursive(x, y, "", 0, results));
-        System.out.println(results);
+        // System.out.println(lcsRecursive(x, y, "", 0, results));
+        // System.out.println(results);
 
         lcsDP(x, y);
 

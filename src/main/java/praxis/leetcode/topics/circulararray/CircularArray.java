@@ -22,7 +22,7 @@ public class CircularArray<T> implements Iterable<T> {
     }
 
     public T get(int i) {
-        if (i < 0 || i >= items.length) {
+        if (i < -items.length || i >= items.length) {
             throw new java.lang.IndexOutOfBoundsException("Index " + i + " is out of bounds");
         }
         return items[convert(i)];

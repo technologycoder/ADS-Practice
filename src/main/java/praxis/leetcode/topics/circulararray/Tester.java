@@ -7,10 +7,10 @@ public class Tester {
         int a = Integer.MAX_VALUE;
         int b = Integer.MAX_VALUE;
 
-        System.out.println(a);
-        System.out.println(a + b);
-        System.out.println((-1) >>> 1);
-        // testCircularArray();
+        // System.out.println(a);
+        // System.out.println(a + b);
+        // System.out.println((-1) >>> 1);
+        testCircularArray();
 
     }
 
@@ -33,6 +33,8 @@ public class Tester {
         for (String s : array) {
             System.out.println(s);
         }
+
+        System.out.println(array.get(-10));
     }
 
 }

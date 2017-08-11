@@ -14,7 +14,7 @@ public class Stack<E> implements Iterable<E> {
 
     private E[] arr;
     private int size = 0;
-    private int index = -1;
+
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
 
     @SuppressWarnings("unchecked")

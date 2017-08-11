@@ -78,7 +78,7 @@ public class ArrayList<E> implements Iterable<E> {
     }
 
     private void rangeCheck(int index) {
-        if (index > size || index < 0)
+        if (index >= size || index < 0)
             throw new IndexOutOfBoundsException("Illegal index: " + index);
     }
 

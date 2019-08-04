@@ -141,6 +141,7 @@ public class LL {
 
     }
 
+    //remove recursive all nodes in the list
     public static <E extends Comparable<E>> Node<E> removeRecursive(final Node<E> node,
             final E data) {
 

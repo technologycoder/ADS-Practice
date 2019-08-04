@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class LongestCommonSubsequence {
 
     public static void main(String[] args) {
-        System.out.println(lcs("ABCBDAB", "BDCABA"));
+        //System.out.println(lcs("ABCBDAB", "BDCABA"));
 
-        // lcsDP("ABCBDAB", "BDCABA");
+        lcsDP("ABCBDAB", "BDCABA");
     }
 
     public static String lcs(final String x, final String y) {
@@ -36,7 +36,7 @@ public class LongestCommonSubsequence {
         int[][] table = new int[m + 1][n + 1];
 
         System.out.println(Arrays.deepToString(table)
-                                 .replaceAll("],", "]," + System.getProperty("line.separator")));
+                                 .replaceAll("],", "]," + System.lineSeparator()));
 
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
@@ -52,7 +52,7 @@ public class LongestCommonSubsequence {
         }
 
         System.out.println(Arrays.deepToString(table)
-                                 .replaceAll("],", "]," + System.getProperty("line.separator")));
+                                 .replaceAll("],", "]," + System.lineSeparator()));
 
         allLCS(table, m, n, x, "");
 

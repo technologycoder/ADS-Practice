@@ -6,7 +6,7 @@ public class Tester {
 
         ArrayList<Integer> list = new ArrayList<>();
 
-        for (int i = 0; i < 20; ++i) {
+        for (int i = 0; i < 10; ++i) {
 
             list.add(i);
         }
@@ -15,7 +15,9 @@ public class Tester {
             System.out.println(val);
         }
 
-        list.remove(10);
+        //list.remove(10);
+
+        list.add(4, 25);
 
         for (Integer val : list) {
             System.out.println(val);

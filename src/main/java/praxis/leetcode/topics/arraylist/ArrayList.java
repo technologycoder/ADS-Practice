@@ -4,10 +4,9 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 public class ArrayList<E> implements Iterable<E> {
-
+    private static final int DEFAULT_CAPACITY = 10;
     private E[] elementData;
     private int size;
-    private static final int DEFAULT_CAPACITY = 10;
 
     public ArrayList() {
         super();
@@ -16,11 +15,9 @@ public class ArrayList<E> implements Iterable<E> {
 
     public ArrayList(int capacity) {
         super();
-
         if (capacity < 0) {
             throw new IllegalArgumentException("Illegal capacity: " + capacity);
         }
-
         elementData = (E[]) new Object[capacity];
 
     }
@@ -35,7 +32,6 @@ public class ArrayList<E> implements Iterable<E> {
 
     public boolean add(E e) {
         this.ensureCapacity();
-
         this.elementData[size++] = e;
         return true;
 
@@ -48,28 +44,27 @@ public class ArrayList<E> implements Iterable<E> {
     }
 
     public void add(int index, E element) {
+        rangeCheck(index);
+        this.ensureCapacity();
+        System.arraycopy(this.elementData, index, this.elementData, index + 1, size - index);
+        this.elementData[index] = element;
+        size++;
 
     }
 
     public E get(int index) {
         rangeCheck(index);
-
         return this.elementData[index];
     }
 
     public E remove(int index) {
         rangeCheck(index);
-
         E oldValue = this.get(index);
-
         int numMoved = size - index - 1;
-
         if (numMoved > 0) {
             System.arraycopy(this.elementData, index + 1, this.elementData, index, numMoved);
         }
-
         this.elementData[--size] = null;
-
         return oldValue;
     }
 
@@ -92,7 +87,6 @@ public class ArrayList<E> implements Iterable<E> {
     }
 
     private class ListIterator implements Iterator<E> {
-
         int index = -1;
 
         @Override

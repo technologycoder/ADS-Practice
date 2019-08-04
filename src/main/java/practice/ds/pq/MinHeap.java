@@ -40,6 +40,7 @@ public class MinHeap {
 
 	private void percolateUp(int index) {
 
+		// <= 0?
 		if (index < 0) {
 			return;
 		}

@@ -1,19 +1,6 @@
 package praxis.leetcode.trie;
 
 public class TrieUtil {
-
-    public static class TrieNode {
-
-        char val;
-        TrieNode[] children = new TrieNode[26];
-        boolean isWord;
-
-        public TrieNode(char val) {
-            this.val = val;
-        }
-
-    }
-
     public static TrieNode insert(TrieNode root, String word) {
 
         if (root == null) {
@@ -76,6 +63,20 @@ public class TrieUtil {
             iter = iter.children[index];
         }
         return true;
+
+    }
+
+    public static class TrieNode {
+        char val;
+
+        TrieNode[] children = new TrieNode[26];
+
+        boolean isWord;
+
+        public TrieNode(char val) {
+
+            this.val = val;
+        }
 
     }
 

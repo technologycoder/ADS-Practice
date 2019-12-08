@@ -30,7 +30,8 @@ package dsaj.primer;
  * @author Michael H. Goldwasser
  */
 public class Universe {
-  public static void main(String[] args) {
-    System.out.println("Hello Universe!");
-  }
+    public static void main(String[] args) {
+
+        System.out.println("Hello Universe!");
+    }
 }

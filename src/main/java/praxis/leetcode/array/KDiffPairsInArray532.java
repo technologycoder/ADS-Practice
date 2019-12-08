@@ -7,33 +7,31 @@ import java.util.Map;
 /**
  * Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here a k-diff pair is
  * defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.
- * 
- *
  */
 public class KDiffPairsInArray532 {
-
     public static void main(String[] args) {
-        int[] nums = { 3, 1, 4, 1, 5 };
+
+        int[] nums = {3, 1, 4, 1, 5};
         int k = 2;
         // 2
         System.out.println(findPairs1(nums, k));
 
-        nums = new int[] { 1, 2, 3, 4, 5 };
+        nums = new int[]{1, 2, 3, 4, 5};
         k = 1;
         // 4
         System.out.println(findPairs1(nums, k));
 
-        nums = new int[] { 1, 3, 1, 5, 4 };
+        nums = new int[]{1, 3, 1, 5, 4};
         k = 0;
         // 1
         System.out.println(findPairs1(nums, k));
 
-        nums = new int[] { 1, 2, 3, 4, 5 };
+        nums = new int[]{1, 2, 3, 4, 5};
         k = 2;
         // 3
         System.out.println(findPairs1(nums, k));
 
-        nums = new int[] { 1, 1, 1, 1, 1 };
+        nums = new int[]{1, 1, 1, 1, 1};
         k = 0;
         // 1
         System.out.println(findPairs1(nums, k));
@@ -47,7 +45,7 @@ public class KDiffPairsInArray532 {
         Arrays.sort(nums);
 
         int cnt = 0;
-        for (int i = 0, j = 1; i < nums.length && j < nums.length;) {
+        for (int i = 0, j = 1; i < nums.length && j < nums.length; ) {
             int diff = Math.abs(nums[i] - nums[j]);
             if (diff == k) {
                 cnt++;
@@ -72,6 +70,7 @@ public class KDiffPairsInArray532 {
     }
 
     public static int findPairs2(int[] nums, int k) {
+
         Arrays.sort(nums);
 
         int start = 0, end = 1, result = 0;
@@ -97,6 +96,7 @@ public class KDiffPairsInArray532 {
     }
 
     public static int findPairs1(int[] nums, int k) {
+
         if (nums == null || nums.length == 0 || k < 0)
             return 0;
 

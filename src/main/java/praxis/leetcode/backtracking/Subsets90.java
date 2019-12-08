@@ -22,15 +22,16 @@ If nums = [1,2,2], a solution is:
 ]
  */
 public class Subsets90 {
-
     public static void main(String[] args) {
-        int[] nums = { 1, 2, 2 };
+
+        int[] nums = {1, 2, 2};
         // int[] nums = { 1, 2, 3, 2 };
         System.out.println(subsetsWithDup(nums));
 
     }
 
     public static List<List<Integer>> subsetsWithDup(int[] nums) {
+
         List<List<Integer>> list = new ArrayList<>();
         Arrays.sort(nums);
         backtrack(list, new ArrayList<>(), nums, 0);
@@ -38,6 +39,7 @@ public class Subsets90 {
     }
 
     private static void backtrack(List<List<Integer>> list, List<Integer> tempList, int[] nums, int start) {
+
         list.add(new ArrayList<>(tempList));
         for (int i = start; i < nums.length; i++) {
             if (i > start && nums[i] == nums[i - 1]) {

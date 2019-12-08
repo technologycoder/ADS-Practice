@@ -3,13 +3,13 @@ package praxis.leetcode.stack;
 import java.util.Stack;
 
 public class ValidParentheses {
-
     public static void main(String[] args) {
         // TODO Auto-generated method stub
 
     }
 
     public boolean isValid(String s) {
+
         Stack<Character> stack = new Stack<Character>();
         for (char c : s.toCharArray()) {
             if (c == '(')

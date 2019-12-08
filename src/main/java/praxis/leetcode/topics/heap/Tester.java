@@ -1,8 +1,8 @@
 package praxis.leetcode.topics.heap;
 
 public class Tester {
-
     public static void main(String[] args) {
+
         testMinHeap();
 
     }

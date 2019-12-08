@@ -12,7 +12,6 @@ Find out which kind of array it is
  
  */
 public class ArrayType {
-
     public static void main(String[] args) {
         // TODO Auto-generated method stub
 

@@ -1,8 +1,8 @@
 package praxis.leetcode.backtracking;
 
 public class Permutation {
-
     public static void main(final String[] args) {
+
         String str = "ABC";
         // permutationRecursive(str, "");
 

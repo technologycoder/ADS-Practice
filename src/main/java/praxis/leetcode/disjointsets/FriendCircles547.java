@@ -5,19 +5,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class FriendCircles547 {
-
     public static void main(String[] args) {
+
         int[][] M = {
-                { 1, 1, 0 },
-                { 1, 1, 0 },
-                { 0, 0, 1 }
+                {1, 1, 0},
+                {1, 1, 0},
+                {0, 0, 1}
         };
 
         int[][] N = {
-                { 1, 0, 0, 1 },
-                { 0, 1, 1, 0 },
-                { 0, 1, 1, 1 },
-                { 1, 0, 1, 1 }
+                {1, 0, 0, 1},
+                {0, 1, 1, 0},
+                {0, 1, 1, 1},
+                {1, 0, 1, 1}
         };
 
         System.out.println(findCircleNum(N));

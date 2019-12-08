@@ -5,11 +5,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class Solution {
-
     public static void main(String[] args) {
 
-        Box[] boxes = { new Box(6, 4, 4), new Box(8, 6, 2), new Box(5, 3, 3),
-                new Box(7, 8, 3), new Box(4, 2, 2), new Box(9, 7, 3) };
+        Box[] boxes = {new Box(6, 4, 4), new Box(8, 6, 2), new Box(5, 3, 3),
+                new Box(7, 8, 3), new Box(4, 2, 2), new Box(9, 7, 3)};
 
         Solution.solutionRecursive(Arrays.asList(boxes));
         Solution.solutionRecursiveMemoization(Arrays.asList(boxes));
@@ -102,6 +101,7 @@ public class Solution {
     }
 
     public static void solutionIterative(List<Box> boxes) {
+
         Collections.sort(boxes, new BoxComparator());
 
         int maxHeight = 0;

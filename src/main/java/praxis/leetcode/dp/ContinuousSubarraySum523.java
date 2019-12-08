@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ContinuousSubarraySum523 {
-
     public static void main(String[] args) {
         // testCheckSubarraySumCubic();
         // testCheckSubarraySumQuadratic();
@@ -13,28 +12,30 @@ public class ContinuousSubarraySum523 {
     }
 
     public static void testCheckSubarraySumCubic() {
-        int[] nums = { 23, 2, 4, 6, 7 };
+
+        int[] nums = {23, 2, 4, 6, 7};
         System.out.println(checkSubarraySumCubic(nums, 6));
 
         System.out.println(checkSubarraySumCubic(nums, 0));
 
-        nums = new int[] { 23, 2, 0, 0, 7 };
+        nums = new int[]{23, 2, 0, 0, 7};
         System.out.println(checkSubarraySumCubic(nums, 0));
 
-        nums = new int[] { 23, 2, -4, 0, 7 };
+        nums = new int[]{23, 2, -4, 0, 7};
         // System.out.println(checkSubarraySumCubic(nums, 10));
     }
 
     public static void testCheckSubarraySumQuadratic() {
-        int[] nums = { 23, 2, 4, 6, 7 };
+
+        int[] nums = {23, 2, 4, 6, 7};
         System.out.println(checkSubarraySumQuadratic(nums, 6));
 
         System.out.println(checkSubarraySumQuadratic(nums, 0));
 
-        nums = new int[] { 23, 2, 0, 0, 7 };
+        nums = new int[]{23, 2, 0, 0, 7};
         System.out.println(checkSubarraySumQuadratic(nums, 0));
 
-        nums = new int[] { 23, 2, -4, 0, 7 };
+        nums = new int[]{23, 2, -4, 0, 7};
         // System.out.println(checkSubarraySumQuadratic(nums, 10));
     }
 
@@ -94,15 +95,16 @@ public class ContinuousSubarraySum523 {
     }
 
     public static void testCheckSubarraySumLinear() {
-        int[] nums = { 23, 2, 4, 6, 7 };
+
+        int[] nums = {23, 2, 4, 6, 7};
         System.out.println(checkSubarraySumQuadratic(nums, 6));
 
         System.out.println(checkSubarraySumQuadratic(nums, 0));
 
-        nums = new int[] { 23, 2, 0, 0, 7 };
+        nums = new int[]{23, 2, 0, 0, 7};
         System.out.println(checkSubarraySumQuadratic(nums, 0));
 
-        nums = new int[] { 23, 2, -4, 0, 7 };
+        nums = new int[]{23, 2, -4, 0, 7};
         // System.out.println(checkSubarraySumQuadratic(nums, 10));
     }
 

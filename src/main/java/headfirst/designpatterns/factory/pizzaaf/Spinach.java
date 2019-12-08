@@ -1,8 +1,8 @@
 package headfirst.designpatterns.factory.pizzaaf;
 
 public class Spinach implements Veggies {
+    public String toString() {
 
-	public String toString() {
-		return "Spinach";
-	}
+        return "Spinach";
+    }
 }

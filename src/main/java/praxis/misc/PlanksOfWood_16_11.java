@@ -3,7 +3,6 @@ package praxis.misc;
 import java.util.Arrays;
 
 public class PlanksOfWood_16_11 {
-
     public static void main(String[] args) {
 
         int[] result = new int[5];

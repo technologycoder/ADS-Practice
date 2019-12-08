@@ -1,7 +1,6 @@
 package praxis.leetcode.topics.linkedlist;
 
 public class LinkedList<E extends Comparable<E>> {
-
     private Node<E> head;
 
     public void add(E data) {
@@ -20,6 +19,7 @@ public class LinkedList<E extends Comparable<E>> {
     }
 
     public void reverseList() {
+
         Node<E> curr = head;
 
         Node<E> prev = null;
@@ -75,11 +75,12 @@ public class LinkedList<E extends Comparable<E>> {
     }
 
     public static class Node<E extends Comparable<E>> implements Comparable<Node<E>> {
-
         private E data;
+
         private Node<E> next;
 
         public Node(E data, Node<E> next) {
+
             this.data = data;
             this.next = next;
 
@@ -87,20 +88,23 @@ public class LinkedList<E extends Comparable<E>> {
 
         @Override
         public String toString() {
+
             return String.format("[%s]", data.toString());
         }
 
         @Override
         public int hashCode() {
+
             final int prime = 31;
             int result = 1;
             result = prime * result + ((data == null) ? 0 : data.hashCode());
             return result;
         }
 
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings( "unchecked" )
         @Override
         public boolean equals(Object obj) {
+
             if (this == obj)
                 return true;
             if (obj == null)
@@ -124,10 +128,12 @@ public class LinkedList<E extends Comparable<E>> {
         }
 
         public E getData() {
+
             return data;
         }
 
         public Node<E> getNext() {
+
             return next;
         }
 

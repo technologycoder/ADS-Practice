@@ -5,11 +5,13 @@ import java.util.List;
 
 class LegacyLibrary {
     public static void addItems(List list) {
+
         list.add(new Integer(1));
         list.add("two");
     }
 
     public static List getItems() {
+
         List list = new ArrayList();
         list.add(new Integer(3));
         list.add("four");
@@ -19,6 +21,7 @@ class LegacyLibrary {
 
 class NaiveClient {
     public static void processItems() {
+
         List<Integer> list = new ArrayList<>();
         LegacyLibrary.addItems(list);
         List<Integer> list2 = LegacyLibrary.getItems(); // unchecked
@@ -31,12 +34,14 @@ class NaiveClient {
     }
 
     public static void main(String[] args) {
+
         processItems();
     }
 }
 
 class WaryClient {
     public static void processItems() {
+
         List<Integer> list = new ArrayList<>();
         List<Integer> view = Collections.checkedList(list, Integer.class);
         LegacyLibrary.addItems(view); // class cast exception
@@ -52,6 +57,7 @@ class WaryClient {
     }
 
     public static void main(String[] args) {
+
         processItems();
     }
 }

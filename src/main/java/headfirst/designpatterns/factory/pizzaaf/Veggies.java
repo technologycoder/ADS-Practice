@@ -1,5 +1,5 @@
 package headfirst.designpatterns.factory.pizzaaf;
 
 public interface Veggies {
-	public String toString();
+    public String toString();
 }

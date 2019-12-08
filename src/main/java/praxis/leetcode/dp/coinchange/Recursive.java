@@ -1,9 +1,9 @@
 package praxis.leetcode.dp.coinchange;
 
 public class Recursive {
-
     public static void main(String[] args) {
-        int[] coins = { 1, 2, 3, 4 };
+
+        int[] coins = {1, 2, 3, 4};
         int amount = 5;
 
         System.out.println(totalWays(coins, amount, 0, 0));

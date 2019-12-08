@@ -5,6 +5,7 @@ public class EmployeeTaxStrategy implements TaxStrategy {
 
     @Override
     public double extortCash(double income) {
+
         return income * RATE;
     }
 }

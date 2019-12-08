@@ -1,26 +1,31 @@
 package headfirst.designpatterns.combining.observer;
 
 public class RedheadDuck implements Quackable {
-	Observable observable;
+    Observable observable;
 
-	public RedheadDuck() {
-		observable = new Observable(this);
-	}
+    public RedheadDuck() {
 
-	public void quack() {
-		System.out.println("Quack");
-		notifyObservers();
-	}
+        observable = new Observable(this);
+    }
 
-	public void registerObserver(Observer observer) {
-		observable.registerObserver(observer);
-	}
+    public void quack() {
 
-	public void notifyObservers() {
-		observable.notifyObservers();
-	}
+        System.out.println("Quack");
+        notifyObservers();
+    }
 
-	public String toString() {
-		return "Redhead Duck";
-	}
+    public void registerObserver(Observer observer) {
+
+        observable.registerObserver(observer);
+    }
+
+    public void notifyObservers() {
+
+        observable.notifyObservers();
+    }
+
+    public String toString() {
+
+        return "Redhead Duck";
+    }
 }

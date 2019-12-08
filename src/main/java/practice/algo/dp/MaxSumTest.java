@@ -1,9 +1,13 @@
 package practice.algo.dp;
 
 public final class MaxSumTest {
+    static private int seqStart = 0;
+
+    static private int seqEnd = -1;
 
     public static void main(final String[] args) {
-        int a[] = { 4, -3, 5, -2, -1, 2, 6, -2 };
+
+        int a[] = {4, -3, 5, -2, -1, 2, 6, -2};
         int maxSum;
 
         maxSum = maxSubSum1(a);
@@ -19,14 +23,11 @@ public final class MaxSumTest {
         System.out.println("Max sum is " + maxSum);
     }
 
-    static private int seqStart = 0;
-    static private int seqEnd = -1;
-
     /**
      * * Cubic maximum contiguous subsequence sum algorithm. * seqStart and seqEnd represent the actual best sequence.
      */
-
     public static int maxSubSum1(final int[] a) {
+
         int maxSum = 0;
 
         for (int i = 0; i < a.length; i++)
@@ -49,8 +50,8 @@ public final class MaxSumTest {
     /**
      * Quadratic maximum contiguous subsequence sum algorithm. seqStart and seqEnd represent the actual best sequence.
      */
-
     public static int maxSubSum2(final int[] a) {
+
         int maxSum = 0;
 
         for (int i = 0; i < a.length; i++) {
@@ -72,8 +73,8 @@ public final class MaxSumTest {
     /**
      * Linear-time maximum contiguous subsequence sum algorithm. seqStart and seqEnd represent the actual best sequence.
      */
-
     public static int maxSubSum3(final int[] a) {
+
         int maxSum = 0;
         int thisSum = 0;
 
@@ -97,8 +98,8 @@ public final class MaxSumTest {
      * Recursive maximum contiguous subsequence sum algorithm. Finds maximum sum in subarray spanning a[left..right]. Does not attempt to
      * maintain actual best sequence.
      */
-
     private static int maxSumRec(final int[] a, final int left, final int right) {
+
         int maxLeftBorderSum = 0, maxRightBorderSum = 0;
         int leftBorderSum = 0, rightBorderSum = 0;
         int center = (left + right) / 2;
@@ -128,21 +129,20 @@ public final class MaxSumTest {
     /**
      * Return maximum of three integers.
      */
-
     private static int max3(final int a, final int b, final int c) {
+
         return (a > b ? (a > c ? a : c) : (b > c ? b : c));
     }
 
     /**
      * Driver for divide-and-conquer maximum contiguous subsequence sum algorithm.
      */
-
     public static int maxSubSum4(final int[] a) {
+
         return a.length > 0 ? maxSumRec(a, 0, a.length - 1) : 0;
     }
 
     /**
      * Simple test program.
      */
-
 }

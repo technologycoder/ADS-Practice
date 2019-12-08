@@ -1,48 +1,47 @@
 package practice.algo.sorting;
 
 public class QuickSort {
+    public static void quickSort(int[] arr) {
 
-	public static void quickSort(int[] arr) {
+        quickSort(arr, 0, arr.length - 1);
 
-		quickSort(arr, 0, arr.length - 1);
+    }
 
-	}
+    private static void quickSort(int[] arr, int start, int end) {
 
-	private static void quickSort(int[] arr, int start, int end) {
+        int index = partition(arr, start, end);
 
-		int index = partition(arr, start, end);
+        if (start < index - 1)
+            quickSort(arr, start, index - 1);
 
-		if (start < index - 1)
-			quickSort(arr, start, index - 1);
+        if (index < end)
+            quickSort(arr, index, end);
+    }
 
-		if (index < end)
-			quickSort(arr, index, end);
-	}
+    private static int partition(int[] arr, int left, int right) {
 
-	private static int partition(int[] arr, int left, int right) {
+        int pivot = arr[(left + right) / 2];
 
-		int pivot = arr[(left + right) / 2];
+        while (left <= right) {
 
-		while (left <= right) {
+            while (arr[left] < pivot)
+                left++;
 
-			while (arr[left] < pivot)
-				left++;
+            while (arr[right] > pivot)
+                right--;
 
-			while (arr[right] > pivot)
-				right--;
+            if (left <= right) {
 
-			if (left <= right) {
+                int temp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = temp;
+                left++;
+                right--;
+            }
 
-				int temp = arr[left];
-				arr[left] = arr[right];
-				arr[right] = temp;
-				left++;
-				right--;
-			}
+        }
 
-		}
-
-		return left;
-	}
+        return left;
+    }
 
 }

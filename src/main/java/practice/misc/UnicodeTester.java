@@ -24,6 +24,7 @@ public class UnicodeTester {
     }
 
     public static String newString(final int codePoint) {
+
         return new String(Character.toChars(codePoint));
     }
 }

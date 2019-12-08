@@ -29,16 +29,18 @@ package net.datastructures;
  * @author Roberto Tamassia
  * @author Michael H. Goldwasser
  */
-public interface Entry<K,V> {
-  /**
-   * Returns the key stored in this entry.
-   * @return the entry's key
-   */
-  K getKey();
+public interface Entry<K, V> {
+    /**
+     * Returns the key stored in this entry.
+     *
+     * @return the entry's key
+     */
+    K getKey();
 
-  /**
-   * Returns the value stored in this entry.
-   * @return the entry's value
-   */
-  V getValue();
+    /**
+     * Returns the value stored in this entry.
+     *
+     * @return the entry's value
+     */
+    V getValue();
 }

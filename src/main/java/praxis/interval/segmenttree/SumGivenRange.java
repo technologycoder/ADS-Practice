@@ -21,14 +21,37 @@ public class SumGivenRange {
         constructSTUtil(arr, 0, n - 1, 0);
     }
 
+    // Driver program to test above functions
+    public static void main(String args[]) {
+
+        int arr[] = {1, 3, 5, 7, 9, 11};
+        int n = arr.length;
+        SumGivenRange tree = new SumGivenRange(arr, n);
+
+        // Build segment tree from given array
+
+        // Print sum of values in array from index 1 to 3
+        System.out.println("Sum of values in given range = " +
+                tree.getSum(n, 1, 3));
+
+        // Update: set arr[1] = 10 and update corresponding segment
+        // tree nodes
+        tree.updateValue(arr, n, 1, 10);
+
+        // Find sum after the value is updated
+        System.out.println("Updated sum of values in given range = " +
+                tree.getSum(n, 1, 3));
+    }
+
     // A utility function to get the middle index from corner indexes.
     int getMid(int s, int e) {
+
         return s + (e - s) / 2;
     }
 
     /*
      * A recursive function to get the sum of values in given range of the array. The following are parameters for this function.
-     * 
+     *
      * st --> Pointer to segment tree si --> Index of current node in the segment tree. Initially 0 is passed as root is always at index 0
      * ss & se --> Starting and ending indexes of the segment represented by current node, i.e., st[si] qs & qe --> Starting and ending
      * indexes of query range
@@ -116,26 +139,5 @@ public class SumGivenRange {
         st[si] = constructSTUtil(arr, ss, mid, si * 2 + 1) +
                 constructSTUtil(arr, mid + 1, se, si * 2 + 2);
         return st[si];
-    }
-
-    // Driver program to test above functions
-    public static void main(String args[]) {
-        int arr[] = { 1, 3, 5, 7, 9, 11 };
-        int n = arr.length;
-        SumGivenRange tree = new SumGivenRange(arr, n);
-
-        // Build segment tree from given array
-
-        // Print sum of values in array from index 1 to 3
-        System.out.println("Sum of values in given range = " +
-                tree.getSum(n, 1, 3));
-
-        // Update: set arr[1] = 10 and update corresponding segment
-        // tree nodes
-        tree.updateValue(arr, n, 1, 10);
-
-        // Find sum after the value is updated
-        System.out.println("Updated sum of values in given range = " +
-                tree.getSum(n, 1, 3));
     }
 }

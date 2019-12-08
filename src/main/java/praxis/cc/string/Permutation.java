@@ -15,5 +15,4 @@ package praxis.cc.string;
  
  */
 public class Permutation {
-
 }

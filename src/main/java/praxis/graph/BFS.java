@@ -1,4 +1,3 @@
-
 package praxis.graph;
 
 import java.util.ArrayDeque;
@@ -8,8 +7,8 @@ import java.util.Map;
 import java.util.Queue;
 
 public class BFS {
-
     public static void main(final String[] args) {
+
         int size = 8;
         Map<Character, Integer> map = new HashMap<>();
         int[][] graph = createGraph(map, size);
@@ -25,10 +24,6 @@ public class BFS {
         bfs(graph, map.get('s'), size);
 
     }
-
-    static enum State {
-        UNVISITED, VISTING, VISITED
-    };
 
     public static void bfs(final int[][] graph, final int startNode, final int size) {
 
@@ -72,6 +67,8 @@ public class BFS {
 
     }
 
+    ;
+
     public static int[][] createGraph(final Map<Character, Integer> map, final int size) {
 
         char c = 'r';
@@ -96,18 +93,22 @@ public class BFS {
         addUndirectedEdge(graph, 'u', 'y', map);
 
         System.out.println(Arrays.deepToString(graph)
-                                 .replaceAll("],", "]\n"));
+                .replaceAll("],", "]\n"));
 
         return graph;
 
     }
 
     public static void addUndirectedEdge(final int[][] graph, final char node1,
-            final char node2, final Map<Character, Integer> map) {
+                                         final char node2, final Map<Character, Integer> map) {
 
         graph[map.get(node1)][map.get(node2)] = 1;
         graph[map.get(node2)][map.get(node1)] = 1;
 
+    }
+
+    static enum State {
+        UNVISITED, VISTING, VISITED
     }
 
 }

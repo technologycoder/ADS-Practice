@@ -16,7 +16,7 @@ public interface PriorityQueue<T> {
 
     /**
      * Returns, but does not delete the element at the top of the priority queue.
-     * 
+     *
      * @return the element at the top of the priority queue
      * @throws IllegalStateException if priority queue is empty
      */
@@ -24,7 +24,7 @@ public interface PriorityQueue<T> {
 
     /**
      * Deletes and returns the element at the top of the priority queue.
-     * 
+     *
      * @return the element at the top of the priority queue
      * @throws IllegalStateException if priority queue is empty
      */

@@ -22,10 +22,17 @@
  */
 package dsaj.design;
 
-/** Interface for objects that can be transported. */
+/**
+ * Interface for objects that can be transported.
+ */
 public interface Transportable {
-  /** Returns the weight in grams. */
-  public int weight();
-  /** Returns whether the object is hazardous. */
-  public boolean isHazardous();
+    /**
+     * Returns the weight in grams.
+     */
+    public int weight();
+
+    /**
+     * Returns whether the object is hazardous.
+     */
+    public boolean isHazardous();
 }

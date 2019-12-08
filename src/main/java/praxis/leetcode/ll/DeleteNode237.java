@@ -1,9 +1,9 @@
 package praxis.leetcode.ll;
 
 public class DeleteNode237 {
-
     public static void main(String[] args) {
-        int[] nums = { 1, 2, 3, 4, 5, 6, 7 };
+
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
 
         ListNode head = createList(nums);
         display(head);
@@ -80,9 +80,11 @@ public class DeleteNode237 {
 
     public static class ListNode {
         int val;
+
         ListNode next;
 
         ListNode(int x) {
+
             val = x;
         }
     }

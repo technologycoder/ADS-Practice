@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConcatenatedWords472 {
-
     public static void main(String[] args) {
         // String[] words = { "cat", "cats", "catsxyzdogxyzcats", "dog", "dogxzcatsxzdog", "hippopotamuses", "rat", "ratxzcatxzdogxzcat" };
 
-        String[] words = { "cat", "cats", "catszdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat" };
+        String[] words = {"cat", "cats", "catszdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"};
         System.out.println(findAllConcatenatedWordsInADict(words));
 
     }
 
     public static List<String> findAllConcatenatedWordsInADict(String[] words) {
+
         List<String> res = new ArrayList<>();
         Trie tree = new Trie();
         for (String s : words) {
@@ -51,10 +51,13 @@ public class ConcatenatedWords472 {
 
     public static class TrieNode {
         char val;
+
         boolean isWord;
+
         TrieNode[] children;
 
         public TrieNode(char val) {
+
             this.val = val;
             this.isWord = false;
             children = new TrieNode[26];
@@ -65,10 +68,12 @@ public class ConcatenatedWords472 {
         TrieNode root;
 
         public Trie() {
+
             this.root = new TrieNode(' ');
         }
 
         public void insert(String s) {
+
             TrieNode cur = root;
             char[] arr = s.toCharArray();
             for (int i = 0; i < arr.length; i++) {
@@ -81,6 +86,7 @@ public class ConcatenatedWords472 {
         }
 
         public boolean search(String s) {
+
             TrieNode cur = root;
             char[] arr = s.toCharArray();
             for (int i = 0; i < arr.length; i++) {

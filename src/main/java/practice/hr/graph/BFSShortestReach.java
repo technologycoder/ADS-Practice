@@ -6,7 +6,6 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class BFSShortestReach {
-
     public static void main(final String[] args) {
 
         // readInputUsingScannerAndProcessBFS();
@@ -60,10 +59,6 @@ public class BFSShortestReach {
 
     }
 
-    private static enum State {
-        UNVISITED, VISITING, VISITED;
-    }
-
     private static void bfs(final int[][] graph, final int startNode, final int nodeCount) {
 
         // System.out.println(Arrays.deepToString(graph) + " - " + startNode);
@@ -114,6 +109,10 @@ public class BFSShortestReach {
         }
         System.out.println("");
 
+    }
+
+    private static enum State {
+        UNVISITED, VISITING, VISITED;
     }
 
 }

@@ -1,6 +1,18 @@
 package praxis.disjointset;
 
 public class DisjointUnionSet {
+    int[] rank, parent;
+
+    int n;
+
+    // Constructor
+    public DisjointUnionSet(int n) {
+
+        rank = new int[n];
+        parent = new int[n];
+        this.n = n;
+        makeSet();
+    }
 
     public static void main(String[] args) {
         // Let there be 5 persons with ids as
@@ -30,19 +42,9 @@ public class DisjointUnionSet {
             System.out.println("No");
     }
 
-    int[] rank, parent;
-    int n;
-
-    // Constructor
-    public DisjointUnionSet(int n) {
-        rank = new int[n];
-        parent = new int[n];
-        this.n = n;
-        makeSet();
-    }
-
     // Creates n sets with single item in each
     void makeSet() {
+
         for (int i = 0; i < n; i++) {
             // Initially, all elements are in
             // their own set.
@@ -89,7 +91,7 @@ public class DisjointUnionSet {
             // of tree remains less
             parent[xRoot] = yRoot;
 
-        // Else if y's rank is less than x's rank
+            // Else if y's rank is less than x's rank
         else if (rank[yRoot] < rank[xRoot])
 
             // Then move y under x so that depth of
@@ -109,10 +111,12 @@ public class DisjointUnionSet {
     }
 
     public int[] getParents() {
+
         return this.parent;
     }
 
     public int[] getRanks() {
+
         return this.rank;
     }
 }

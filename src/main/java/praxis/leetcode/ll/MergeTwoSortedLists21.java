@@ -1,12 +1,11 @@
 package praxis.leetcode.ll;
 
 public class MergeTwoSortedLists21 extends LinkedListUtil {
-
     public static void main(String[] args) {
 
-        int[] nums1 = { 2, 8, 10, 15, 34 };
+        int[] nums1 = {2, 8, 10, 15, 34};
 
-        int[] nums2 = { 1, 4, 6, 12, 20, 89 };
+        int[] nums2 = {1, 4, 6, 12, 20, 89};
 
         ListNode l1 = createList(nums1);
         ListNode l2 = createList(nums2);
@@ -16,6 +15,7 @@ public class MergeTwoSortedLists21 extends LinkedListUtil {
     }
 
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+
         if (l1 == null) {
             return l2;
         }

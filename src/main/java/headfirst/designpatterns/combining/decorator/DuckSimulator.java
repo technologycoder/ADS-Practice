@@ -1,31 +1,34 @@
 package headfirst.designpatterns.combining.decorator;
 
 public class DuckSimulator {
-	public static void main(String[] args) {
-		DuckSimulator simulator = new DuckSimulator();
-		simulator.simulate();
-	}
+    public static void main(String[] args) {
 
-	void simulate() {
-		Quackable mallardDuck = new QuackCounter(new MallardDuck());
-		Quackable redheadDuck = new QuackCounter(new RedheadDuck());
-		Quackable duckCall = new QuackCounter(new DuckCall());
-		Quackable rubberDuck = new QuackCounter(new RubberDuck());
-		Quackable gooseDuck = new GooseAdapter(new Goose());
+        DuckSimulator simulator = new DuckSimulator();
+        simulator.simulate();
+    }
 
-		System.out.println("\nDuck Simulator: With Decorator");
+    void simulate() {
 
-		simulate(mallardDuck);
-		simulate(redheadDuck);
-		simulate(duckCall);
-		simulate(rubberDuck);
-		simulate(gooseDuck);
+        Quackable mallardDuck = new QuackCounter(new MallardDuck());
+        Quackable redheadDuck = new QuackCounter(new RedheadDuck());
+        Quackable duckCall = new QuackCounter(new DuckCall());
+        Quackable rubberDuck = new QuackCounter(new RubberDuck());
+        Quackable gooseDuck = new GooseAdapter(new Goose());
 
-		System.out.println("The ducks quacked " + 
-		                   QuackCounter.getQuacks() + " times");
-	}
+        System.out.println("\nDuck Simulator: With Decorator");
 
-	void simulate(Quackable duck) {
-		duck.quack();
-	}
+        simulate(mallardDuck);
+        simulate(redheadDuck);
+        simulate(duckCall);
+        simulate(rubberDuck);
+        simulate(gooseDuck);
+
+        System.out.println("The ducks quacked " +
+                QuackCounter.getQuacks() + " times");
+    }
+
+    void simulate(Quackable duck) {
+
+        duck.quack();
+    }
 }

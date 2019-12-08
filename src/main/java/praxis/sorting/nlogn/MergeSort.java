@@ -3,9 +3,9 @@ package praxis.sorting.nlogn;
 import java.util.Arrays;
 
 public class MergeSort {
-
     public static void main(final String[] args) {
-        int[] num = new int[] { 38, 27, 43, 3, 9, 82, 10 };
+
+        int[] num = new int[]{38, 27, 43, 3, 9, 82, 10};
 
         System.out.println(Arrays.toString(num));
         mergeSort(num, 0, num.length - 1);

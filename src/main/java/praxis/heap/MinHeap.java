@@ -1,8 +1,17 @@
 package praxis.heap;
 
 public class MinHeap<E extends Comparable<E>> {
+    private E[] data;
+
+    private int size;
+
+    public MinHeap(final int capacity) {
+
+        this.data = (E[]) new Comparable[capacity];
+    }
 
     public static void main(final String[] args) {
+
         tester();
     }
 
@@ -24,13 +33,6 @@ public class MinHeap<E extends Comparable<E>> {
 
         minHeap.display();
 
-    }
-
-    private E[] data;
-    private int size;
-
-    public MinHeap(final int capacity) {
-        this.data = (E[]) new Comparable[capacity];
     }
 
     private void display() {
@@ -164,10 +166,12 @@ public class MinHeap<E extends Comparable<E>> {
     }
 
     private boolean hasLeftChild(final int index) {
+
         return this.getLeftChildIndex(index) != -1;
     }
 
     private boolean hasRightChild(final int index) {
+
         return this.getRightChildIndex(index) != -1;
     }
 

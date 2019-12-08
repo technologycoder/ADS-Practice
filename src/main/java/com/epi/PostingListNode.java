@@ -4,24 +4,44 @@ package com.epi;
  * @author translated from c++ by Blazheev Alexander
  */
 public class PostingListNode {
-  private int order;
-  private PostingListNode next, jump;
+    private int order;
 
-  public PostingListNode(int order, PostingListNode next, PostingListNode jump) {
-    this.order = order;
-    this.next = next;
-    this.jump = jump;
-  }
+    private PostingListNode next, jump;
 
-  public int getOrder() { return order; }
+    public PostingListNode(int order, PostingListNode next, PostingListNode jump) {
 
-  public void setOrder(int order) { this.order = order; }
+        this.order = order;
+        this.next = next;
+        this.jump = jump;
+    }
 
-  public PostingListNode getNext() { return next; }
+    public int getOrder() {
 
-  public void setNext(PostingListNode next) { this.next = next; }
+        return order;
+    }
 
-  public PostingListNode getJump() { return jump; }
+    public void setOrder(int order) {
 
-  public void setJump(PostingListNode jump) { this.jump = jump; }
+        this.order = order;
+    }
+
+    public PostingListNode getNext() {
+
+        return next;
+    }
+
+    public void setNext(PostingListNode next) {
+
+        this.next = next;
+    }
+
+    public PostingListNode getJump() {
+
+        return jump;
+    }
+
+    public void setJump(PostingListNode jump) {
+
+        this.jump = jump;
+    }
 }

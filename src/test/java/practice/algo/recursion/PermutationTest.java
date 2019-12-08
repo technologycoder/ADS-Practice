@@ -1,13 +1,12 @@
 package practice.algo.recursion;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
 
-public class PermutationTest {
+import java.util.ArrayList;
+import java.util.List;
 
+public class PermutationTest {
     @Test
     public void recursivePermute() {
 
@@ -17,7 +16,7 @@ public class PermutationTest {
 
         Permutation.recursivePermute(str, "", results);
 
-        Assert.assertArrayEquals(new String[] { "CBA", "BCA", "CAB", "ACB", "BAC", "ABC" }, results.toArray(new String[] {}));
+        Assert.assertArrayEquals(new String[]{"CBA", "BCA", "CAB", "ACB", "BAC", "ABC"}, results.toArray(new String[]{}));
 
     }
 

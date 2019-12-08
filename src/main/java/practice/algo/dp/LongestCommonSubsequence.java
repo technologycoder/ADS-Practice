@@ -3,7 +3,6 @@ package practice.algo.dp;
 import java.util.Arrays;
 
 public class LongestCommonSubsequence {
-
     public static void main(String[] args) {
         //System.out.println(lcs("ABCBDAB", "BDCABA"));
 
@@ -36,7 +35,7 @@ public class LongestCommonSubsequence {
         int[][] table = new int[m + 1][n + 1];
 
         System.out.println(Arrays.deepToString(table)
-                                 .replaceAll("],", "]," + System.lineSeparator()));
+                .replaceAll("],", "]," + System.lineSeparator()));
 
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
@@ -52,7 +51,7 @@ public class LongestCommonSubsequence {
         }
 
         System.out.println(Arrays.deepToString(table)
-                                 .replaceAll("],", "]," + System.lineSeparator()));
+                .replaceAll("],", "]," + System.lineSeparator()));
 
         allLCS(table, m, n, x, "");
 
@@ -66,7 +65,7 @@ public class LongestCommonSubsequence {
         int[][] table = new int[m + 1][n + 1];
 
         System.out.println(Arrays.deepToString(table)
-                                 .replaceAll("],", "]," + System.getProperty("line.separator")));
+                .replaceAll("],", "]," + System.getProperty("line.separator")));
 
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
@@ -82,7 +81,7 @@ public class LongestCommonSubsequence {
         }
 
         System.out.println(Arrays.deepToString(table)
-                                 .replaceAll("],", "]," + System.getProperty("line.separator")));
+                .replaceAll("],", "]," + System.getProperty("line.separator")));
 
         allLCS(table, m, n, x, "");
 

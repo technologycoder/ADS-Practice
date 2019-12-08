@@ -4,14 +4,15 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class ArraysTester {
-
     public static void main(String[] args) {
+
         copyArray();
     }
 
     public static void copyArray() {
+
         int[] arr1 = new Random().ints(5, 0, 20)
-                                 .toArray();
+                .toArray();
 
         int[] arr2 = Arrays.copyOf(arr1, arr1.length);
 

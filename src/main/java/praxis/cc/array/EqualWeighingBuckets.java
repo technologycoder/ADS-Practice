@@ -13,7 +13,6 @@ bucket size: 3
 output:[10],[9,1],[3,6]
  */
 public class EqualWeighingBuckets {
-
     public static void main(String[] args) {
 
         System.out.println("hello");

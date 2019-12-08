@@ -4,25 +4,43 @@ package com.epi.utils;
  * @author translated from c++ by Blazheev Alexander
  */
 public class Pair<A, B> {
-  private A first;
-  private B second;
+    private A first;
 
-  public Pair(A first, B second) {
-    this.first = first;
-    this.second = second;
-  }
+    private B second;
 
-  public A getFirst() { return first; }
+    public Pair(A first, B second) {
 
-  public void setFirst(A first) { this.first = first; }
+        this.first = first;
+        this.second = second;
+    }
 
-  public B getSecond() { return second; }
+    public static <T extends Comparable<T>> Pair<T, T> minmax(T a, T b) {
 
-  public void setSecond(B second) { this.second = second; }
+        return b.compareTo(a) < 0 ? new Pair<>(b, a) : new Pair<>(a, b);
+    }
 
-  public String toString() { return first + " " + second; }
+    public A getFirst() {
 
-  public static <T extends Comparable<T>> Pair<T, T> minmax(T a, T b) {
-    return b.compareTo(a) < 0 ? new Pair<>(b, a) : new Pair<>(a, b);
-  }
+        return first;
+    }
+
+    public void setFirst(A first) {
+
+        this.first = first;
+    }
+
+    public B getSecond() {
+
+        return second;
+    }
+
+    public void setSecond(B second) {
+
+        this.second = second;
+    }
+
+    public String toString() {
+
+        return first + " " + second;
+    }
 }

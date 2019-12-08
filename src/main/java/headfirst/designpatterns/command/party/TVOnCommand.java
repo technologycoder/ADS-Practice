@@ -1,18 +1,21 @@
 package headfirst.designpatterns.command.party;
 
 public class TVOnCommand implements Command {
-	TV tv;
+    TV tv;
 
-	public TVOnCommand(TV tv) {
-		this.tv= tv;
-	}
+    public TVOnCommand(TV tv) {
 
-	public void execute() {
-		tv.on();
-		tv.setInputChannel();
-	}
+        this.tv = tv;
+    }
 
-	public void undo() {
-		tv.off();
-	}
+    public void execute() {
+
+        tv.on();
+        tv.setInputChannel();
+    }
+
+    public void undo() {
+
+        tv.off();
+    }
 }

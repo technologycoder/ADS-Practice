@@ -1,179 +1,180 @@
 package practice.misc;
 
 public class TopQuestions {
+    private static Node head;
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		// middleElementLL();
-		// checkForLoopInLL();
-		// thirdElementFromEnd();
+        // middleElementLL();
+        // checkForLoopInLL();
+        // thirdElementFromEnd();
 
-		createLL();
-		reverseLLRecursive(head);
-		displayLL();
-	}
+        createLL();
+        reverseLLRecursive(head);
+        displayLL();
+    }
 
-	private static void middleElementLL() {
+    private static void middleElementLL() {
 
-		createLL();
+        createLL();
 
-		Node slow = head;
-		Node fast = head;
+        Node slow = head;
+        Node fast = head;
 
-		int len = 1;
-		while (fast.next != null) {
+        int len = 1;
+        while (fast.next != null) {
 
-			if (len % 2 == 0) {
-				slow = slow.next;
-			}
+            if (len % 2 == 0) {
+                slow = slow.next;
+            }
 
-			fast = fast.next;
-			len++;
+            fast = fast.next;
+            len++;
 
-		}
+        }
 
-		System.out.println("---------------");
-		System.out.println(fast.num);
-		System.out.println(slow.num);
+        System.out.println("---------------");
+        System.out.println(fast.num);
+        System.out.println(slow.num);
 
-	}
+    }
 
-	private static void checkForLoopInLL() {
+    private static void checkForLoopInLL() {
 
-		createLLWithLoop();
-		// createLL();
+        createLLWithLoop();
+        // createLL();
 
-		Node fast = head;
-		Node slow = head;
+        Node fast = head;
+        Node slow = head;
 
-		int len = 1;
+        int len = 1;
 
-		while (fast.next != null) {
+        while (fast.next != null) {
 
-			if (len % 2 == 0) {
-				slow = slow.next;
-			}
+            if (len % 2 == 0) {
+                slow = slow.next;
+            }
 
-			fast = fast.next;
-			len++;
+            fast = fast.next;
+            len++;
 
-			if (fast == slow || fast.next == slow) {
-				System.out.println("Loop found in LL");
-				break;
-			}
+            if (fast == slow || fast.next == slow) {
+                System.out.println("Loop found in LL");
+                break;
+            }
 
-		}
+        }
 
-		if (fast.next == null) {
-			System.out.println("Loop NOT found in LL");
-		}
+        if (fast.next == null) {
+            System.out.println("Loop NOT found in LL");
+        }
 
-	}
+    }
 
-	private static void thirdElementFromEnd() {
-		createLL();
+    private static void thirdElementFromEnd() {
 
-		Node front = head;
-		Node back = head;
+        createLL();
 
-		int length = 1;
-		while (front.next != null) {
-			front = front.next;
-			length++;
+        Node front = head;
+        Node back = head;
 
-			if (length > 3) {
-				back = back.next;
-			}
-		}
+        int length = 1;
+        while (front.next != null) {
+            front = front.next;
+            length++;
 
-		System.out.println("Third element from end: " + back.num);
+            if (length > 3) {
+                back = back.next;
+            }
+        }
 
-	}
+        System.out.println("Third element from end: " + back.num);
 
-	private static void reverseLLRecursive(Node node) {
+    }
 
-		if (node == null) {
-			return;
-		}
+    private static void reverseLLRecursive(Node node) {
 
-		if (node.next == null) {
+        if (node == null) {
+            return;
+        }
 
-			head = node;
-			return;
-		}
+        if (node.next == null) {
 
-		reverseLLRecursive(node.next);
-		node.next.next = node;
-		node.next = null;
+            head = node;
+            return;
+        }
 
-	}
+        reverseLLRecursive(node.next);
+        node.next.next = node;
+        node.next = null;
 
-	private static Node insert(int num) {
+    }
 
-		Node node = new Node(num);
+    private static Node insert(int num) {
 
-		if (head == null) {
+        Node node = new Node(num);
 
-			head = node;
-		} else {
+        if (head == null) {
 
-			Node iter = head;
+            head = node;
+        } else {
 
-			while (iter.next != null) {
-				iter = iter.next;
-			}
+            Node iter = head;
 
-			iter.next = node;
-		}
-		return node;
-	}
+            while (iter.next != null) {
+                iter = iter.next;
+            }
 
-	private static void createLLWithLoop() {
+            iter.next = node;
+        }
+        return node;
+    }
 
-		insert(23);
-		Node node = insert(13);
-		insert(45);
-		insert(65);
-		insert(25).next = node;
+    private static void createLLWithLoop() {
 
-	}
+        insert(23);
+        Node node = insert(13);
+        insert(45);
+        insert(65);
+        insert(25).next = node;
 
-	private static void createLL() {
+    }
 
-		insert(23);
-		insert(13);
-		insert(45);
-		insert(65);
-		insert(25);
+    private static void createLL() {
 
-		displayLL();
+        insert(23);
+        insert(13);
+        insert(45);
+        insert(65);
+        insert(25);
 
-	}
+        displayLL();
 
-	private static void displayLL() {
+    }
 
-		Node iter = head;
+    private static void displayLL() {
 
-		while (iter != null) {
-			System.out.println(iter.num);
-			iter = iter.next;
-		}
+        Node iter = head;
 
-		System.out.println("---------------");
+        while (iter != null) {
+            System.out.println(iter.num);
+            iter = iter.next;
+        }
 
-	}
+        System.out.println("---------------");
 
-	private static Node head;
+    }
 
-	private static class Node {
+    private static class Node {
+        public int num;
 
-		public int num;
-		public Node next;
+        public Node next;
 
-		public Node(int num) {
-			this.num = num;
+        public Node(int num) {
 
-		}
-	}
+            this.num = num;
+
+        }
+    }
 
 }

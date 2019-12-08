@@ -3,21 +3,24 @@ package praxis.leetcode.topics.heap;
 import java.util.Iterator;
 
 class MinHeap<E extends Comparable<E>> implements Iterable<E> {
-
-    private E[] data;
-    private int size;
-
     private static final int DEFAULT_CAPACITY = 16;
 
+    private E[] data;
+
+    private int size;
+
     public MinHeap() {
+
         data = (E[]) new Comparable[DEFAULT_CAPACITY];
     }
 
     public boolean isFull() {
+
         return (size == data.length);
     }
 
     public boolean isEmpty() {
+
         return (size == 0);
     }
 
@@ -43,6 +46,7 @@ class MinHeap<E extends Comparable<E>> implements Iterable<E> {
     }
 
     public E remove() {
+
         if (isEmpty()) {
             throw new IllegalStateException("Heap is empty.");
         }
@@ -118,6 +122,7 @@ class MinHeap<E extends Comparable<E>> implements Iterable<E> {
     }
 
     private void rangeCheck(int index) {
+
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Illegal index: " + index);
         }
@@ -158,11 +163,11 @@ class MinHeap<E extends Comparable<E>> implements Iterable<E> {
     }
 
     private class MinHeapIterator implements Iterator<E> {
-
         private int index = -1;
 
         @Override
         public boolean hasNext() {
+
             return (index < (size - 1));
         }
 

@@ -1,7 +1,6 @@
 package praxis.leetcode.topics.arraylist;
 
 public class Tester {
-
     public static void main(String[] args) {
 
         ArrayList<Integer> list = new ArrayList<>();

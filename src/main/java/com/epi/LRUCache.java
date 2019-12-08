@@ -1,6 +1,5 @@
 // Copyright (c) 2015 Elements of Programming Interviews. All rights reserved.
 // @author Andrey Pavlov
-
 package com.epi;
 
 import com.epi.utils.Pair;
@@ -10,74 +9,85 @@ import java.util.Map;
 
 // @include
 public class LRUCache {
-  public LRUCache(int c) { capacity = c; }
+    public int lookupVal = 0;
 
-  public boolean lookup(int isbn) {
-    Pair<LinkedList<Integer>.Node, Integer> it = isbnPriceTable.get(isbn);
-    if (it == null) {
-      return false;
+    private int capacity;
+
+    private Map<Integer, Pair<LinkedList<Integer>.Node, Integer>> isbnPriceTable =
+            new HashMap<>();
+
+    private LinkedList<Integer> lruQueue = new LinkedList<>();
+
+    public LRUCache(int c) {
+
+        capacity = c;
     }
 
-    lookupVal = it.getSecond();
-    moveToFront(isbn, it); // Since isbn is the most recently used ISBN.
-    return true;
-  }
+    public static void main(String[] args) {
 
-  public void insert(int isbn, int price) {
-    Pair<LinkedList<Integer>.Node, Integer> it = isbnPriceTable.get(isbn);
-    if (it != null) {
-      // Entry is already present, moves it to the front.
-      moveToFront(isbn, it);
-    } else {
-      if (isbnPriceTable.size() == capacity) {
-        // Removes the least recently used ISBN to get space.
-        isbnPriceTable.remove(lruQueue.back());
-      }
-
-      // Adds the new entry into the front.
-      isbnPriceTable.put(isbn, new Pair<>(lruQueue.pushFront(isbn), price));
-    }
-  }
-
-  public boolean erase(int isbn) {
-    Pair<LinkedList<Integer>.Node, Integer> it = isbnPriceTable.get(isbn);
-    if (it == null) {
-      return false;
+        LRUCache c = new LRUCache(3);
+        System.out.println("c.insert(1, 1)");
+        c.insert(1, 1);
+        System.out.println("c.insert(1, 10)");
+        c.insert(1, 10);
+        System.out.println("c.lookup(2, val)");
+        assert (!c.lookup(2));
+        System.out.println("c.lookup(1, val)");
+        assert (c.lookup(1));
+        assert (c.lookupVal == 1);
+        c.erase(1);
+        assert (!c.lookup(1));
     }
 
-    lruQueue.erase(it.getFirst());
-    isbnPriceTable.remove(isbn);
-    return true;
-  }
+    public boolean lookup(int isbn) {
 
-  // Moves isbn to the front of the LRU cache.
-  private void moveToFront(int isbn, Pair<LinkedList<Integer>.Node, Integer> it) {
-    lruQueue.erase(it.getFirst());
-    lruQueue.pushBack(isbn);
-    it.setFirst(lruQueue.front());
-  }
+        Pair<LinkedList<Integer>.Node, Integer> it = isbnPriceTable.get(isbn);
+        if (it == null) {
+            return false;
+        }
 
-  public int lookupVal = 0;
-  private int capacity;
-  private Map<Integer, Pair<LinkedList<Integer>.Node, Integer>> isbnPriceTable =
-      new HashMap<>();
-  private LinkedList<Integer> lruQueue = new LinkedList<>();
-  // @exclude
+        lookupVal = it.getSecond();
+        moveToFront(isbn, it); // Since isbn is the most recently used ISBN.
+        return true;
+    }
 
-  public static void main(String[] args) {
-    LRUCache c = new LRUCache(3);
-    System.out.println("c.insert(1, 1)");
-    c.insert(1, 1);
-    System.out.println("c.insert(1, 10)");
-    c.insert(1, 10);
-    System.out.println("c.lookup(2, val)");
-    assert(!c.lookup(2));
-    System.out.println("c.lookup(1, val)");
-    assert(c.lookup(1));
-    assert(c.lookupVal == 1);
-    c.erase(1);
-    assert(!c.lookup(1));
-  }
-  // @include
+    public void insert(int isbn, int price) {
+
+        Pair<LinkedList<Integer>.Node, Integer> it = isbnPriceTable.get(isbn);
+        if (it != null) {
+            // Entry is already present, moves it to the front.
+            moveToFront(isbn, it);
+        } else {
+            if (isbnPriceTable.size() == capacity) {
+                // Removes the least recently used ISBN to get space.
+                isbnPriceTable.remove(lruQueue.back());
+            }
+
+            // Adds the new entry into the front.
+            isbnPriceTable.put(isbn, new Pair<>(lruQueue.pushFront(isbn), price));
+        }
+    }
+
+    public boolean erase(int isbn) {
+
+        Pair<LinkedList<Integer>.Node, Integer> it = isbnPriceTable.get(isbn);
+        if (it == null) {
+            return false;
+        }
+
+        lruQueue.erase(it.getFirst());
+        isbnPriceTable.remove(isbn);
+        return true;
+    }
+    // @exclude
+
+    // Moves isbn to the front of the LRU cache.
+    private void moveToFront(int isbn, Pair<LinkedList<Integer>.Node, Integer> it) {
+
+        lruQueue.erase(it.getFirst());
+        lruQueue.pushBack(isbn);
+        it.setFirst(lruQueue.front());
+    }
+    // @include
 }
 // @exclude

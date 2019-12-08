@@ -3,6 +3,19 @@ package praxis.leetcode.disjointsets;
 import java.util.Arrays;
 
 public class Sample {
+    private int[] parents;
+
+    private int[] rank;
+
+    public Sample(int size) {
+
+        this.parents = new int[size];
+
+        for (int i = 0; i < size; ++i) {
+            parents[i] = i;
+        }
+        this.rank = new int[size];
+    }
 
     public static void main(String[] args) {
 
@@ -26,22 +39,11 @@ public class Sample {
         sample.display();
     }
 
-    private int[] parents;
-    private int[] rank;
-
     private void display() {
+
         System.out.println(Arrays.toString(this.parents));
         System.out.println(Arrays.toString(this.rank));
         System.out.println();
-    }
-
-    public Sample(int size) {
-        this.parents = new int[size];
-
-        for (int i = 0; i < size; ++i) {
-            parents[i] = i;
-        }
-        this.rank = new int[size];
     }
 
     public int find(int num) {

@@ -1,23 +1,26 @@
 package com.epi.utils;
 
 public class EndPoint implements Comparable<EndPoint> {
-  public Interval ptr;
-  public boolean isLeft;
+    public Interval ptr;
 
-  public EndPoint(Interval i, boolean il) {
-    ptr = i;
-    isLeft = il;
-  }
+    public boolean isLeft;
 
-  public int compareTo(EndPoint that) {
-    int a = isLeft ? ptr.left : ptr.right, b = that.isLeft ? that.ptr.left
-                                                           : that.ptr.right;
-    if (a < b) {
-      return -1;
+    public EndPoint(Interval i, boolean il) {
+
+        ptr = i;
+        isLeft = il;
     }
-    if (a == b) {
-      return 0;
+
+    public int compareTo(EndPoint that) {
+
+        int a = isLeft ? ptr.left : ptr.right, b = that.isLeft ? that.ptr.left
+                : that.ptr.right;
+        if (a < b) {
+            return -1;
+        }
+        if (a == b) {
+            return 0;
+        }
+        return 1;
     }
-    return 1;
-  }
 }

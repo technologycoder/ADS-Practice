@@ -3,9 +3,9 @@ package praxis.sorting.nlogn;
 import java.util.Arrays;
 
 public class QuickSort {
-
     public static void main(final String[] args) {
-        int[] num = new int[] { 38, 27, 43, 3, 9, 82, 10 };
+
+        int[] num = new int[]{38, 27, 43, 3, 9, 82, 10};
 
         System.out.println(Arrays.toString(num));
         // quickSort(num, 0, num.length - 1);
@@ -62,6 +62,7 @@ public class QuickSort {
     }
 
     private static void quickSort(int low, int high, int[] numbers) {
+
         int i = low, j = high;
         // Get the pivot element from the middle of the list
         int pivot = numbers[low + (high - low) / 2];
@@ -98,6 +99,7 @@ public class QuickSort {
     }
 
     private static void exchange(int i, int j, int[] numbers) {
+
         int temp = numbers[i];
         numbers[i] = numbers[j];
         numbers[j] = temp;

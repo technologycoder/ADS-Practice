@@ -4,13 +4,12 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class QuickSortPractice {
-
     public static void main(String[] args) {
 
         int[] arr = new Random().ints(20, 0, 100)
-                                .distinct()
-                                .limit(10)
-                                .toArray();
+                .distinct()
+                .limit(10)
+                .toArray();
 
         System.out.println(Arrays.toString(arr));
 

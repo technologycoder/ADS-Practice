@@ -1,16 +1,6 @@
 package praxis.leetcode.ll;
 
 public class LinkedListUtil {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     public static void display(ListNode head) {
 
         ListNode iter = head;
@@ -72,6 +62,17 @@ public class LinkedListUtil {
         display(head);
         return head;
 
+    }
+
+    public static class ListNode {
+        int val;
+
+        ListNode next;
+
+        ListNode(int x) {
+
+            val = x;
+        }
     }
 
 }

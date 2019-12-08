@@ -5,21 +5,20 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class BinarySearch {
-
     public static void main(String[] args) {
 
         List<Integer> nums = new Random().ints(20, 0, 100)
-                                         .distinct()
-                                         .limit(10)
-                                         .boxed()
-                                         .collect(Collectors.toList());
+                .distinct()
+                .limit(10)
+                .boxed()
+                .collect(Collectors.toList());
         System.out.println(nums);
         nums.sort(null);
         System.out.println(nums);
 
         int[] arr = nums.stream()
-                        .mapToInt(Integer::intValue)
-                        .toArray();
+                .mapToInt(Integer::intValue)
+                .toArray();
 
         System.out.println("index: " + binarySearchRecursive(arr, arr[7], 0, arr.length - 1));
         System.out.println("index: " + binarySearchRecursive(arr, arr[4] - 1, 0, arr.length - 1));
@@ -70,6 +69,7 @@ public class BinarySearch {
 
     // TODO
     public static <T extends Comparable<T>> int binarySearchRecursiveGenerics(T[] arr, T num, int left, int right) {
+
         return -1;
     }
 

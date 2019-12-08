@@ -1,7 +1,6 @@
 package praxis.leetcode.topics.stack;
 
 public class Tester {
-
     public static void main(String[] args) {
 
         Stack<String> stack = new Stack<>();

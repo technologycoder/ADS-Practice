@@ -3,33 +3,40 @@ package praxis.leetcode.topics.queue;
 import java.util.Iterator;
 
 public class Queue<E> implements Iterable<E> {
+    private static final int DEFAULT_CAPACITY = 16;
 
     private E[] data;
+
     private int size;
+
     // index where the first element is present or where the first element will be available if queue empty.
     private int head;
+
     // index where the new element should be placed in rear
     private int tail;
 
-    private static final int DEFAULT_CAPACITY = 16;
-
     public Queue() {
+
         data = (E[]) new Object[DEFAULT_CAPACITY];
     }
 
     public Queue(int capacity) {
+
         data = (E[]) new Object[capacity];
     }
 
     public int size() {
+
         return size;
     }
 
     public boolean isEmpty() {
+
         return size == 0;
     }
 
     public boolean isFull() {
+
         return size == data.length;
     }
 
@@ -45,6 +52,7 @@ public class Queue<E> implements Iterable<E> {
     }
 
     public E dequeue() {
+
         if (isEmpty()) {
             throw new IllegalStateException("Queue is empty.");
         }
@@ -62,7 +70,6 @@ public class Queue<E> implements Iterable<E> {
     }
 
     private class QueueIterator implements Iterator<E> {
-
         int index = -1;
 
         @Override

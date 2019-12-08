@@ -1,3 +1,3 @@
 package collections;
 
-public enum Priority { HIGH, MEDIUM, LOW }
+public enum Priority {HIGH, MEDIUM, LOW}

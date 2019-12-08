@@ -1,13 +1,32 @@
 package praxis.graph;
 
 import java.util.Arrays;
-//Java program for implementation of Ford Fulkerson algorithm
 import java.util.LinkedList;
+
+//Java program for implementation of Ford Fulkerson algorithm
 
 //http://www.geeksforgeeks.org/max-flow-problem-introduction
 //http://www.geeksforgeeks.org/ford-fulkerson-algorithm-for-maximum-flow-problem/
 class MaxFlow {
     static final int V = 6; // Number of vertices in graph
+
+    // Driver program to test above functions
+    public static void main(String[] args) throws java.lang.Exception {
+        // Let us create a graph shown in the above example
+        int graph[][] = new int[][]{
+                {0, 16, 13, 0, 0, 0},
+                {0, 0, 10, 12, 0, 0},
+                {0, 4, 0, 0, 14, 0},
+                {0, 0, 9, 0, 0, 20},
+                {0, 0, 0, 7, 0, 4},
+                {0, 0, 0, 0, 0, 0}
+        };
+        MaxFlow m = new MaxFlow();
+
+        System.out.println("The maximum possible flow is " +
+                m.fordFulkerson(graph, 0, 5));
+
+    }
 
     /*
      * Returns true if there is a path from source 's' to sink 't' in residual graph. Also fills parent[] to store the path
@@ -46,6 +65,7 @@ class MaxFlow {
 
     // Returns tne maximum flow from s to t in the given graph
     int fordFulkerson(int graph[][], int s, int t) {
+
         int u, v;
 
         // Create a residual graph and fill the residual graph
@@ -73,7 +93,7 @@ class MaxFlow {
 
             System.out.println(Arrays.toString(parent));
             System.out.println(Arrays.deepToString(rGraph)
-                                     .replace("], ", "]\n"));
+                    .replace("], ", "]\n"));
 
             // Find minimum residual capacity of the edhes
             // along the path filled by BFS. Or we can say
@@ -99,27 +119,9 @@ class MaxFlow {
 
         System.out.println(Arrays.toString(parent));
         System.out.println(Arrays.deepToString(rGraph)
-                                 .replace("], ", "]\n"));
+                .replace("], ", "]\n"));
 
         // Return the overall flow
         return max_flow;
-    }
-
-    // Driver program to test above functions
-    public static void main(String[] args) throws java.lang.Exception {
-        // Let us create a graph shown in the above example
-        int graph[][] = new int[][] {
-                { 0, 16, 13, 0, 0, 0 },
-                { 0, 0, 10, 12, 0, 0 },
-                { 0, 4, 0, 0, 14, 0 },
-                { 0, 0, 9, 0, 0, 20 },
-                { 0, 0, 0, 7, 0, 4 },
-                { 0, 0, 0, 0, 0, 0 }
-        };
-        MaxFlow m = new MaxFlow();
-
-        System.out.println("The maximum possible flow is " +
-                m.fordFulkerson(graph, 0, 5));
-
     }
 }

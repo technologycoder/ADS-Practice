@@ -4,16 +4,16 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ConcatenatedWords472_1 {
-
     public static void main(String[] args) {
 
-        String[] words = { "cat", "cats", "catsxyzdogxyzcats", "dog", "dogxzcatsxzdog", "hippopotamuses", "rat", "ratxzcatxzdogxzcat" };
+        String[] words = {"cat", "cats", "catsxyzdogxyzcats", "dog", "dogxzcatsxzdog", "hippopotamuses", "rat", "ratxzcatxzdogxzcat"};
         // String[] words = { "cat", "cats", "catszdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat" };
         System.out.println(findAllConcatenatedWordsInADict(words));
 
     }
 
     public static List<String> findAllConcatenatedWordsInADict(String[] words) {
+
         List<String> res = new LinkedList<>();
         Trie root = new Trie();
         for (String s : words) {// build tree
@@ -48,6 +48,7 @@ public class ConcatenatedWords472_1 {
 
     public static class Trie {
         Trie[] next = new Trie[26];
+
         String word = null;
     }
 

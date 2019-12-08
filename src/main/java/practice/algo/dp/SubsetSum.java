@@ -5,9 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SubsetSum {
-
     public static void main(final String[] args) {
-        int[] num = { 1, 2, 3, 4 };
+
+        int[] num = {1, 2, 3, 4};
 
         int[] solution = new int[num.length];
 
@@ -19,7 +19,7 @@ public class SubsetSum {
         List<String> solutions = new ArrayList<>();
         // subsetSumRecursiveDuplicatesAllowed(num, 0, 0, 5, "", solutions);
         solutions.stream()
-                 .forEach(System.out::println);
+                .forEach(System.out::println);
 
         System.out.println("\nFrom DP: " + subSetExistsDP(num, 5));
 
@@ -28,6 +28,7 @@ public class SubsetSum {
     }
 
     public static boolean subSetSumRecur(final int[] mySet, final int n, final int goal) {
+
         if (goal == 0)
             return true;
         if ((goal < 0) | (n < 0))
@@ -40,10 +41,11 @@ public class SubsetSum {
     }
 
     public static void subsetSumRecursive(final int[] num,
-            int currSum,
-            final int index,
-            final int sum,
-            final int[] solution) {
+                                          int currSum,
+                                          final int index,
+                                          final int sum,
+                                          final int[] solution) {
+
         if (currSum == sum) {
             System.out.println("\nSum found");
             for (int i = 0; i < solution.length; i++) {
@@ -64,11 +66,12 @@ public class SubsetSum {
     }
 
     public static void subsetSumRecursiveDuplicatesAllowed(final int[] num,
-            int currSum,
-            final int index,
-            final int sum,
-            String solution,
-            List<String> solutions) {
+                                                           int currSum,
+                                                           final int index,
+                                                           final int sum,
+                                                           String solution,
+                                                           List<String> solutions) {
+
         if (currSum == sum) {
 
             solutions.add(solution);

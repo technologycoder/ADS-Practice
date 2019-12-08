@@ -3,11 +3,10 @@ package practice.algo.dp.coinchange;
 import java.util.Arrays;
 
 public class Array1D {
-
     public static void main(final String[] args) {
 
         int amount = 5;
-        int[] coins = { 1, 2, 3, 4 };
+        int[] coins = {1, 2, 3, 4};
         // -------6-----
         // [1,1,1,1,1]
         // [1,1,1,2]

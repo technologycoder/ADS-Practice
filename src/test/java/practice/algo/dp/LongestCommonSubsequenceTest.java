@@ -4,21 +4,20 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class LongestCommonSubsequenceTest {
+    @Test
+    public void lcs() {
 
-	@Test
-	public void lcs() {
+        String lcs = LongestCommonSubsequence.lcs("ABCBDAB", "BDCABA");
+        Assert.assertEquals("BDAB", lcs);
 
-		String lcs = LongestCommonSubsequence.lcs("ABCBDAB", "BDCABA");
-		Assert.assertEquals("BDAB", lcs);
+    }
 
-	}
+    @Test
+    public void lcsDP() {
 
-	@Test
-	public void lcsDP() {
+        LongestCommonSubsequence.lcsDP("ABCBDAB", "BDCABA");
+        // Assert.assertEquals("BDAB", lcs);
 
-		LongestCommonSubsequence.lcsDP("ABCBDAB", "BDCABA");
-		// Assert.assertEquals("BDAB", lcs);
-
-	}
+    }
 
 }

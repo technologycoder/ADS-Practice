@@ -30,33 +30,51 @@ package dsaj.primer;
  * @author Michael H. Goldwasser
  */
 public class Robot {
-  Door door = new Door();
-  public void advance() {}
+    Door door = new Door();
 
-  public void simple() {
-    if (door.isClosed())
-      door.open();
-    advance();
-  }
+    public void advance() {
 
-  public void complex() {
-    if (door.isClosed()) {
-      if (door.isLocked())
-        door.unlock();
-      door.open();
     }
-    advance();
-  }
 
+    public void simple() {
+
+        if (door.isClosed())
+            door.open();
+        advance();
+    }
+
+    public void complex() {
+
+        if (door.isClosed()) {
+            if (door.isLocked())
+                door.unlock();
+            door.open();
+        }
+        advance();
+    }
 
 }
 
-
-/** Stub with appropriate syntax but no functionality. */
+/**
+ * Stub with appropriate syntax but no functionality.
+ */
 class Door {
-  public void open() {}
-  public void unlock() {}
-  public boolean isClosed() { return true; }
-  public boolean isLocked() { return true; }
+    public void open() {
+
+    }
+
+    public void unlock() {
+
+    }
+
+    public boolean isClosed() {
+
+        return true;
+    }
+
+    public boolean isLocked() {
+
+        return true;
+    }
 }
 

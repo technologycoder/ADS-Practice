@@ -4,6 +4,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ArrayMinHeap<E extends Comparable<E>> {
+    private E[] data;
+
+    private int size;
+
+    public ArrayMinHeap(final int capacity) {
+
+        data = (E[]) new Comparable[capacity];
+        size = 0;
+    }
 
     public static void main(final String[] args) {
 
@@ -26,15 +35,6 @@ public class ArrayMinHeap<E extends Comparable<E>> {
 
         heap.display();
 
-    }
-
-    private E[] data;
-    private int size;
-
-    public ArrayMinHeap(final int capacity) {
-
-        data = (E[]) new Comparable[capacity];
-        size = 0;
     }
 
     public E pop() {
@@ -137,6 +137,7 @@ public class ArrayMinHeap<E extends Comparable<E>> {
     }
 
     public int getLeftChild(final int index) {
+
         if (index < 0)
             return -1;
 
@@ -147,6 +148,7 @@ public class ArrayMinHeap<E extends Comparable<E>> {
     }
 
     public int getRightChild(final int index) {
+
         if (index < 0)
             return -1;
 
@@ -158,14 +160,17 @@ public class ArrayMinHeap<E extends Comparable<E>> {
     }
 
     public boolean hasLeftChild(final int index) {
+
         return (this.getLeftChild(index) != -1);
     }
 
     public boolean hasRightChild(final int index) {
+
         return (this.getRightChild(index) != -1);
     }
 
     public int smallerIndex(final int index1, final int index2) {
+
         if (index1 < 0 || index2 < 0 || index1 > size - 1 || index2 > size - 1)
             throw new RuntimeException("invalid argument");
 

@@ -1,61 +1,65 @@
 package practice.ds.generic.list;
 
 public class LinkedList<T> {
+    private Node head;
 
-	private Node head;
+    public LinkedList() {
 
-	public LinkedList() {
+        head = new Node(null);
+    }
 
-		head = new Node(null);
-	}
+    public void addNode(T item) {
 
-	public void addNode(T item) {
+        Node iter = head;
 
-		Node iter = head;
+        while (iter.getNext() != null) {
+            iter = iter.getNext();
+        }
 
-		while (iter.getNext() != null) {
-			iter = iter.getNext();
-		}
+        Node newNode = new Node(item);
+        iter.setNext(newNode);
+    }
 
-		Node newNode = new Node(item);
-		iter.setNext(newNode);
-	}
+    public void displayList() {
 
-	public void displayList() {
+        Node iter = head.getNext();
+        while (iter != null && iter.getNext() != null) {
+            System.out.println(iter.getItem());
+            iter = iter.getNext();
+        }
 
-		Node iter = head.getNext();
-		while (iter != null && iter.getNext() != null) {
-			System.out.println(iter.getItem());
-			iter = iter.getNext();
-		}
+    }
 
-	}
+    public class Node {
+        private T item;
 
-	public class Node {
+        private Node next;
 
-		private T item;
-		private Node next;
+        public Node(T item) {
 
-		public Node(T item) {
-			this.item = item;
-		}
+            this.item = item;
+        }
 
-		public T getItem() {
-			return item;
-		}
+        public T getItem() {
 
-		public void setItem(T item) {
-			this.item = item;
-		}
+            return item;
+        }
 
-		public Node getNext() {
-			return next;
-		}
+        public void setItem(T item) {
 
-		public void setNext(Node next) {
-			this.next = next;
-		}
+            this.item = item;
+        }
 
-	}
+        public Node getNext() {
+
+            return next;
+        }
+
+        public void setNext(Node next) {
+
+            this.next = next;
+        }
+
+    }
 
 }

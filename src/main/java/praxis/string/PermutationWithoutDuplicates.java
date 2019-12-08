@@ -3,8 +3,8 @@ package praxis.string;
 import java.util.ArrayList;
 
 public class PermutationWithoutDuplicates {
-
     public static ArrayList<String> getPerms(final String str) {
+
         if (str == null) {
             return null;
         }
@@ -27,6 +27,7 @@ public class PermutationWithoutDuplicates {
     }
 
     public static String insertCharAt(final String word, final char c, final int i) {
+
         String start = word.substring(0, i);
         String end = word.substring(i);
         return start + c + end;

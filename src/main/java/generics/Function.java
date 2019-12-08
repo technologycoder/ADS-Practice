@@ -5,19 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 abstract class Function<A, B, T extends Throwable> {
-    public abstract B apply(A x) throws T;
-
-    public List<B> applyAll(List<A> list) throws T {
-        List<B> result = new ArrayList<>(list.size());
-        for (A x : list)
-            result.add(apply(x));
-        return result;
-    }
-
     public static void main(String... args) {
+
         Function<String, Integer, Error> length = new Function<String, Integer, Error>() {
             @Override
             public Integer apply(String s) {
+
                 return s.length();
             }
         };
@@ -25,6 +18,7 @@ abstract class Function<A, B, T extends Throwable> {
             @Override
             public Class<?> apply(String s)
                     throws ClassNotFoundException {
+
                 return Class.forName(s);
             }
         };
@@ -32,8 +26,9 @@ abstract class Function<A, B, T extends Throwable> {
             @Override
             public Method apply(String s)
                     throws ClassNotFoundException, NoSuchMethodException {
+
                 return Class.forName(s)
-                            .getMethod("run");
+                        .getMethod("run");
             }
         };
         List<String> strings = Arrays.asList(args);
@@ -57,5 +52,15 @@ abstract class Function<A, B, T extends Throwable> {
             assert false;
         }
 
+    }
+
+    public abstract B apply(A x) throws T;
+
+    public List<B> applyAll(List<A> list) throws T {
+
+        List<B> result = new ArrayList<>(list.size());
+        for (A x : list)
+            result.add(apply(x));
+        return result;
     }
 }

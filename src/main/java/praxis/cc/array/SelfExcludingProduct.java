@@ -5,13 +5,13 @@ import java.util.Arrays;
 /**
  * Implement a method which takes an integer array and returns an integer array (of equal size) in which each element is the product of
  * every number in the input array with the exception of the number at that index.
- *
+ * <p>
  * Example: [3, 1, 4, 2] => [8, 24, 6, 12]
  */
 public class SelfExcludingProduct {
-
     public static void main(String[] args) {
-        int[] arr = { 3, 1, 4, 2 };
+
+        int[] arr = {3, 1, 4, 2};
 
         System.out.println(Arrays.toString(sep(arr)));
 
@@ -21,6 +21,7 @@ public class SelfExcludingProduct {
     }
 
     public static int[] productExceptSelf(int[] nums) {
+
         int len = nums.length;
         int[] rst = new int[len];
         if (len == 0) {
@@ -59,6 +60,7 @@ public class SelfExcludingProduct {
     }
 
     public static int[] selfExcludingProduct(int[] input) {
+
         if (input == null)
             throw new NullPointerException("Null input array!");
         int[] productArray = new int[input.length];

@@ -10,10 +10,9 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class TopKFrequentElements347 {
-
     public static void main(String[] args) {
 
-        int[] nums = { 3, 2, 1, 1, 1, 2 };
+        int[] nums = {3, 2, 1, 1, 1, 2};
 
         System.out.println(topKFrequent(nums, 2));
 
@@ -47,9 +46,11 @@ public class TopKFrequentElements347 {
     }
 
     public static List<Integer> topKFrequent1(int[] nums, int k) {
+
         Queue<int[]> queue = new PriorityQueue<int[]>(new Comparator<int[]>() {
             @Override
             public int compare(int[] q1, int[] q2) {
+
                 return q2[1] - q1[1];
             }
         });
@@ -62,7 +63,7 @@ public class TopKFrequentElements347 {
             }
         }
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            queue.offer(new int[] { entry.getKey(), entry.getValue() });
+            queue.offer(new int[]{entry.getKey(), entry.getValue()});
         }
 
         List<Integer> result = new ArrayList<Integer>();
@@ -98,9 +99,11 @@ public class TopKFrequentElements347 {
 
     public static class NumCount implements Comparable<NumCount> {
         public int num;
+
         public int count;
 
         public NumCount(int num) {
+
             this.num = num;
             this.count = 1;
         }
@@ -114,6 +117,7 @@ public class TopKFrequentElements347 {
 
         @Override
         public String toString() {
+
             return String.format("%s:%s", num, count);
         }
     }

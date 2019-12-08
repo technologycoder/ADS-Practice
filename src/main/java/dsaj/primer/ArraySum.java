@@ -30,11 +30,11 @@ package dsaj.primer;
  * @author Michael H. Goldwasser
  */
 public class ArraySum {
+    public static double sum(double[] data) {
 
-  public static double sum(double[] data) {
-    double total = 0;
-    for (int j=0; j < data.length; j++)        // note the use of length
-      total += data[j];
-    return total;
-  }
+        double total = 0;
+        for (int j = 0; j < data.length; j++)        // note the use of length
+            total += data[j];
+        return total;
+    }
 }

@@ -11,24 +11,27 @@ If you want the T in BinaryNode to be different than the enclosing T associated 
 If you don't need to access properties of the enclosing AVLTree, make BinaryNode static.
  */
 public class Stack<E> implements Iterable<E> {
-
-    private E[] arr;
-    private int size = 0;
-
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
 
-    @SuppressWarnings("unchecked")
+    private E[] arr;
+
+    private int size = 0;
+
+    @SuppressWarnings( "unchecked" )
     public Stack() {
+
         arr = (E[]) new Object[DEFAULT_INITIAL_CAPACITY];
     }
 
     @Override
     public Iterator<E> iterator() {
+
         return new StackIterator();
 
     }
 
     public boolean isEmpty() {
+
         return size == 0;
     }
 
@@ -43,6 +46,7 @@ public class Stack<E> implements Iterable<E> {
     }
 
     public E peek() {
+
         if (size > 0) {
             return arr[--size];
         }
@@ -50,28 +54,31 @@ public class Stack<E> implements Iterable<E> {
     }
 
     private void ensureCapacity() {
+
         if (arr.length == size) {
             arr = Arrays.copyOf(arr, (2 * size) + 1);
         }
     }
 
     public void push(E element) {
+
         ensureCapacity();
         arr[size++] = element;
 
     }
 
     private class StackIterator implements Iterator<E> {
-
         private int index = -1;
 
         @Override
         public boolean hasNext() {
+
             return (index < size - 1);
         }
 
         @Override
         public E next() {
+
             return arr[++index];
         }
 

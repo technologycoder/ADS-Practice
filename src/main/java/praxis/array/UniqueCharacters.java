@@ -1,15 +1,14 @@
 package praxis.array;
 
+import java.util.BitSet;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
-import java.util.BitSet;
 
 /*
  * Implement an algorithm to determine if a string has all unique characters
  */
 public class UniqueCharacters {
-
     public static void main(final String[] args) {
 
         assertFalse("Should not be unique", UniqueCharacters.hasUniqueChars("dogatedogDOGATEDOG"));
@@ -50,7 +49,7 @@ public class UniqueCharacters {
 
         // assuming only lowercase alphabets
         char[] arr = str.toLowerCase()
-                        .toCharArray();
+                .toCharArray();
 
         // using 0 - 25 to flip bit for 26 lowercase characters
         int bitVector = 0;
@@ -117,6 +116,7 @@ public class UniqueCharacters {
         private int[] map;
 
         public BitVector(final int size) {
+
             map = new int[size / 32 + 1];
         }
 

@@ -3,16 +3,15 @@ package praxis.leetcode.array;
 import java.util.Arrays;
 
 public class RemoveDuplicates26 {
-
     public static void main(String[] args) {
 
-        int[] nums = { 1, 1, 2 };
+        int[] nums = {1, 1, 2};
         System.out.println(removeDuplicates(nums) + " - " + Arrays.toString(nums));
 
-        nums = new int[] { 4, 5, 5, 6, 6, 6, 7, 8, 9, 10 };
+        nums = new int[]{4, 5, 5, 6, 6, 6, 7, 8, 9, 10};
         System.out.println(removeDuplicates(nums) + " - " + Arrays.toString(nums));
 
-        nums = new int[] { 4, 5, 6, 7, 8, 9, 10 };
+        nums = new int[]{4, 5, 6, 7, 8, 9, 10};
         System.out.println(removeDuplicates(nums) + " - " + Arrays.toString(nums));
 
     }
@@ -38,6 +37,7 @@ public class RemoveDuplicates26 {
     }
 
     public static int removeDuplicates1(int[] nums) {
+
         if (nums.length == 0)
             return 0;
         int i = 0;

@@ -6,19 +6,20 @@ import java.util.List;
 import java.util.Map;
 
 public class ContiguousArray525 {
-
     public static void main(String[] args) {
-        int[] nums = { 0, 1, 0 };
+
+        int[] nums = {0, 1, 0};
 
         // System.out.println(findMaxLength(nums));
 
-        nums = new int[] { 0, 0, 0, 0, 1, 0 };
+        nums = new int[]{0, 0, 0, 0, 1, 0};
 
         System.out.println(findMaxLength(nums));
 
     }
 
     public static int findMaxLength(int[] nums) {
+
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 0)
                 nums[i] = -1;
@@ -46,6 +47,7 @@ public class ContiguousArray525 {
     }
 
     public static int findMaxLength1(int[] nums) {
+
         if (nums == null || nums.length == 0) {
             return 0;
         }
@@ -53,7 +55,7 @@ public class ContiguousArray525 {
         Map<Integer, List<Integer>> map = new HashMap<>();
         map.put(0, new ArrayList<>());
         map.get(0)
-           .add(0);
+                .add(0);
         int sum = 0;
 
         for (int i = 0; i < nums.length; i++) {
@@ -68,7 +70,7 @@ public class ContiguousArray525 {
             }
 
             map.get(sum)
-               .add(i + 1);
+                    .add(i + 1);
         }
 
         int maxLength = 0;
@@ -80,6 +82,7 @@ public class ContiguousArray525 {
     }
 
     public int findMaxLengthDP(int[] nums) {
+
         int n = nums.length, res = 0;
         Map<Integer, Integer> map = new HashMap<>();
         int[][] dp = new int[n + 1][2];

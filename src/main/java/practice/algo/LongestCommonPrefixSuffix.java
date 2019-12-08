@@ -2,11 +2,10 @@ package practice.algo;
 
 //http://stackoverflow.com/questions/19479371/common-substring-of-two-strings
 public class LongestCommonPrefixSuffix {
-
     // Given two Strings S1 and S2. Find the longest Substring which is a Prefix of S1 and suffix of S2.
     public static void main(final String[] args) {
 
-		System.out.println("done");
+        System.out.println("done");
     }
 
     public static String findLongestPrefixSuffix_backward(final String s1, final String s2) {

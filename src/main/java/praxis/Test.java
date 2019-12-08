@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
+
         List<String> list = new ArrayList<>();
         list.add(0, "abc");
         int amount = 5;
@@ -16,6 +17,7 @@ public class Test {
     }
 
     public static int coinChange(int amount, int[] coins, int index) {
+
         if (amount == 0) {
             return 1;
         } else if (amount < 0 || index >= coins.length) {

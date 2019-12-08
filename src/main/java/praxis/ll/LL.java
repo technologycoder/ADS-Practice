@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class LL {
-
     public static void main(final String[] args) {
 
         // testAddRecursive();
@@ -15,6 +14,7 @@ public class LL {
     }
 
     public static void testAddRecursive() {
+
         List<Integer> list = Arrays.asList(8, 3, 10, 1, 6, 14, 4, 7, 13);
         Node<Integer> head = null;
 
@@ -84,6 +84,7 @@ public class LL {
     }
 
     public static void testReverse() {
+
         List<Integer> list = Arrays.asList(8, 3, 10, 1, 6, 14, 4, 7, 13);
         Node<Integer> head = null;
 
@@ -143,7 +144,7 @@ public class LL {
 
     //remove recursive all nodes in the list
     public static <E extends Comparable<E>> Node<E> removeRecursive(final Node<E> node,
-            final E data) {
+                                                                    final E data) {
 
         if (node == null) {
             return null;
@@ -156,7 +157,7 @@ public class LL {
     }
 
     public static <E extends Comparable<E>> Node<E> remove(final Node<E> head,
-            final E data) {
+                                                           final E data) {
 
         // list is empty
         if (head == null)
@@ -243,17 +244,37 @@ public class LL {
     }
 
     static class Node<E extends Comparable<E>> implements Comparable<Node<E>> {
-
         private E data;
+
         private Node<E> next;
+
+        public Node(final Node<E> next) {
+
+            this.next = next;
+
+        }
+
+        public Node(final E data) {
+
+            this.data = data;
+            this.next = null;
+        }
+
+        public Node(final E data, final Node<E> next) {
+
+            this.data = data;
+            this.next = next;
+        }
 
         @Override
         public int compareTo(final Node<E> o) {
+
             return this.data.compareTo(o.data);
         }
 
         @Override
         public String toString() {
+
             StringBuilder sb = new StringBuilder();
             sb.append(String.valueOf(data) + " ");
             if (this.next != null) {
@@ -262,26 +283,13 @@ public class LL {
             return sb.toString();
         }
 
-        public Node(final Node<E> next) {
-            this.next = next;
-
-        }
-
-        public Node(final E data) {
-            this.data = data;
-            this.next = null;
-        }
-
-        public Node(final E data, final Node<E> next) {
-            this.data = data;
-            this.next = next;
-        }
-
         public E getData() {
+
             return data;
         }
 
         public Node<E> getNext() {
+
             return next;
         }
 

@@ -3,10 +3,9 @@ package practice.misc;
 import java.util.Arrays;
 
 public class Sorting {
-
     public static void main(final String[] args) {
 
-        int[] arr = new int[] { 9, 7, 5, 11, 12, 2, 14, 3, 10, 6 };
+        int[] arr = new int[]{9, 7, 5, 11, 12, 2, 14, 3, 10, 6};
 
         System.out.println(Arrays.toString(arr));
         quickSort(arr, 0, arr.length - 1);

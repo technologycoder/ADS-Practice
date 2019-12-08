@@ -23,22 +23,32 @@
 package dsaj.design;
 
 public class FibonacciProgression extends Progression {
+    protected long prev;
 
-  protected long prev;
+    /**
+     * Constructs traditional Fibonacci, starting 0, 1, 1, 2, 3, ...
+     */
+    public FibonacciProgression() {
 
-  /** Constructs traditional Fibonacci, starting 0, 1, 1, 2, 3, ... */
-  public FibonacciProgression() { this(0, 1); }
+        this(0, 1);
+    }
 
-  /** Constructs generalized Fibonacci, with give first and second values. */
-  public FibonacciProgression(long first, long second) {
-    super(first);
-    prev = second - first;     // fictitious value preceding the first
-  }
+    /**
+     * Constructs generalized Fibonacci, with give first and second values.
+     */
+    public FibonacciProgression(long first, long second) {
 
-  /** Replaces (prev,current) with (current, current+prev). */
-  protected void advance() {
-    long temp = prev;
-    prev = current;
-    current += temp;
-  }
+        super(first);
+        prev = second - first;     // fictitious value preceding the first
+    }
+
+    /**
+     * Replaces (prev,current) with (current, current+prev).
+     */
+    protected void advance() {
+
+        long temp = prev;
+        prev = current;
+        current += temp;
+    }
 }

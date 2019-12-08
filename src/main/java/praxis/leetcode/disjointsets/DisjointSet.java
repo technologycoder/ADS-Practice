@@ -1,8 +1,8 @@
 package praxis.leetcode.disjointsets;
 
 public class DisjointSet {
-
     private int[] parents;
+
     private int[] rank;
 
     public DisjointSet(int size) {
@@ -50,10 +50,12 @@ public class DisjointSet {
     }
 
     public int[] getParents() {
+
         return this.parents;
     }
 
     public int[] getRanks() {
+
         return this.rank;
     }
 

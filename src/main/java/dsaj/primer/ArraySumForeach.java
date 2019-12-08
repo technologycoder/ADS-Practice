@@ -30,12 +30,12 @@ package dsaj.primer;
  * @author Michael H. Goldwasser
  */
 public class ArraySumForeach {
+    public static double sum(double[] data) {
 
-  public static double sum(double[] data) {
-    double total = 0;
-    for (double val : data)   // Java's for-each loop style
-      total += val;
-    return total;
-  }
+        double total = 0;
+        for (double val : data)   // Java's for-each loop style
+            total += val;
+        return total;
+    }
 
 }

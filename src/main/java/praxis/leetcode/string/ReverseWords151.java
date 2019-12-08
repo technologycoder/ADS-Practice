@@ -3,39 +3,26 @@ package praxis.leetcode.string;
 import java.util.Scanner;
 
 /**
- * 
  * Given an input string, reverse the string word by word.
- *
+ * <p>
  * remove extra spaces in between string
- * 
  */
 public class ReverseWords151 {
-
     public static void main(String[] args) {
+
         System.out.println(reverseWords("the sky is blue"));
         System.out.println(reverseWords(" "));
     }
 
     public static String reverseWords1(String s) {
+
         String[] parts = s.trim()
-                          .split("\\s+");
+                .split("\\s+");
         String out = "";
         for (int i = parts.length - 1; i > 0; i--) {
             out += parts[i] + " ";
         }
         return out + parts[0];
-    }
-
-    public String reverseWords2(String s) {
-        Scanner parts = new Scanner(s);
-
-        String result = "";
-
-        while (parts.hasNext()) {
-            result = parts.next() + " " + result;
-        }
-
-        return result.trim();
     }
 
     public static String reverseWords(String s) {
@@ -75,6 +62,19 @@ public class ReverseWords151 {
 
         return wordArr;
 
+    }
+
+    public String reverseWords2(String s) {
+
+        Scanner parts = new Scanner(s);
+
+        String result = "";
+
+        while (parts.hasNext()) {
+            result = parts.next() + " " + result;
+        }
+
+        return result.trim();
     }
 
 }

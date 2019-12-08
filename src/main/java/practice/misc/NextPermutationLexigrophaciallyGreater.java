@@ -3,14 +3,15 @@ package practice.misc;
 import java.util.Arrays;
 
 public class NextPermutationLexigrophaciallyGreater {
-
     public static void main(String[] args) {
-        Comparable[] c = new Integer[] { 5, 3, 2 };
+
+        Comparable[] c = new Integer[]{5, 3, 2};
         printPermutations(c);
     }
 
     // simply prints all permutation - to see how it works
     private static void printPermutations(Comparable[] c) {
+
         System.out.println(Arrays.toString(c));
         while ((c = nextPermutation(c)) != null) {
             System.out.println(Arrays.toString(c));
@@ -39,6 +40,7 @@ public class NextPermutationLexigrophaciallyGreater {
     // finds the largest k, that c[k] < c[k+1]
     // if no such k exists (there is not greater permutation), return -1
     private static int getFirst(final Comparable[] c) {
+
         for (int i = c.length - 2; i >= 0; --i)
             if (c[i].compareTo(c[i + 1]) < 0)
                 return i;
@@ -47,6 +49,7 @@ public class NextPermutationLexigrophaciallyGreater {
 
     // swaps two elements (with indexes i and j) in array
     private static void swap(final Comparable[] c, final int i, final int j) {
+
         final Comparable tmp = c[i];
         c[i] = c[j];
         c[j] = tmp;

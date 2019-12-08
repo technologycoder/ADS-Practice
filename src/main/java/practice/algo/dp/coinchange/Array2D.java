@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class Array2D {
-
     public static void main(final String[] args) {
+
         int amount = 5;
-        int[] coins = { 1, 2, 3, 4 };
+        int[] coins = {1, 2, 3, 4};
 
         System.out.println(coinChangeTotalWays(amount, coins));
         System.out.println(coinChangeTotalWaysDuplicatesAllowed(amount, coins));
@@ -48,7 +48,7 @@ public class Array2D {
         }
 
         System.out.println(Arrays.deepToString(cache)
-                                 .replaceAll("],", "]\n"));
+                .replaceAll("],", "]\n"));
 
         return cache[coins.length][amount];
 
@@ -80,7 +80,7 @@ public class Array2D {
         }
 
         System.out.println(Arrays.deepToString(cache)
-                                 .replaceAll("],", "]\n"));
+                .replaceAll("],", "]\n"));
 
         return cache[coins.length][amount];
 
@@ -92,7 +92,7 @@ public class Array2D {
         int[][] cache = new int[coins.length + 1][amount + 1];
 
         IntStream.range(0, cache.length)
-                 .forEach(x -> Arrays.setAll(cache[x], y -> Integer.MAX_VALUE));
+                .forEach(x -> Arrays.setAll(cache[x], y -> Integer.MAX_VALUE));
 
         // System.out.println(Arrays.deepToString(cache));
 
@@ -123,7 +123,7 @@ public class Array2D {
         }
 
         System.out.println(Arrays.deepToString(cache)
-                                 .replaceAll("],", "]\n"));
+                .replaceAll("],", "]\n"));
 
         return cache[coins.length][amount];
 
@@ -135,7 +135,7 @@ public class Array2D {
         int[][] cache = new int[coins.length + 1][amount + 1];
 
         IntStream.range(0, cache.length)
-                 .forEach(x -> Arrays.setAll(cache[x], y -> Integer.MAX_VALUE));
+                .forEach(x -> Arrays.setAll(cache[x], y -> Integer.MAX_VALUE));
 
         // System.out.println(Arrays.deepToString(cache));
 
@@ -161,7 +161,7 @@ public class Array2D {
         }
 
         System.out.println(Arrays.deepToString(cache)
-                                 .replaceAll("],", "]\n"));
+                .replaceAll("],", "]\n"));
 
         return cache[coins.length][amount];
 
@@ -172,7 +172,7 @@ public class Array2D {
         int[][] cache = new int[coins.length + 1][amount + 1];
 
         IntStream.range(0, cache.length)
-                 .forEach(x -> Arrays.setAll(cache[x], y -> Integer.MIN_VALUE));
+                .forEach(x -> Arrays.setAll(cache[x], y -> Integer.MIN_VALUE));
 
         // System.out.println(Arrays.deepToString(cache));
 
@@ -198,7 +198,7 @@ public class Array2D {
         }
 
         System.out.println(Arrays.deepToString(cache)
-                                 .replaceAll("],", "]\n"));
+                .replaceAll("],", "]\n"));
 
         return cache[coins.length][amount];
 
@@ -209,7 +209,7 @@ public class Array2D {
         int[][] cache = new int[coins.length + 1][amount + 1];
 
         IntStream.range(0, cache.length)
-                 .forEach(x -> Arrays.setAll(cache[x], y -> Integer.MIN_VALUE));
+                .forEach(x -> Arrays.setAll(cache[x], y -> Integer.MIN_VALUE));
 
         // System.out.println(Arrays.deepToString(cache));
 
@@ -235,7 +235,7 @@ public class Array2D {
         }
 
         System.out.println(Arrays.deepToString(cache)
-                                 .replaceAll("],", "]\n"));
+                .replaceAll("],", "]\n"));
 
         return cache[coins.length][amount];
 

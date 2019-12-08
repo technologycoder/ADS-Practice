@@ -3,12 +3,12 @@ package praxis.string.trie;
 import java.util.ArrayList;
 
 public class Trie {
-
     // The root of this trie.
     private TrieNode root;
 
     /* Takes a list of strings as an argument, and constructs a trie that stores these strings. */
     public Trie(final ArrayList<String> list) {
+
         root = new TrieNode();
         for (String word : list) {
             root.addWord(word);
@@ -17,6 +17,7 @@ public class Trie {
 
     /* Takes a list of strings as an argument, and constructs a trie that stores these strings. */
     public Trie(final String[] list) {
+
         root = new TrieNode();
         for (String word : list) {
             root.addWord(word);
@@ -27,6 +28,7 @@ public class Trie {
      * Checks whether this trie contains a string with the prefix passed in as argument.
      */
     public boolean contains(final String prefix, final boolean exact) {
+
         TrieNode lastNode = root;
         int i = 0;
         for (i = 0; i < prefix.length(); i++) {
@@ -39,10 +41,12 @@ public class Trie {
     }
 
     public boolean contains(final String prefix) {
+
         return contains(prefix, false);
     }
 
     public TrieNode getRoot() {
+
         return root;
     }
 

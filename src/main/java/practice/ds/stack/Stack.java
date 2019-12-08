@@ -3,83 +3,87 @@ package practice.ds.stack;
 import java.util.Arrays;
 
 public class Stack<E> {
+    private E[] arr;
 
-	public static void main(String[] args) {
+    private int capacity;
 
-		Stack<String> stack = new Stack<String>(11);
-		stack.push("hello");
-		stack.push("world");
+    private int size = 0;
 
-		System.out.println(stack);
+    private int top = -1;
 
-		stack.pop();
-		System.out.println(stack);
+    // http://stackoverflow.com/questions/529085/how-to-create-a-generic-array-in-java
+    @SuppressWarnings( "unchecked" )
+    public Stack(int capacity) {
 
-		stack.pop();
-		System.out.println(stack);
-		System.out.println("Done");
-	}
+        this.arr = (E[]) new Object[capacity];
+        this.capacity = capacity;
 
-	private E[] arr;
-	private int capacity;
-	private int size = 0;
-	private int top = -1;
+    }
 
-	// http://stackoverflow.com/questions/529085/how-to-create-a-generic-array-in-java
-	@SuppressWarnings("unchecked")
-	public Stack(int capacity) {
-		this.arr = (E[]) new Object[capacity];
-		this.capacity = capacity;
+    public static void main(String[] args) {
 
-	}
+        Stack<String> stack = new Stack<String>(11);
+        stack.push("hello");
+        stack.push("world");
 
-	public String toString() {
-		return Arrays.toString(this.arr);
-	}
+        System.out.println(stack);
 
-	public boolean push(E elem) {
+        stack.pop();
+        System.out.println(stack);
 
-		if (!isFull()) {
-			arr[++top] = elem;
-			size++;
-			return true;
-		} else {
-			return false;
-		}
+        stack.pop();
+        System.out.println(stack);
+        System.out.println("Done");
+    }
 
-	}
+    public String toString() {
 
-	public E peek() {
+        return Arrays.toString(this.arr);
+    }
 
-		if (!isEmpty()) {
-			return arr[top];
-		} else {
-			return null;
-		}
-	}
+    public boolean push(E elem) {
 
-	public E pop() {
+        if (!isFull()) {
+            arr[++top] = elem;
+            size++;
+            return true;
+        } else {
+            return false;
+        }
 
-		if (!isEmpty()) {
-			size--;
-			E result = arr[top];
-			arr[top--] = null;
+    }
 
-			return result;
-		} else {
+    public E peek() {
 
-			return null;
-		}
-	}
+        if (!isEmpty()) {
+            return arr[top];
+        } else {
+            return null;
+        }
+    }
 
-	public boolean isFull() {
+    public E pop() {
 
-		return size == capacity;
-	}
+        if (!isEmpty()) {
+            size--;
+            E result = arr[top];
+            arr[top--] = null;
 
-	public boolean isEmpty() {
+            return result;
+        } else {
 
-		return size == 0;
-	}
+            return null;
+        }
+    }
+
+    public boolean isFull() {
+
+        return size == capacity;
+    }
+
+    public boolean isEmpty() {
+
+        return size == 0;
+    }
 
 }

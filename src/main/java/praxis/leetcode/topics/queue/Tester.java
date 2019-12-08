@@ -1,8 +1,8 @@
 package praxis.leetcode.topics.queue;
 
 public class Tester {
-
     public static void main(String[] args) {
+
         testQueue();
 
     }

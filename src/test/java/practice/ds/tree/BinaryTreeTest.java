@@ -1,114 +1,112 @@
 package practice.ds.tree;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import practice.ds.tree.BinaryTree.TraversalType;
 
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
-
-import practice.ds.tree.BinaryTree.TraversalType;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class BinaryTreeTest {
+    @Test
+    public void insert() {
 
-	@Test
-	public void insert() {
+        int[] data = TreeUtil.fillRandomArray(10);
+        System.out.println(Arrays.toString(data));
 
-		int[] data = TreeUtil.fillRandomArray(10);
-		System.out.println(Arrays.toString(data));
+        BinaryTree tree = TreeUtil.createBinaryTree(data);
 
-		BinaryTree tree = TreeUtil.createBinaryTree(data);
+        // level order traversal
+        int[] arrFromTree = tree.toArray();
 
-		// level order traversal
-		int[] arrFromTree = tree.toArray();
+        TreeUtil.printTree(arrFromTree);
 
-		TreeUtil.printTree(arrFromTree);
+        // Arrays.stream(arrFromTree).boxed().filter(i -> i !=
+        // -1).collect(Collectors.toList()).mapToInt(i -> i).toArray();
 
-		// Arrays.stream(arrFromTree).boxed().filter(i -> i !=
-		// -1).collect(Collectors.toList()).mapToInt(i -> i).toArray();
+        // int[] treeWithTrailingEmptyNodesRemoved =
+        // Arrays.stream(arrFromTree).boxed().filter(i -> i != -1)
+        // .mapToInt(i -> i).toArray();
+        int[] treeWithTrailingEmptyNodesRemoved = Arrays.copyOf(arrFromTree, data.length);
 
-		// int[] treeWithTrailingEmptyNodesRemoved =
-		// Arrays.stream(arrFromTree).boxed().filter(i -> i != -1)
-		// .mapToInt(i -> i).toArray();
-		int[] treeWithTrailingEmptyNodesRemoved = Arrays.copyOf(arrFromTree, data.length);
+        assertArrayEquals(data, treeWithTrailingEmptyNodesRemoved);
+    }
 
-		assertArrayEquals(data, treeWithTrailingEmptyNodesRemoved);
-	}
+    @Test
+    public void insert_treeWithInternalNodesEmpty() {
 
-	@Test
-	public void insert_treeWithInternalNodesEmpty() {
+        int[] data = new int[]{20, 10, 30, 5, 15, -1, -1, 3, 7, -1, 17};
+        System.out.println(Arrays.toString(data));
 
-		int[] data = new int[] { 20, 10, 30, 5, 15, -1, -1, 3, 7, -1, 17 };
-		System.out.println(Arrays.toString(data));
+        BinaryTree tree = TreeUtil.createBinaryTree(data);
 
-		BinaryTree tree = TreeUtil.createBinaryTree(data);
+        // level order traversal
+        int[] arrFromTree = tree.toArray();
 
-		// level order traversal
-		int[] arrFromTree = tree.toArray();
+        TreeUtil.printTree(arrFromTree);
 
-		TreeUtil.printTree(arrFromTree);
+        // Arrays.stream(arrFromTree).boxed().filter(i -> i !=
+        // -1).collect(Collectors.toList()).mapToInt(i -> i).toArray();
 
-		// Arrays.stream(arrFromTree).boxed().filter(i -> i !=
-		// -1).collect(Collectors.toList()).mapToInt(i -> i).toArray();
+        int[] treeWithTrailingEmptyNodesRemoved = Arrays.copyOf(arrFromTree, data.length);
 
-		int[] treeWithTrailingEmptyNodesRemoved = Arrays.copyOf(arrFromTree, data.length);
+        assertArrayEquals(data, treeWithTrailingEmptyNodesRemoved);
+    }
 
-		assertArrayEquals(data, treeWithTrailingEmptyNodesRemoved);
-	}
+    @Test
+    public void inOrderTraversal() {
 
-	@Test
-	public void inOrderTraversal() {
+        int[] data = new int[]{5, 3, 21, 2, 4, 19, 25};
+        System.out.println(Arrays.toString(data));
 
-		int[] data = new int[] { 5, 3, 21, 2, 4, 19, 25 };
-		System.out.println(Arrays.toString(data));
+        BinaryTree tree = TreeUtil.createBinaryTree(data);
+        int[] arrFromTree = tree.toArray();
+        TreeUtil.printTree(arrFromTree);
 
-		BinaryTree tree = TreeUtil.createBinaryTree(data);
-		int[] arrFromTree = tree.toArray();
-		TreeUtil.printTree(arrFromTree);
+        List<Integer> inOrder = tree.traverseTree(TraversalType.INORDER);
 
-		List<Integer> inOrder = tree.traverseTree(TraversalType.INORDER);
+        System.out.println(inOrder);
 
-		System.out.println(inOrder);
+        assertEquals("[2, 3, 4, 5, 19, 21, 25]", inOrder.toString());
 
-		assertEquals("[2, 3, 4, 5, 19, 21, 25]", inOrder.toString());
+    }
 
-	}
+    @Test
+    public void preOrderTraversal() {
 
-	@Test
-	public void preOrderTraversal() {
+        int[] data = new int[]{5, 3, 21, 2, 4, 19, 25};
+        System.out.println(Arrays.toString(data));
 
-		int[] data = new int[] { 5, 3, 21, 2, 4, 19, 25 };
-		System.out.println(Arrays.toString(data));
+        BinaryTree tree = TreeUtil.createBinaryTree(data);
+        int[] arrFromTree = tree.toArray();
+        TreeUtil.printTree(arrFromTree);
 
-		BinaryTree tree = TreeUtil.createBinaryTree(data);
-		int[] arrFromTree = tree.toArray();
-		TreeUtil.printTree(arrFromTree);
+        List<Integer> preOrder = tree.traverseTree(TraversalType.PREORDER);
 
-		List<Integer> preOrder = tree.traverseTree(TraversalType.PREORDER);
+        System.out.println(preOrder);
 
-		System.out.println(preOrder);
+        assertEquals("[5, 3, 2, 4, 21, 19, 25]", preOrder.toString());
 
-		assertEquals("[5, 3, 2, 4, 21, 19, 25]", preOrder.toString());
+    }
 
-	}
+    @Test
+    public void postOrderTraversal() {
 
-	@Test
-	public void postOrderTraversal() {
+        int[] data = new int[]{5, 3, 21, 2, 4, 19, 25};
+        System.out.println(Arrays.toString(data));
 
-		int[] data = new int[] { 5, 3, 21, 2, 4, 19, 25 };
-		System.out.println(Arrays.toString(data));
+        BinaryTree tree = TreeUtil.createBinaryTree(data);
+        int[] arrFromTree = tree.toArray();
+        TreeUtil.printTree(arrFromTree);
 
-		BinaryTree tree = TreeUtil.createBinaryTree(data);
-		int[] arrFromTree = tree.toArray();
-		TreeUtil.printTree(arrFromTree);
+        List<Integer> postOrder = tree.traverseTree(TraversalType.POSTORDER);
 
-		List<Integer> postOrder = tree.traverseTree(TraversalType.POSTORDER);
+        System.out.println(postOrder);
 
-		System.out.println(postOrder);
+        assertEquals("[2, 4, 3, 19, 25, 21, 5]", postOrder.toString());
 
-		assertEquals("[2, 4, 3, 19, 25, 21, 5]", postOrder.toString());
-
-	}
+    }
 
 }

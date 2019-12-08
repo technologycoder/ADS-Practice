@@ -1,7 +1,6 @@
 package praxis.leetcode.backtracking;
 
 public class Combination {
-
     public static void main(final String[] args) {
 
         combination("ABC", "");

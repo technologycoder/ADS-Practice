@@ -1,7 +1,6 @@
 package practice.misc;
 
 public class Testing {
-
     public static void main(final String[] args) {
 
         String str = "zsfsdfsdfs";
@@ -22,7 +21,7 @@ public class Testing {
         // http://stackoverflow.com/questions/4240080/generating-all-permutations-of-a-given-string
         /*
          * Use recursion.
-         * 
+         *
          * Try each of the letters in turn as the first letter and then find all the permutations of the remaining letters using a recursive
          * call. The base case is when the input is an empty string the only permutation is the empty string.
          */
@@ -36,6 +35,7 @@ public class Testing {
     }
 
     private static void permutation(final String str, final String prefix) {
+
         System.out.println("str: " + str + " - prefix: " + prefix);
 
         if (str.length() == 0) {

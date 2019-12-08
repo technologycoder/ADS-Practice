@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class WordBreak {
-
     public static boolean wordBreak(final String str, final String[] dict) {
 
         if (str == null || str.length() == 0)

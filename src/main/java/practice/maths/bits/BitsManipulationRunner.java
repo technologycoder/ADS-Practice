@@ -1,7 +1,6 @@
 package practice.maths.bits;
 
 public class BitsManipulationRunner {
-
     public static void main(final String[] args) {
 
         ClassLoader loader = ClassLoader.getSystemClassLoader();

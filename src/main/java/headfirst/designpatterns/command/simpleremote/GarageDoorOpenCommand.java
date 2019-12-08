@@ -1,13 +1,15 @@
 package headfirst.designpatterns.command.simpleremote;
 
 public class GarageDoorOpenCommand implements Command {
-	GarageDoor garageDoor;
+    GarageDoor garageDoor;
 
-	public GarageDoorOpenCommand(GarageDoor garageDoor) {
-		this.garageDoor = garageDoor;
-	}
+    public GarageDoorOpenCommand(GarageDoor garageDoor) {
 
-	public void execute() {
-		garageDoor.up();
-	}
+        this.garageDoor = garageDoor;
+    }
+
+    public void execute() {
+
+        garageDoor.up();
+    }
 }

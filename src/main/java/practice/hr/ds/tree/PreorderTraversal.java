@@ -1,10 +1,9 @@
 package practice.hr.ds.tree;
 
 public class PreorderTraversal {
-
     public static void main(final String[] args) {
 
-        int[] arr = new int[] { 3, 5, 2, 1, 4, 6 };
+        int[] arr = new int[]{3, 5, 2, 1, 4, 6};
         Node root = createTree(arr, 0, null);
 
         preOrder(root);
@@ -62,14 +61,15 @@ public class PreorderTraversal {
     }
 
     public static int height(final Node root) {
+
         if (root == null)
             return -1;
 
         return Math.max(height(root.left), height(root.right)) + 1;
     }
 
-    static void top_view(final Node root)
-    {
+    static void top_view(final Node root) {
+
         top_view(root, true, true);
     }
 
@@ -86,7 +86,9 @@ public class PreorderTraversal {
 
     public static class Node {
         int data;
+
         Node left;
+
         Node right;
     }
 

@@ -1,12 +1,11 @@
 package praxis.leetcode.tree;
 
 public class MinimumDepthofBinaryTree111 extends TreeUtil {
-
     public static void main(String[] args) {
 
         // int[] nums = { 8, 5, 10, 9, 12, 11, 15 };
 
-        int[] nums = { 1, 2 };
+        int[] nums = {1, 2};
 
         TreeNode root = createBST(nums);
 
@@ -17,6 +16,7 @@ public class MinimumDepthofBinaryTree111 extends TreeUtil {
     }
 
     public static int minDepth(TreeNode root) {
+
         if (root == null)
             return 0;
         int left = minDepth(root.left);
@@ -43,6 +43,7 @@ public class MinimumDepthofBinaryTree111 extends TreeUtil {
 
     // wrong solution
     public int minDepth1(TreeNode root) {
+
         if (root == null) {
             return 0;
         }

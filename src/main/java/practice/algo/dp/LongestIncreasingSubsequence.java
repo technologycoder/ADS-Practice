@@ -1,21 +1,22 @@
 package practice.algo.dp;
 
 public class LongestIncreasingSubsequence {
-
     public static void main(final String[] args) {
-        int[] A = { 1, 12, 7, 0, 23, 11, 52, 31, 61, 69, 70, 2 };
+
+        int[] A = {1, 12, 7, 0, 23, 11, 52, 31, 61, 69, 70, 2};
         LongestIncreasingSubsequence i = new LongestIncreasingSubsequence();
         i.findSubsequence(A);
 
         // ------------
 
-        int[] arr = { 10, 9, 2, 5, 3, 7, 101, 18 }; // 2, 3, 7, 101
+        int[] arr = {10, 9, 2, 5, 3, 7, 101, 18}; // 2, 3, 7, 101
         System.out.println(lengthOfLIS(arr));
 
         // TODO: print all subsequences
     }
 
     public static int lengthOfLIS(final int[] nums) {
+
         if (nums == null || nums.length == 0)
             return 0;
 
@@ -39,6 +40,7 @@ public class LongestIncreasingSubsequence {
     }
 
     public void findSubsequence(final int[] arrA) {
+
         int[] LIS = new int[arrA.length];
         for (int i = 0; i < arrA.length; i++) {
             int max = -1;

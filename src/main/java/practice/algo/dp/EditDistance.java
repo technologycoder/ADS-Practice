@@ -3,7 +3,6 @@ package practice.algo.dp;
 import java.util.Arrays;
 
 public class EditDistance {
-
     public static void main(final String[] args) {
 
         String s1 = "horizon";
@@ -38,6 +37,7 @@ public class EditDistance {
     }
 
     public int editDistanceDP(final String s1, final String s2) {
+
         int[][] solution = new int[s1.length() + 1][s2.length() + 1];
 
         // base case
@@ -69,7 +69,7 @@ public class EditDistance {
         }
 
         System.out.println(Arrays.deepToString(solution)
-                                 .replaceAll("],", "]\n"));
+                .replaceAll("],", "]\n"));
         return solution[s1.length()][s2.length()];
 
     }

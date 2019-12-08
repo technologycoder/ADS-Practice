@@ -1,12 +1,11 @@
 package praxis.tree;
 
+import praxis.tree.TreePrinter.PrintableNode;
+
 import java.util.Arrays;
 import java.util.List;
 
-import praxis.tree.TreePrinter.PrintableNode;
-
 public class BST1 {
-
     public static void main(final String[] args) {
         // testInsert();
         // testInsertRecursive();
@@ -15,6 +14,7 @@ public class BST1 {
     }
 
     public static Node<Integer> setupData() {
+
         List<Integer> list = Arrays.asList(8, 3, 10, 1, 6, 14, 4, 7, 13);
         Node<Integer> root = null;
 
@@ -40,6 +40,7 @@ public class BST1 {
     }
 
     public static void testInsertRecursive() {
+
         List<Integer> list = Arrays.asList(8, 3, 10, 1, 6, 14, 4, 7, 13);
         Node<Integer> root = null;
 
@@ -52,6 +53,7 @@ public class BST1 {
     }
 
     public static void testRemove() {
+
         Node<Integer> root = setupData();
 
         // no children
@@ -76,7 +78,7 @@ public class BST1 {
     }
 
     public static <E extends Comparable<E>> Node<E> remove(final Node<E> node,
-            final E data) {
+                                                           final E data) {
 
         if (node == null) {
             return null;
@@ -163,12 +165,14 @@ public class BST1 {
 
     public static class Node<E extends Comparable<E>> implements Comparable<Node<E>>,
             TreePrinter.PrintableNode {
-
         private E data;
+
         private Node<E> left;
+
         private Node<E> right;
 
         public Node(final E data) {
+
             this.data = data;
 
         }
@@ -181,16 +185,19 @@ public class BST1 {
 
         @Override
         public PrintableNode getLeft() {
+
             return left;
         }
 
         @Override
         public PrintableNode getRight() {
+
             return right;
         }
 
         @Override
         public String getText() {
+
             return data.toString();
         }
 

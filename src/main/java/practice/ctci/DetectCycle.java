@@ -1,117 +1,117 @@
 package practice.ctci;
 
 public class DetectCycle {
+    public static void main(String[] args) {
 
-	public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 3};
+        // int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
+        Node head = buildLinkedList(arr);
+        // displayList(head);
 
-		int[] arr = { 1, 2, 3, 4, 5, 6, 7, 3 };
-		// int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
-		Node head = buildLinkedList(arr);
-		// displayList(head);
+        System.out.println(hasCycle(head));
+    }
 
-		System.out.println(hasCycle(head));
-	}
+    private static boolean hasCycle(Node head) {
 
-	private static boolean hasCycle(Node head) {
+        Node fastIter = head;
 
-		Node fastIter = head;
+        Node slowIter = head;
 
-		Node slowIter = head;
+        int count = 0;
 
-		int count = 0;
+        while (fastIter != null && slowIter != null) {
+            fastIter = fastIter.next;
+            count++;
 
-		while (fastIter != null && slowIter != null) {
-			fastIter = fastIter.next;
-			count++;
+            if (count % 2 == 0) {
+                slowIter = slowIter.next;
+            }
 
-			if (count % 2 == 0) {
-				slowIter = slowIter.next;
-			}
+            if (fastIter == slowIter) {
+                return true;
+            }
+        }
 
-			if (fastIter == slowIter) {
-				return true;
-			}
-		}
+        return false;
 
-		return false;
+    }
 
-	}
+    private static Node buildLinkedList(int[] arr) {
 
-	static class Node {
-		int data;
-		Node next;
-	}
+        Node head = createNode(arr[0]);
 
-	private static Node buildLinkedList(int[] arr) {
+        for (int i = 1; i < arr.length; ++i) {
+            displayList(head);
+            addNode(head, arr[i]);
+        }
 
-		Node head = createNode(arr[0]);
+        return head;
 
-		for (int i = 1; i < arr.length; ++i) {
-			displayList(head);
-			addNode(head, arr[i]);
-		}
+    }
 
-		return head;
+    private static Node buildListWithCycle() {
 
-	}
+        Node head = createNode(10);
 
-	private static Node buildListWithCycle() {
+        return head;
 
-		Node head = createNode(10);
+    }
 
-		return head;
+    private static void displayList(Node node) {
 
-	}
+        while (node != null) {
+            System.out.print(node.data + " -> ");
+            node = node.next;
+        }
+        System.out.print("null\n");
 
-	private static void displayList(Node node) {
+    }
 
-		while (node != null) {
-			System.out.print(node.data + " -> ");
-			node = node.next;
-		}
-		System.out.print("null\n");
+    private static void addNode(Node head, int data) {
 
-	}
+        Node node = findNode(head, data);
+        if (node == null) {
+            node = createNode(data);
+        }
 
-	private static void addNode(Node head, int data) {
+        Node iter = head;
 
-		Node node = findNode(head, data);
-		if (node == null) {
-			node = createNode(data);
-		}
+        while (iter.next != null) {
+            iter = iter.next;
 
-		Node iter = head;
+        }
 
-		while (iter.next != null) {
-			iter = iter.next;
+        iter.next = node;
 
-		}
+    }
 
-		iter.next = node;
+    private static Node findNode(Node head, int data) {
 
-	}
+        Node iter = head;
 
-	private static Node findNode(Node head, int data) {
+        while (iter != null) {
+            if (iter.data == data)
+                return iter;
+            iter = iter.next;
+        }
 
-		Node iter = head;
+        return null;
 
-		while (iter != null) {
-			if (iter.data == data)
-				return iter;
-			iter = iter.next;
-		}
+    }
 
-		return null;
+    private static Node createNode(int data) {
 
-	}
+        Node node = new Node();
+        node.data = data;
 
-	private static Node createNode(int data) {
+        return node;
 
-		Node node = new Node();
-		node.data = data;
+    }
 
-		return node;
+    static class Node {
+        int data;
 
-	}
+        Node next;
+    }
 
 }

@@ -1,10 +1,10 @@
 package praxis.leetcode.dp.coinchange;
 
 public class TotalWays {
-
     public static void main(String[] args) {
+
         int amount = 5;
-        int[] coins = { 1, 2, 3, 4 };
+        int[] coins = {1, 2, 3, 4};
 
     }
 

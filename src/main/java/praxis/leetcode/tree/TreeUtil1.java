@@ -5,33 +5,6 @@ import praxis.tree.TreePrinter.PrintableNode;
 
 //Tree node with count of nodes greater than equal to current node.
 public class TreeUtil1 {
-
-    public static class TreeNode implements TreePrinter.PrintableNode {
-        int val;
-        int count;
-        TreeNode left, right;
-
-        public TreeNode(int val) {
-            this.val = val;
-            this.count = 1;
-        }
-
-        @Override
-        public PrintableNode getLeft() {
-            return left;
-        }
-
-        @Override
-        public PrintableNode getRight() {
-            return right;
-        }
-
-        @Override
-        public String getText() {
-            return val + ":" + count;
-        }
-    }
-
     public static TreeNode insert(TreeNode root, int val) {
 
         if (root == null) {
@@ -60,6 +33,38 @@ public class TreeUtil1 {
             return search(root.right, val);
         }
 
+    }
+
+    public static class TreeNode implements TreePrinter.PrintableNode {
+        int val;
+
+        int count;
+
+        TreeNode left, right;
+
+        public TreeNode(int val) {
+
+            this.val = val;
+            this.count = 1;
+        }
+
+        @Override
+        public PrintableNode getLeft() {
+
+            return left;
+        }
+
+        @Override
+        public PrintableNode getRight() {
+
+            return right;
+        }
+
+        @Override
+        public String getText() {
+
+            return val + ":" + count;
+        }
     }
 
 }

@@ -1,17 +1,20 @@
 package headfirst.designpatterns.command.party;
 
 public class TVOffCommand implements Command {
-	TV tv;
+    TV tv;
 
-	public TVOffCommand(TV tv) {
-		this.tv= tv;
-	}
+    public TVOffCommand(TV tv) {
 
-	public void execute() {
-		tv.off();
-	}
+        this.tv = tv;
+    }
 
-	public void undo() {
-		tv.on();
-	}
+    public void execute() {
+
+        tv.off();
+    }
+
+    public void undo() {
+
+        tv.on();
+    }
 }

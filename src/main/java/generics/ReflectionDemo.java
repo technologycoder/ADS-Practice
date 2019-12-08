@@ -11,6 +11,7 @@ class ReflectionDemo {
     private final static PrintStream out = System.out;
 
     public static void printSuperclass(Type sup) {
+
         if (sup != null && !sup.equals(Object.class)) {
             out.print("extends ");
             printType(sup);
@@ -19,6 +20,7 @@ class ReflectionDemo {
     }
 
     public static void printInterfaces(Type[] impls) {
+
         if (impls != null && impls.length > 0) {
             out.print("implements ");
             int i = 0;
@@ -32,6 +34,7 @@ class ReflectionDemo {
     }
 
     public static void printTypeParameters(TypeVariable<?>[] vars) {
+
         if (vars != null && vars.length > 0) {
             out.print("<");
             int i = 0;
@@ -46,6 +49,7 @@ class ReflectionDemo {
     }
 
     public static void printBounds(Type[] bounds) {
+
         if (bounds != null && bounds.length > 0
                 && !(bounds.length == 1 && bounds[0] == Object.class)) {
             out.print(" extends ");
@@ -59,6 +63,7 @@ class ReflectionDemo {
     }
 
     public static void printParams(Type[] types) {
+
         if (types != null && types.length > 0) {
             out.print("<");
             int i = 0;
@@ -72,6 +77,7 @@ class ReflectionDemo {
     }
 
     public static void printType(Type type) {
+
         if (type instanceof Class) {
             Class<?> c = (Class) type;
             out.print(c.getName());
@@ -108,6 +114,7 @@ class ReflectionDemo {
     }
 
     public static void printClass(Class c) {
+
         out.print("class ");
         out.print(c.getName());
         printTypeParameters(c.getTypeParameters());
@@ -122,6 +129,7 @@ class ReflectionDemo {
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
+
         for (String name : args) {
             Class<?> c = Class.forName(name);
             printClass(c);

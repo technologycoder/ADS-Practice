@@ -1,7 +1,6 @@
 package practice.maths;
 
 public class BitManipulation {
-
     public static void main(String[] args) {
         // getBit(10, 2);
 

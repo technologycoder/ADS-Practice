@@ -46,6 +46,7 @@ public class LongestCommonSubstring {
     }
 
     public static int lcsRecursive(final String x, final String y, final String str, final int maxLength, final Set<String> solutions) {
+
         int newMaxLength = maxLength;
         if (x == null || x.length() == 0 || y == null || y.length() == 0) {
             if (str.length() >= maxLength) {
@@ -103,7 +104,7 @@ public class LongestCommonSubstring {
         }
 
         System.out.println(Arrays.deepToString(cache)
-                                 .replaceAll("],", "]\n"));
+                .replaceAll("],", "]\n"));
 
     }
 

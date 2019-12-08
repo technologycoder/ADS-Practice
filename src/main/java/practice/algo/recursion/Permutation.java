@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Permutation {
-
     public static void recursivePermute(String str, String temp, List<String> results) {
 
         if (str.isEmpty()) {

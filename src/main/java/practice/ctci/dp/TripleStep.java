@@ -1,50 +1,51 @@
 package practice.ctci.dp;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.Arrays;
 
+import static org.junit.Assert.assertEquals;
+
 public class TripleStep {
+    public static void main(String[] args) {
 
-	public static void main(String[] args) {
-		tripleStepDP();
-	}
+        tripleStepDP();
+    }
 
-	public static void tripleStepDP() {
-		int n = 3;
-		int[] cache = new int[n + 1];
-		Arrays.fill(cache, -1);
-		int total = tripleStepDP(n, cache);
+    public static void tripleStepDP() {
 
-		assertEquals(4, total);
-		System.out.println(total);
-	}
+        int n = 3;
+        int[] cache = new int[n + 1];
+        Arrays.fill(cache, -1);
+        int total = tripleStepDP(n, cache);
 
-	public static int tripleStep(int n) {
+        assertEquals(4, total);
+        System.out.println(total);
+    }
 
-		if (n == 0)
-			return 1;
-		else if (n < 0) {
-			return 0;
-		} else {
+    public static int tripleStep(int n) {
 
-			return tripleStep(n - 1) + tripleStep(n - 2) + tripleStep(n - 3);
-		}
-	}
+        if (n == 0)
+            return 1;
+        else if (n < 0) {
+            return 0;
+        } else {
 
-	public static int tripleStepDP(int n, int[] cache) {
+            return tripleStep(n - 1) + tripleStep(n - 2) + tripleStep(n - 3);
+        }
+    }
 
-		if (n == 0)
-			return 1;
-		else if (n < 0) {
-			return 0;
-		} else if (cache[n] != -1) {
-			return cache[n];
-		} else {
-			cache[n] = tripleStepDP(n - 1, cache) + tripleStepDP(n - 2, cache) + tripleStepDP(n - 3, cache);
+    public static int tripleStepDP(int n, int[] cache) {
 
-			return cache[n];
-		}
-	}
+        if (n == 0)
+            return 1;
+        else if (n < 0) {
+            return 0;
+        } else if (cache[n] != -1) {
+            return cache[n];
+        } else {
+            cache[n] = tripleStepDP(n - 1, cache) + tripleStepDP(n - 2, cache) + tripleStepDP(n - 3, cache);
+
+            return cache[n];
+        }
+    }
 
 }

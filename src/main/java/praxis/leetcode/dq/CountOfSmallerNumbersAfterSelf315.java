@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CountOfSmallerNumbersAfterSelf315 {
-
     public static void main(String[] args) {
-        int[] nums = { 5, 2, 6, 1 };
+
+        int[] nums = {5, 2, 6, 1};
 
         System.out.println(countSmallerQuadratic(nums));
 

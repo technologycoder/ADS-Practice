@@ -1,7 +1,6 @@
 package praxis.leetcode.topics.circulararray;
 
 public class Tester {
-
     public static void main(String[] args) {
 
         int a = Integer.MAX_VALUE;
@@ -15,6 +14,7 @@ public class Tester {
     }
 
     public static void testCircularArray() {
+
         int size = 10;
         CircularArray<String> array = new CircularArray<>(size);
         for (int i = 0; i < size; i++) {

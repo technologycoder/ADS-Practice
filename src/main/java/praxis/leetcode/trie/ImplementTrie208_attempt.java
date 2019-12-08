@@ -1,24 +1,29 @@
 package praxis.leetcode.trie;
 
 public class ImplementTrie208_attempt {
-
     public static void main(String[] args) {
 
     }
 
     public static class Trie {
-
         private char val;
+
         private Trie[] children;
+
         private boolean isWord;
 
-        /** Initialize your data structure here. */
+        /**
+         * Initialize your data structure here.
+         */
         public Trie() {
+
             this.children = new Trie[26];
 
         }
 
-        /** Inserts a word into the trie. */
+        /**
+         * Inserts a word into the trie.
+         */
         public void insert(String word) {
 
             if (word != null && word.length() > 0) {
@@ -38,7 +43,9 @@ public class ImplementTrie208_attempt {
             }
         }
 
-        /** Returns if the word is in the trie. */
+        /**
+         * Returns if the word is in the trie.
+         */
         public boolean search(String word) {
 
             if (word != null && word.length() > 0) {
@@ -59,7 +66,9 @@ public class ImplementTrie208_attempt {
             return false;
         }
 
-        /** Returns if there is any word in the trie that starts with the given prefix. */
+        /**
+         * Returns if there is any word in the trie that starts with the given prefix.
+         */
         public boolean startsWith(String prefix) {
 
             return false;

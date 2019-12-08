@@ -3,11 +3,10 @@ package praxis.leetcode.dq;
 import java.util.Arrays;
 
 public class ReversePairs493 {
-
     public static void main(String[] args) {
         // int[] nums = { 2, 4, 3, 5, 1 };
 
-        int[] nums = { 20, 40, 3, 50, 5 };
+        int[] nums = {20, 40, 3, 50, 5};
 
         // System.out.println(reversePairsBruteForce(nums));
 
@@ -20,6 +19,7 @@ public class ReversePairs493 {
     }
 
     public static int reversePairsSubMergeSort(int[] nums, int l, int r) {
+
         if (l >= r)
             return 0;
 
@@ -68,6 +68,7 @@ public class ReversePairs493 {
     }
 
     public static void test() {
+
         int i = 5;
         System.out.println(i + " - " + Integer.toBinaryString(i));
         while (i < 100) {
@@ -139,6 +140,7 @@ public class ReversePairs493 {
     }
 
     private static int search(int[] bit, int i) {
+
         int sum = 0;
 
         while (i < bit.length) {
@@ -151,6 +153,7 @@ public class ReversePairs493 {
     }
 
     private static void insert(int[] bit, int i) {
+
         while (i > 0) {
             bit[i] += 1;
             i -= i & -i;
@@ -158,6 +161,7 @@ public class ReversePairs493 {
     }
 
     private static int index(int[] arr, long val) {
+
         int l = 0, r = arr.length - 1, m = 0;
 
         while (l <= r) {

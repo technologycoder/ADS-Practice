@@ -1,56 +1,67 @@
 package headfirst.designpatterns.command.remote;
 
 public class Hottub {
-	boolean on;
-	int temperature;
+    boolean on;
 
-	public Hottub() {
-	}
+    int temperature;
 
-	public void on() {
-		on = true;
-	}
+    public Hottub() {
 
-	public void off() {
-		on = false;
-	}
+    }
 
-	public void bubblesOn() {
-		if (on) {
-			System.out.println("Hottub is bubbling!");
-		}
-	}
+    public void on() {
 
-	public void bubblesOff() {
-		if (on) {
-			System.out.println("Hottub is not bubbling");
-		}
-	}
+        on = true;
+    }
 
-	public void jetsOn() {
-		if (on) {
-			System.out.println("Hottub jets are on");
-		}
-	}
+    public void off() {
 
-	public void jetsOff() {
-		if (on) {
-			System.out.println("Hottub jets are off");
-		}
-	}
+        on = false;
+    }
 
-	public void setTemperature(int temperature) {
-		this.temperature = temperature;
-	}
+    public void bubblesOn() {
 
-	public void heat() {
-		temperature = 105;
-		System.out.println("Hottub is heating to a steaming 105 degrees");
-	}
+        if (on) {
+            System.out.println("Hottub is bubbling!");
+        }
+    }
 
-	public void cool() {
-		temperature = 98;
-		System.out.println("Hottub is cooling to 98 degrees");
-	}
+    public void bubblesOff() {
+
+        if (on) {
+            System.out.println("Hottub is not bubbling");
+        }
+    }
+
+    public void jetsOn() {
+
+        if (on) {
+            System.out.println("Hottub jets are on");
+        }
+    }
+
+    public void jetsOff() {
+
+        if (on) {
+            System.out.println("Hottub jets are off");
+        }
+    }
+
+    public void setTemperature(int temperature) {
+
+        this.temperature = temperature;
+    }
+
+    public void heat() {
+
+        temperature = 105;
+        System.out.println("Hottub is heating to a steaming 105 degrees");
+    }
+
+    public void cool() {
+
+        temperature = 98;
+        System.out.println("Hottub is cooling to 98 degrees");
+    }
 
 }

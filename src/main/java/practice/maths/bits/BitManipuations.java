@@ -1,7 +1,6 @@
 package practice.maths.bits;
 
 public class BitManipuations {
-
     public static void main(final String[] args) throws Exception {
 
         // System.out.println(Integer.toBinaryString(-3));

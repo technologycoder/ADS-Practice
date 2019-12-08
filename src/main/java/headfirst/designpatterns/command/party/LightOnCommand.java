@@ -1,17 +1,20 @@
 package headfirst.designpatterns.command.party;
 
 public class LightOnCommand implements Command {
-	Light light;
+    Light light;
 
-	public LightOnCommand(Light light) {
-		this.light = light;
-	}
+    public LightOnCommand(Light light) {
 
-	public void execute() {
-		light.on();
-	}
+        this.light = light;
+    }
 
-	public void undo() {
-		light.off();
-	}
+    public void execute() {
+
+        light.on();
+    }
+
+    public void undo() {
+
+        light.off();
+    }
 }

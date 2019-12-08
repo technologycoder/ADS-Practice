@@ -1,7 +1,6 @@
 package practice.maths.bits;
 
 public class BitTester {
-
     public static void main(final String[] args) {
 
         // testBytePositive();
@@ -72,6 +71,7 @@ public class BitTester {
     }
 
     private static void display(final int value) {
+
         System.out.println(value);
         // print as 32 bit integer. Prints 2's complement for negative numbers.
         System.out.println(Integer.toBinaryString(value));

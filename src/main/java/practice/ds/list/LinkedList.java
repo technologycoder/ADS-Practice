@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class LinkedList {
-
     private Node head;
 
     public LinkedList() {
@@ -21,6 +20,7 @@ public class LinkedList {
     }
 
     public Node getHead() {
+
         return this.head;
     }
 
@@ -56,8 +56,8 @@ public class LinkedList {
             }
 
             return list.stream()
-                       .map(String::valueOf)
-                       .collect(Collectors.joining(" -> "));
+                    .map(String::valueOf)
+                    .collect(Collectors.joining(" -> "));
         } else {
             return "EMPTY";
         }
@@ -76,8 +76,8 @@ public class LinkedList {
         }
 
         return list.stream()
-                   .mapToInt(Integer::intValue)
-                   .toArray();
+                .mapToInt(Integer::intValue)
+                .toArray();
 
     }
 
@@ -150,11 +150,12 @@ public class LinkedList {
     }
 
     public static class Node {
-
         public int data;
+
         public Node next;
 
         public Node(final int data) {
+
             this.data = data;
         }
 

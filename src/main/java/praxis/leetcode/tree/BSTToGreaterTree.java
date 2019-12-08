@@ -1,9 +1,11 @@
 package praxis.leetcode.tree;
 
 public class BSTToGreaterTree extends TreeUtil {
+    static int sum = 0;
 
     public static void main(String[] args) {
-        TreeNode tree = createBST(new int[] { 5, 2, 13 });
+
+        TreeNode tree = createBST(new int[]{5, 2, 13});
         inorder(tree);
         System.out.println();
         System.out.println(treeSum(tree));
@@ -27,8 +29,6 @@ public class BSTToGreaterTree extends TreeUtil {
         return leftSum > node.val ? leftSum : node.val;
 
     }
-
-    static int sum = 0;
 
     public static TreeNode convertBSTGlobalSum(TreeNode node) {
 

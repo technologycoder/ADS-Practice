@@ -1,12 +1,13 @@
 package headfirst.designpatterns.combining.observer;
 
 public class Goose {
+    public void honk() {
 
-	public void honk() {
-		System.out.println("Honk");
-	}
+        System.out.println("Honk");
+    }
 
-	public String toString() {
-		return "Goose";
-	}
+    public String toString() {
+
+        return "Goose";
+    }
 }

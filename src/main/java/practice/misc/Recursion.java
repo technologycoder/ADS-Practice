@@ -1,7 +1,6 @@
 package practice.misc;
 
 public class Recursion {
-
     public static void main(final String[] args) {
 
         // combinations("", "ABCD");
@@ -41,7 +40,7 @@ public class Recursion {
     }
 
     private static void towersOfHanoi(final int num, final String from, final String to,
-            final String aux) {
+                                      final String aux) {
 
         if (num == 1) {
             System.out.println(String.format("Move %s from %s to %s", num,

@@ -4,57 +4,57 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RansomNote {
+    Map<String, Integer> magazineMap;
 
-	Map<String, Integer> magazineMap;
-	Map<String, Integer> noteMap;
+    Map<String, Integer> noteMap;
 
-	public RansomNote(String magazine, String note) {
+    public RansomNote(String magazine, String note) {
 
-		magazineMap = new HashMap<>();
+        magazineMap = new HashMap<>();
 
-		for (String magazineWord : magazine.split(" ")) {
-			if (!magazineMap.containsKey(magazineWord)) {
-				magazineMap.put(magazineWord, 0);
-			}
+        for (String magazineWord : magazine.split(" ")) {
+            if (!magazineMap.containsKey(magazineWord)) {
+                magazineMap.put(magazineWord, 0);
+            }
 
-			magazineMap.put(magazineWord, magazineMap.get(magazineWord) + 1);
+            magazineMap.put(magazineWord, magazineMap.get(magazineWord) + 1);
 
-		}
+        }
 
-		noteMap = new HashMap<>();
+        noteMap = new HashMap<>();
 
-		for (String noteWord : note.split(" ")) {
-			if (!noteMap.containsKey(noteWord)) {
-				noteMap.put(noteWord, 0);
-			}
+        for (String noteWord : note.split(" ")) {
+            if (!noteMap.containsKey(noteWord)) {
+                noteMap.put(noteWord, 0);
+            }
 
-			noteMap.put(noteWord, noteMap.get(noteWord) + 1);
-		}
+            noteMap.put(noteWord, noteMap.get(noteWord) + 1);
+        }
 
-	}
+    }
 
-	public boolean solve() {
+    public static void main(String[] args) {
 
-		for (String noteWord : noteMap.keySet()) {
+        RansomNote ransomNote = new RansomNote("give me one grand today night", "give one grand today");
 
-			if (!magazineMap.containsKey(noteWord) || noteMap.get(noteWord) > magazineMap.get(noteWord)) {
+        System.out.println(ransomNote.solve());
 
-				return false;
+        System.out.println("DONE");
 
-			}
-		}
+    }
 
-		return true;
-	}
+    public boolean solve() {
 
-	public static void main(String[] args) {
+        for (String noteWord : noteMap.keySet()) {
 
-		RansomNote ransomNote = new RansomNote("give me one grand today night", "give one grand today");
+            if (!magazineMap.containsKey(noteWord) || noteMap.get(noteWord) > magazineMap.get(noteWord)) {
 
-		System.out.println(ransomNote.solve());
+                return false;
 
-		System.out.println("DONE");
+            }
+        }
 
-	}
+        return true;
+    }
 
 }

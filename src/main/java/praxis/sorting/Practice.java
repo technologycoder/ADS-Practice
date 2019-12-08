@@ -7,9 +7,9 @@ public class Practice {
     public static void main(String[] args) {
 
         int[] arr = new Random().ints(20, 0, 100)
-                                .distinct()
-                                .limit(10)
-                                .toArray();
+                .distinct()
+                .limit(10)
+                .toArray();
 
         System.out.println(Arrays.toString(arr));
 
@@ -64,6 +64,7 @@ public class Practice {
     }
 
     public static void quickSort1(int[] numbers, int start, int end) {
+
         if (start >= end)
             return;
         int index = partition1(numbers, start, end);
@@ -72,6 +73,7 @@ public class Practice {
     }
 
     private static int partition1(int[] numbers, int start, int end) {
+
         Random random = new Random();
         int pivot = random.nextInt(end - start + 1) + start;
         swap(numbers, pivot, end);

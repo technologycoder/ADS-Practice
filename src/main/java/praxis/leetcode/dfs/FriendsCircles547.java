@@ -3,19 +3,15 @@ package praxis.leetcode.dfs;
 import java.util.Arrays;
 
 public class FriendsCircles547 {
-
     public static void main(String[] args) {
+
         int[][] M = {
-                { 1, 1, 0 },
-                { 1, 1, 0 },
-                { 0, 0, 1 }
+                {1, 1, 0},
+                {1, 1, 0},
+                {0, 0, 1}
         };
         System.out.println(findCircleNum(M));
     }
-
-    public enum State {
-        UNVISITED, VISITING, VISITED
-    };
 
     public static int findCircleNum(int[][] M) {
 
@@ -44,6 +40,8 @@ public class FriendsCircles547 {
         return count;
     }
 
+    ;
+
     public static void dfs(int[][] M, int node, int[] parents, State[] state) {
 
         for (int i = 0; i < M.length; ++i) {
@@ -63,6 +61,10 @@ public class FriendsCircles547 {
 
         state[node] = State.VISITED;
 
+    }
+
+    public enum State {
+        UNVISITED, VISITING, VISITED
     }
 
 }

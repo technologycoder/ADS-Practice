@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BST {
-
     public static void main(final String[] args) {
 
         List<Integer> list = Arrays.asList(8, 3, 10, 1, 6, 14, 4, 7, 13);
@@ -78,7 +77,7 @@ public class BST {
         if (temp == null) {
             temp = new Node<>(data);
         } else if (data
-                       .compareTo(node.getData()) <= 0) {
+                .compareTo(node.getData()) <= 0) {
             temp.left = insert(node.getLeft(), data);
         } else {
             temp.right = insert(node.getRight(), data);
@@ -174,12 +173,14 @@ public class BST {
     }
 
     static class Node<E extends Comparable<E>> implements Comparable<Node<E>>, TreePrinter.PrintableNode {
-
         private E data;
+
         private Node<E> left;
+
         private Node<E> right;
 
         public Node(final E data) {
+
             this.data = data;
             this.left = null;
             this.right = null;
@@ -187,6 +188,7 @@ public class BST {
         }
 
         public Node(final E data, final Node<E> left, final Node<E> right) {
+
             this.data = data;
             this.left = left;
             this.right = right;
@@ -200,21 +202,25 @@ public class BST {
         }
 
         public E getData() {
+
             return data;
         }
 
         @Override
         public Node<E> getLeft() {
+
             return left;
         }
 
         @Override
         public Node<E> getRight() {
+
             return right;
         }
 
         @Override
         public String getText() {
+
             return data.toString();
         }
 

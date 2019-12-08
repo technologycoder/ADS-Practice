@@ -4,13 +4,15 @@ import java.util.Arrays;
 
 public class BinaryHeap<T extends Comparable<T>> implements PriorityQueue<T> {
     private static final int DEFAULT_CAPACITY = 10;
+
     protected T[] array;
+
     protected int size;
 
     /**
      * Constructs a new BinaryHeap.
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings( "unchecked" )
     public BinaryHeap() {
         // Java doesn't allow construction of arrays of placeholder data types
         array = (T[]) new Comparable[DEFAULT_CAPACITY];
@@ -38,6 +40,7 @@ public class BinaryHeap<T extends Comparable<T>> implements PriorityQueue<T> {
      * Returns true if the heap has no elements; false otherwise.
      */
     public boolean isEmpty() {
+
         return size == 0;
     }
 
@@ -45,6 +48,7 @@ public class BinaryHeap<T extends Comparable<T>> implements PriorityQueue<T> {
      * Returns (but does not remove) the minimum element in the heap.
      */
     public T peek() {
+
         if (this.isEmpty()) {
             throw new IllegalStateException();
         }
@@ -74,6 +78,7 @@ public class BinaryHeap<T extends Comparable<T>> implements PriorityQueue<T> {
      */
     @Override
     public String toString() {
+
         return Arrays.toString(array);
     }
 
@@ -82,6 +87,7 @@ public class BinaryHeap<T extends Comparable<T>> implements PriorityQueue<T> {
      * maintains the min-heap order property.
      */
     protected void bubbleDown() {
+
         int index = 1;
 
         // bubble down
@@ -112,6 +118,7 @@ public class BinaryHeap<T extends Comparable<T>> implements PriorityQueue<T> {
      * place so that the heap maintains the min-heap order property.
      */
     protected void bubbleUp() {
+
         int index = this.size;
 
         while (hasParent(index)
@@ -123,38 +130,47 @@ public class BinaryHeap<T extends Comparable<T>> implements PriorityQueue<T> {
     }
 
     protected boolean hasParent(final int i) {
+
         return i > 1;
     }
 
     protected int leftIndex(final int i) {
+
         return i * 2;
     }
 
     protected int rightIndex(final int i) {
+
         return i * 2 + 1;
     }
 
     protected boolean hasLeftChild(final int i) {
+
         return leftIndex(i) <= size;
     }
 
     protected boolean hasRightChild(final int i) {
+
         return rightIndex(i) <= size;
     }
 
     protected T parent(final int i) {
+
         return array[parentIndex(i)];
     }
 
     protected int parentIndex(final int i) {
+
         return i / 2;
     }
 
     protected T[] resize() {
+
         return Arrays.copyOf(array, array.length * 2);
     }
 
     protected void swap(final int index1, final int index2) {
+
         T tmp = array[index1];
         array[index1] = array[index2];
         array[index2] = tmp;

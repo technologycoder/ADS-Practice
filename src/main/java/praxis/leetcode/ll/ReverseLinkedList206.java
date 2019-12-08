@@ -2,9 +2,9 @@ package praxis.leetcode.ll;
 
 //https://leetcode.com/articles/reverse-linked-list/
 public class ReverseLinkedList206 extends LinkedListUtil {
-
     public static void main(String[] args) {
-        int[] nums = { 7, 3, 8, 1, 4, 9, 2 };
+
+        int[] nums = {7, 3, 8, 1, 4, 9, 2};
 
         ListNode head = createList(nums);
 
@@ -33,6 +33,7 @@ public class ReverseLinkedList206 extends LinkedListUtil {
     }
 
     public static ListNode reverseList1(ListNode head) {
+
         ListNode prev = null;
         ListNode curr = head;
         while (curr != null) {
@@ -45,6 +46,7 @@ public class ReverseLinkedList206 extends LinkedListUtil {
     }
 
     public static ListNode reverseList2(ListNode head) {
+
         if (head == null || head.next == null)
             return head;
         ListNode p = reverseList(head.next);

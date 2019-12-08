@@ -5,8 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DFS {
+    private static int time = 0;
 
     public static void main(final String[] args) {
+
         int size = 6;
         Map<Character, Integer> map = new HashMap<>();
         int[][] graph = createGraph(map, size);
@@ -23,11 +25,7 @@ public class DFS {
 
     }
 
-    static enum State {
-        UNVISITED, VISTING, VISITED
-    };
-
-    private static int time = 0;
+    ;
 
     public static void dfs(final int[][] graph, final int size) {
 
@@ -55,9 +53,9 @@ public class DFS {
     }
 
     public static void dfs(final int[][] graph, final int node, final State[] state,
-            final int[] distance,
-            final int[] parent,
-            final int[] finalDistance, final int size) {
+                           final int[] distance,
+                           final int[] parent,
+                           final int[] finalDistance, final int size) {
 
         state[node] = State.VISTING;
         distance[node] = ++time;
@@ -99,25 +97,29 @@ public class DFS {
         addDirectedEdge(graph, 'z', 'z', map);
 
         System.out.println(Arrays.deepToString(graph)
-                                 .replaceAll("],", "]\n"));
+                .replaceAll("],", "]\n"));
 
         return graph;
 
     }
 
     public static void addDirectedEdge(final int[][] graph, final char node1,
-            final char node2, final Map<Character, Integer> map) {
+                                       final char node2, final Map<Character, Integer> map) {
 
         graph[map.get(node1)][map.get(node2)] = 1;
 
     }
 
     public static void addUndirectedEdge(final int[][] graph, final char node1,
-            final char node2, final Map<Character, Integer> map) {
+                                         final char node2, final Map<Character, Integer> map) {
 
         graph[map.get(node1)][map.get(node2)] = 1;
         graph[map.get(node2)][map.get(node1)] = 1;
 
+    }
+
+    static enum State {
+        UNVISITED, VISTING, VISITED
     }
 
 }

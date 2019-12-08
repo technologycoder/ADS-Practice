@@ -4,9 +4,9 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class KthLargestElement {
-
     public static void main(String[] args) {
-        int[] nums = { 3, 2, 1, 5, 6, 4 };
+
+        int[] nums = {3, 2, 1, 5, 6, 4};
 
         System.out.println(findKthLargest(nums, 2));
 

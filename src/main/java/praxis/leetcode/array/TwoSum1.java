@@ -10,16 +10,16 @@ import java.util.Map;
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
  */
 public class TwoSum1 {
-
     public static void main(String[] args) {
-        int[] nums = { 2, 15, 7, 11 };
+
+        int[] nums = {2, 15, 7, 11};
         int target = 9;
 
         System.out.println(Arrays.toString(twoSumQuadratic(nums, target)));
 
         System.out.println(Arrays.toString(twoSumLogLinear(nums, target)));
 
-        int[] nums1 = { 3, 2, 4 };
+        int[] nums1 = {3, 2, 4};
         int target1 = 6;
 
         System.out.println(Arrays.toString(twoSumQuadratic(nums1, target1)));
@@ -29,10 +29,11 @@ public class TwoSum1 {
     }
 
     public static int[] twoSum1(int[] nums, int target) {
+
         for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
                 if (nums[j] == target - nums[i]) {
-                    return new int[] { i, j };
+                    return new int[]{i, j};
                 }
             }
         }

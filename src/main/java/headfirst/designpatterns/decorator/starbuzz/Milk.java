@@ -1,17 +1,20 @@
 package headfirst.designpatterns.decorator.starbuzz;
 
 public class Milk extends CondimentDecorator {
-	Beverage beverage;
+    Beverage beverage;
 
-	public Milk(Beverage beverage) {
-		this.beverage = beverage;
-	}
+    public Milk(Beverage beverage) {
 
-	public String getDescription() {
-		return beverage.getDescription() + ", Milk";
-	}
+        this.beverage = beverage;
+    }
 
-	public double cost() {
-		return .10 + beverage.cost();
-	}
+    public String getDescription() {
+
+        return beverage.getDescription() + ", Milk";
+    }
+
+    public double cost() {
+
+        return .10 + beverage.cost();
+    }
 }

@@ -4,24 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TreePrinter {
-    /** Node that can be printed */
-    public interface PrintableNode {
-        /** Get left child */
-        PrintableNode getLeft();
-
-        /** Get right child */
-        PrintableNode getRight();
-
-        /** Get text to be printed */
-        String getText();
-    }
-
     /**
      * Print a tree
-     * 
+     *
      * @param root tree root node
      */
     public static void print(final PrintableNode root) {
+
         List<List<String>> lines = new ArrayList<>();
 
         List<PrintableNode> level = new ArrayList<>();
@@ -71,7 +60,7 @@ public class TreePrinter {
         }
 
         int perpiece = lines.get(lines.size() - 1)
-                            .size()
+                .size()
                 * (widest + 4);
         for (int i = 0; i < lines.size(); i++) {
             List<String> line = lines.get(i);
@@ -133,5 +122,25 @@ public class TreePrinter {
 
             perpiece /= 2;
         }
+    }
+
+    /**
+     * Node that can be printed
+     */
+    public interface PrintableNode {
+        /**
+         * Get left child
+         */
+        PrintableNode getLeft();
+
+        /**
+         * Get right child
+         */
+        PrintableNode getRight();
+
+        /**
+         * Get text to be printed
+         */
+        String getText();
     }
 }

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PermutationWithDuplicates {
-
     public static HashMap<Character, Integer> buildFreqTable(final String s) {
+
         HashMap<Character, Integer> map = new HashMap<>();
         for (char c : s.toCharArray()) {
             if (!map.containsKey(c)) {
@@ -17,7 +17,8 @@ public class PermutationWithDuplicates {
     }
 
     public static void printPerms(final HashMap<Character, Integer> map, final String prefix, final int remaining,
-            final ArrayList<String> result) {
+                                  final ArrayList<String> result) {
+
         if (remaining == 0) {
             result.add(prefix);
             return;
@@ -34,6 +35,7 @@ public class PermutationWithDuplicates {
     }
 
     public static ArrayList<String> printPerms(final String s) {
+
         ArrayList<String> result = new ArrayList<>();
         HashMap<Character, Integer> map = buildFreqTable(s);
         printPerms(map, "", s.length(), result);

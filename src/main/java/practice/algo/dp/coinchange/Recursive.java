@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Recursive {
-
     // TODO list solution : try returning list
     public static void main(final String[] args) {
+
         int amount = 5;
-        int[] coins = { 1, 2, 3, 4 };
+        int[] coins = {1, 2, 3, 4};
 
         System.out.println(coinChangeTotalWays(amount, coins, 0));
 
@@ -66,7 +66,7 @@ public class Recursive {
     }
 
     public static void coinChangeRecursiveWithStringSolution(final int amount, final int[] coins, final int index,
-            final String solution) {
+                                                             final String solution) {
 
         if (amount == 0) {
             System.out.println(solution);
@@ -84,7 +84,7 @@ public class Recursive {
     }
 
     public static void coinChangeDuplicatesRecursiveWithStringSolution(final int amount, final int[] coins,
-            final int index, final String solution) {
+                                                                       final int index, final String solution) {
 
         if (amount == 0) {
             System.out.println(solution);
@@ -102,12 +102,12 @@ public class Recursive {
     }
 
     public static int coinChangeDuplicatesRecursiveWithStringSolutionAndMinNumberOfCoins(final int amount, final int[] coins,
-            final int index, final String solution) {
+                                                                                         final int index, final String solution) {
 
         if (amount == 0) {
             System.out.println(solution);
             return solution.replaceAll(" ", "")
-                           .length();
+                    .length();
         } else if (amount < 0) {
             return Integer.MAX_VALUE;
         } else if (index >= coins.length) {
@@ -124,7 +124,7 @@ public class Recursive {
     }
 
     public static void coinChangeRecursiveWithListSolution(final int amount, final int[] coins, final int index,
-            final List<Integer> solution, final List<String> solutions) {
+                                                           final List<Integer> solution, final List<String> solutions) {
 
         if (amount == 0) {
             solutions.add(solution.toString());
@@ -148,7 +148,7 @@ public class Recursive {
     }
 
     public static void coinChangeDuplicatesRecursiveWithListSolution(final int amount, final int[] coins,
-            final int index, final List<Integer> solution, final List<List<Integer>> solutions) {
+                                                                     final int index, final List<Integer> solution, final List<List<Integer>> solutions) {
 
         if (amount == 0) {
             solutions.add(solution);
@@ -161,7 +161,7 @@ public class Recursive {
 
             int coin = coins[index];
             List<Integer> tempSolution = solution.stream()
-                                                 .collect(Collectors.toList());
+                    .collect(Collectors.toList());
             tempSolution.add(coin);
             coinChangeDuplicatesRecursiveWithListSolution(amount - coin, coins, index, tempSolution, solutions);
             coinChangeDuplicatesRecursiveWithListSolution(amount, coins, index + 1, solution, solutions);

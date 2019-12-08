@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.Map;
 
 public class BrickWall554 {
-
     public static void main(String[] args) {
+
         Integer[][] wall = {
-                { 1, 2, 2, 1 },
-                { 3, 1, 2 },
-                { 1, 3, 2 },
-                { 2, 4 },
-                { 3, 1, 2 },
-                { 1, 3, 1, 1 }
+                {1, 2, 2, 1},
+                {3, 1, 2},
+                {1, 3, 2},
+                {2, 4},
+                {3, 1, 2},
+                {1, 3, 1, 1}
         };
 
         List<List<Integer>> list = twoDArrayToList(wall);
@@ -38,6 +38,7 @@ public class BrickWall554 {
     }
 
     public static int leastBricks(List<List<Integer>> wall) {
+
         if (wall.size() == 0)
             return 0;
         int count = 0;
